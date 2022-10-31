@@ -1,0 +1,7 @@
+- command: diff {{ file1 }} {{ file2 }}
+  register: results
+  ignore_errors: true
+
+- name: Show diff between {{ file1 }} and {{ file2 }}
+  debug:
+    msg: "{{ results.stdout_lines }}"

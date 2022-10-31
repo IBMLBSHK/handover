@@ -1,0 +1,27 @@
+---
+- name: List all users
+  hosts: all
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: Set log vars
+      set_fact:
+        action: users_list
+        items: ""
+      run_once: true
+
+    - name: List all users
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - name: List all users
+          command: sudo -n lsuser ALL
+          register: results
+        - name: List all users
+          debug:
+            msg: "{{ results.stdout_lines }}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml
+

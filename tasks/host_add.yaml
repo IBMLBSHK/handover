@@ -1,0 +1,19 @@
+- name: Add host itme "{{ item.ip_address }} {{ item.host_name }}"
+  shell: |
+    set -x
+    set -o errexit
+
+    line_num={{ item.line_num }}
+    line_count=`sudo -n wc {{ host_table_file }} | awk  '{print $1}'`
+
+    if [ $line_num -gt $line_count ]
+    then
+      sudo -n cp {{ host_table_file }} /tmp/hosts.$$
+      sudo -n chown $USER /tmp/hosts.$$
+      sudo -n echo {{ item.ip_address }} {{ item.host_name }} >> /tmp/hosts.$$
+    else
+      sudo -n awk 'NR=={{ item.line_num }}{ print "{{ item.ip_address }} {{ item.host_name }}" }1' {{ host_table_file }} > /tmp/hosts.$$
+    fi
+    sudo -n mv /tmp/hosts.$$ {{ host_table_file }}
+    sudo -n chown root:system {{ host_table_file }}
+  register: results

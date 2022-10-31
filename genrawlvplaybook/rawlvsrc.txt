@@ -1,0 +1,3 @@
+Action Type	Group	Raw Devices Name	Raw Devices Size	User
+Add	influxdb	/dev/rinfluxdb01	512	influxdb
+Add	g1	/dev/anfs_lv28	128	ivan

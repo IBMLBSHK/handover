@@ -1,0 +1,69 @@
+---
+- name: Extend vgs
+  hosts: all
+  vars_files:
+    - vars_{{ change_order }}/vgs.yaml
+  vars:
+    - disks: []
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - set_fact:
+        vgs_extend: "{{ vgs_extend | selectattr('host','==',inventory_hostname) | list  }}"
+
+    - name: PreCheck current user is ansiadm
+      include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+    - name: Run cfgmgr
+      shell: |
+        sudo -n cfgmgr
+      register: results
+      tags: precheck
+
+    - name: PreCheck the vgs exist
+      include_tasks: tasks/fail_when_vg_not_exist.yaml
+      vars:
+        vg_name: "{{ item.vg }}"
+      loop: "{{ vgs_extend }}"
+      tags: precheck
+
+    - set_fact:
+        uuids_string: "{{ vgs_extend | map(attribute='uuids') | join(',') }}"
+      tags: precheck
+
+    - name: PreCheck there is only one hdisk matching each UUID
+      include_tasks: tasks/fail_when_hdisk_uuid_not_match.yaml
+      loop: "{{ uuids_string.split(',') }}"
+      tags: precheck
+
+    - name: PreCheck the hdisk is not in any VG
+      include_tasks: tasks/fail_when_hdisk_in_vg.yaml
+      loop: "{{ disks }}"
+      tags: precheck
+
+    - name: PreCheck not reach max PVs
+      include_tasks: tasks/fail_when_reach_max_pvs.yaml
+      vars:
+        vg_name: "{{ item.vg }}"
+        pvs_count: "{{ item.uuids.split(',') | length }}"
+      loop: "{{ vgs_extend }}"
+      tags: precheck
+
+    - name: Set log vars
+      set_fact:
+        action: vgs_extend
+        items: "{{ vgs_extend }}"
+      run_once: true
+
+    - name: Extend vgs
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - include_tasks: tasks/set_hidsk_attributes.yaml
+        - include_tasks: tasks/vg_extend.yaml
+          loop: "{{ vgs_extend }}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml
+

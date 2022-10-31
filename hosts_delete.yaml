@@ -1,0 +1,71 @@
+---
+- name: Delete items from host table file 
+  hosts: all
+  vars_files:
+    - vars_{{ change_order }}/hosts.yaml
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: PreCheck current user is ansiadm
+      include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+    - name: Validate config input
+      fail:
+        msg: "{{ item }} is not a valid line number."
+      when: item != item|int or item < 1
+      loop: "{{ lines_delete }}"
+      run_once: true
+      tags: precheck
+
+    - slurp:
+        src: "{{ host_table_file }}"
+      register: file_text
+      tags: precheck
+    
+    - set_fact:
+        lines_count: "{{ (file_text.content | b64decode).splitlines() | length }}"
+      tags: precheck
+        
+    - name: PreCheck the line exists
+      fail:
+        msg: "{{ item }} exceeds the total line count {{ lines_count }}."
+      when: item > lines_count|int
+      loop: "{{ lines_delete }}"
+      tags: precheck
+
+    - name: Set log vars
+      set_fact:
+        action: hosts_delete
+        items: "{{ lines_delete }}"
+      run_once: true
+
+    - name: Delete hosts items from {{ host_table_file }}
+      block:
+        - include_tasks: tasks/log_begin.yaml
+
+        - name: Backup {{ host_table_file }}
+          shell: |
+            set -x
+            set -o errexit
+            suffix=`date '+%Y%m%d%H%M%S'`
+            sudo -n cp {{ host_table_file }} {{ host_table_file }}.$suffix
+            echo $suffix
+          register: results
+
+        - set_fact:
+            suffix: "{{ results.stdout }}"
+
+        - include_tasks: tasks/host_delete.yaml
+          loop: "{{ lines_delete|sort|reverse|list }}"
+
+        - include_tasks: tasks/show_diff.yaml
+          vars:
+            file1: "{{ host_table_file }}"
+            file2: "{{ host_table_file }}.{{ suffix }}"
+
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml
+

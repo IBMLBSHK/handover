@@ -1,0 +1,9 @@
+Action Type	Alert Project Code	Email alert Level	Expected File System Size [MB]	File System Name	Ownership (user:group)	Pager alert level	Lvname	Hostname
+Add	SC2	95	4	/fs/oratmp	oracle:oinstall	101	anfs_lv10	nim210
+Add	SCS	95	4	/fs/oracle/base	oracle:oinstall	101	anfs_lv11	ansible9
+Add	ANV	95	4	/fs/oracle/r1220/db_01	oracle:oinstall	101	anfs_lv12	ansible9
+Add	NCD	95	4	/fs/oraInventory	oracle:oinstall	101	anfs_lv13	ansible9
+Add	ND	95	4	/fs/oracle/goldengate_sybase	oracle:oinstall	101	anfs_lv14	nim210
+Add	KD	95	4	/fs/oracle/goldengate_oracle	oracle:oinstall	101	anfs_lv15	nim210
+Add	KD	80	4	/fs/ivan	oracle:oinstall	102	anfs_lv16	aixansiblec10
+Add	KD	70	4	/dbms/oracle/r1220/cln_01	oracle:oinstall	102	anfs_lv17	aixansiblec10

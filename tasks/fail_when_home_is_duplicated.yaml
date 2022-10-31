@@ -1,0 +1,7 @@
+- block:
+    - fail:
+        msg: "There are more than one HOME pointing to {{ home.key }}" 
+      when: home.freq > 1
+      tags: 
+        - precheck
+        - postcheck

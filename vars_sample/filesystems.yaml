@@ -1,0 +1,33 @@
+filesystems_add:
+  - filesystem: /fs1
+    lv: lv1
+    vg: datavg
+    user: aix1
+    group: g1
+    size: 256M
+    alert_project_code: SC3
+    email_alert_level: 95
+    pager_alert_level: 101
+    host: ansible9
+  - filesystem: /fs2
+    lv: lv2
+    vg: datavg
+    user: aix2
+    group: g2
+    size: 256M
+    alert_project_code: SC3
+    email_alert_level: 95
+    pager_alert_level: 101
+    host: ansible10
+
+filesystems_resize:
+  - filesystem: /fs1
+    size: 512G
+  - filesystem: /fs2
+    size: 512M
+
+filesystems_delete:
+  - filesystem: /fs1
+  - filesystem: /fs2
+
+

@@ -1,0 +1,14 @@
+- block:
+    - shell: |
+         sudo -n lsvg {{ vg_name }}
+      register: results
+      ignore_errors: true
+      tags: 
+        - precheck
+        - postcheck
+    - fail:
+        msg: "VG {{ vg_name }} doesn't exist yet." 
+      when: results.rc != 0
+      tags: 
+        - precheck
+        - postcheck

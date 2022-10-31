@@ -1,0 +1,38 @@
+- name: Create lv {{ item.lv }}
+  ibm.power_aix.lvol:
+    state: present
+    vg: "{{ item.vg }}"
+    lv: "{{ item.lv }}"
+    size: "{{ item.size }}"
+  register: results
+
+- name: Create fs {{ item.filesystem }}
+  ibm.power_aix.filesystem:
+    state: present
+    filesystem: "{{ item.filesystem }}"
+    device: "{{ item.lv }}"
+    auto_mount: true
+  register: results
+ 
+- name: Mount {{ item.filesystem }}
+  ibm.power_aix.mount:
+    mount_dir: "{{ item.filesystem }}"
+  register: results
+
+- name: Set owner for {{ item.filesystem }}
+  command: "sudo -n chown -R {{ item.user }}:{{ item.group }} {{ item.filesystem }}"
+  register: results
+
+- name: Perform additional task
+  shell: |
+    set -x
+    set -o errexit
+    sudo -n mkdir -p /home/cmopr/etc
+    sudo -n touch /home/cmopr/etc/filesystem.cfg
+    sudo -n cp -p /home/cmopr/etc/filesystem.cfg /home/cmopr/etc/filesystem.cfg.`date +%Y%m%d`
+    sudo -n cp /home/cmopr/etc/filesystem.cfg /tmp/filesystem.cfg.$$
+    sudo -n chown $USER /tmp/filesystem.cfg.$$
+    sudo -n echo "{{ item.alert_project_code}} {{ item.filesystem}} {{ item.email_alert_level}} {{ item.pager_alert_level}}" >> /tmp/filesystem.cfg.$$
+    sudo -n mv /tmp/filesystem.cfg.$$ /home/cmopr/etc/filesystem.cfg
+    sudo -n chown cmopr:t1 /home/cmopr/etc/filesystem.cfg
+  register: results

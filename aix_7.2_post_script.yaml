@@ -1,0 +1,45 @@
+---
+- name: AIX72 post script
+  hosts: all
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: Set log vars
+      set_fact:
+        action: aix72_post_script
+        items: ""
+      run_once: true
+    - name: AIX72 post script
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - name: AIX72 post script
+          shell: |
+            set -o errexit
+            sudo -n vmo -p -o enhanced_affinity_affin_time=0
+            sudo -n df -k |egrep -v var |egrep -q \/tmp && sudo -n chmod 1777 /tmp
+            sudo -n chdev -l iocp0 -a autoconfig=available -P
+            sudo -n chvg -Qn rootvg
+            sudo -n lsdev -Cc adapter|grep ^ent|grep Virtual|awk '{print "sudo -n chdev -l "$1" -a chksum_offload=no -P"}'| ksh
+            sudo -n lsdev -Cc adapter|grep ^ent|grep Port|awk '{print "sudo -n chdev -l "$1" -a large_send=no -a chksum_offload=no -P"}'| ksh
+            sudo -n lsdev -Cc disk|grep MPIO|awk '{print "sudo -n chdev -l "$1" -a algorithm=round_robin -a reserve_policy=no_reserve -a q_type=simple -a rw_timeout=60 -a queue_depth=8 -P"}'| ksh
+            sudo -n lsdev -Cc adapter|grep fcs|grep Port|awk '{print substr ($1, 4, 1)}'|awk '{print "sudo -n chdev -l fscsi"$1" -a dyntrk=yes -a fc_err_recov=fast_fail -P"}'| ksh
+            SAS_disk=`sudo -n lsdev -Cc disk|grep SAS|grep hdisk1|wc -l`
+            if [[ $SAS_disk -eq 1 ]]; then
+                    no_use=`sudo -n lspv|grep hdisk1|grep None|wc -l`
+                    if [[ $no_use -eq 1 ]]; then
+                    sudo -n extendvg -f rootvg hdisk1
+                    sudo -n mirrorvg -S -c 2 rootvg
+                    sudo -n mklv -y dumplv1 -t sysdump rootvg 8
+                    sudo -n sysdumpdev -P -s /dev/dumplv1
+                    sudo -n bosboot -ad /dev/hdisk1
+                    sudo -n bootlist -m normal hdisk0 hdisk1
+                    fi
+            fi
+          register: results
+        - debug:
+            msg: "{{ results.stdout_lines}}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml

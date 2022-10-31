@@ -1,0 +1,35 @@
+users_add:
+  - name: "ux1"
+    password: "J5YKcj82DOlaA"
+    manager_email: "testa@pyn.ha.org.hk"
+    attributes:
+      account_locked: "false"
+      pgrp: g1
+      groups: g2,adm
+      home: "/home/ux1"
+      id: 3014
+  - name: "ux2"
+    password: "J5YKcj82DOlaA"
+    manager_email: "testb@pyn.ha.org.hk"
+    attributes:
+      account_locked: "true"
+      pgrp: g1
+      groups: g2,adm
+      home: "/home/ux2"
+      id: 3015
+
+users_edit:
+  - name: ux1
+    attributes:
+      account_locked: "false"
+  - name: ux2
+    attributes:
+      account_locked: "false"
+      
+users_delete:
+  - name: ux1
+  - name: ux2
+
+
+
+

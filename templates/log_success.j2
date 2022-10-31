@@ -1,0 +1,5 @@
+[ {{ inventory_hostname }} ] [ {{ action }} ] suceeded
+{% if results.stdout is defined %}
+{{ results.stdout }}
+{% endif %}
+

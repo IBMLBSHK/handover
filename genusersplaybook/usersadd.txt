@@ -1,0 +1,3 @@
+Account	Action Type	Alert Project Code	Description	Filesystem Size	Home Directory	Lock Account	Manager Email	Primary Group	Supplementary Group	User ID	Password
+ansdemo	Add	ebank	ansible demo user	12288	/home/appl/ansdemo	Y	ans@localhost	san	--	9000	Password123
+ansivan	Add	ebank	ivan demo user	12288	/home/appl/ansivan	Y	ansivan@localhost	san	--	9001	abcd1234

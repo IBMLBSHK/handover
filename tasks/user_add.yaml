@@ -1,0 +1,30 @@
+- name: Add user {{ item.name }}
+  ibm.power_aix.user:
+    state: present
+    name: "{{ item.name }}"
+    change_passwd_on_login: true
+    password: "{{ item.password }}"
+    attributes: "{{ item.attributes }}"
+  register: results
+
+- name: Perform additional task if account is locked
+  shell: |
+    set -x
+    set -o errexit
+    sudo -n chuser auth2=HALOGIN2 usrenv=TMOUT=1800,TIMEOUT=1800 maxage=0 pwdwarntime=0 {{ item.name }}
+
+    sudo -n mkdir -p /usr/local/etc
+    sudo -n touch /usr/local/etc/lock.cfg
+    sudo -n touch /usr/local/etc/unlock.cfg
+    sudo -n touch /usr/local/etc/unlock.expire.cfg
+    sudo -n touch /usr/local/etc/email.cfg
+    sudo -n cp /usr/local/etc/lock.cfg /tmp/lock.cfg.$$
+    sudo -n chown $USER /tmp/lock.cfg.$$
+    sudo -n echo "{{ item.name }}\tdisable\t{{ item.manager_email }}" >> /tmp/lock.cfg.$$
+    sudo -n mv /tmp/lock.cfg.$$ /usr/local/etc/lock.cfg
+    sudo -n chown root:system /usr/local/etc/lock.cfg
+
+    sudo -n /usr/local/bin/unlock.sh {{ item.name }} 1
+    sudo -n /usr/local/bin/lock.sh {{ item.name }} 
+  register: results
+  when: item.attributes.account_locked == "true"

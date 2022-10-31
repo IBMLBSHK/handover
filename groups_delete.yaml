@@ -1,0 +1,41 @@
+---
+- name: Delete users
+  hosts: all
+  vars_files:
+    - vars_{{ change_order }}/groups.yaml
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: PreCheck current user is ansiadm
+      include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+    - name: PreCheck the groups exists
+      include_tasks: tasks/fail_when_group_not_exist.yaml
+      vars:
+        group_name: "{{ item.name }}"
+      loop: "{{ groups_edit }}"
+      tags: precheck
+
+    - name: Set log vars
+      set_fact:
+        action: groups_delete
+        items: "{{ groups_delete }}"
+      run_once: true
+
+    - name: Delete groups
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - include_tasks: tasks/group_delete.yaml
+          loop: "{{ groups_delete }}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml
+
+    - name: PostCheck- verify the groups don't exist
+      include_tasks: tasks/fail_when_group_exist.yaml
+      vars:
+        group_name: "{{ item.name }}"
+      loop: "{{ groups_delete }}"
+      tags: postcheck

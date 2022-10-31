@@ -1,0 +1,13 @@
+rawlvs_add:
+ - rawlv: rinfluxdb01
+   vg: e9vg01
+   size: 512M
+   user: influxdb
+   group: influxdb
+
+ - rawlv: rivan01
+   vg: e9vg01
+   size: 128M
+   user: ivan
+   group: g1
+

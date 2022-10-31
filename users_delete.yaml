@@ -1,0 +1,55 @@
+---
+- name: Delete users
+  hosts: all
+  vars_files:
+    - vars_{{ change_order }}/users.yaml
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: PreCheck current user is ansiadm
+      include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+    - name: PreCheck the users exists
+      include_tasks: tasks/fail_when_user_not_exist.yaml
+      vars:
+        user_name: "{{ item.name }}"
+      loop: "{{ users_delete }}"
+      tags: precheck
+
+    - name: PreCheck no user's process exists
+      include_tasks: tasks/fail_when_user_process_exist.yaml
+      vars:
+        user_name: "{{ item.name }}"
+      loop: "{{ users_delete }}"
+      tags: precheck
+
+    - name: PreCheck no user's file exists
+      include_tasks: tasks/fail_when_user_file_exist.yaml
+      vars:
+        user_name: "{{ item.name }}"
+      loop: "{{ users_delete }}"
+      tags: precheck
+
+    - name: Set log vars
+      set_fact:
+        action: users_delete
+        items: "{{ users_delete }}"
+      run_once: true
+    
+    - name: Delete users
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - include_tasks: tasks/user_delete.yaml
+          loop: "{{ users_delete }}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml
+
+    - name: PostCheck- verify the users don't exist
+      include_tasks: tasks/fail_when_user_exist.yaml
+      vars:
+        user_name: "{{ item.name }}"
+      loop: "{{ users_delete }}"
+      tags: postcheck

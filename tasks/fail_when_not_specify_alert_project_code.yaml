@@ -1,0 +1,4 @@
+- block:
+    - fail:
+        msg: "Parameter 'alert_project_code' is not specified."
+      when: parameters.alert_project_code is not defined

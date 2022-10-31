@@ -1,0 +1,21 @@
+groups_add:
+  - name: epr
+    attributes:
+      users: nuucp
+  - name: sybase
+    attributes: {}
+
+groups_edit:
+  - name: epr
+    attributes:
+      admin: "true"
+      users: ivan
+  - name: sybase
+    attributes:
+      admin: "true"
+      users: aix2 
+
+groups_delete:
+  - name: epr
+  - name: sybase
+

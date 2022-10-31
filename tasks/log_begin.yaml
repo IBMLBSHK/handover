@@ -1,0 +1,43 @@
+- fail: msg="Please specify variable change_order"
+  when: change_order is not defined
+
+- name: Setting variable log_file
+  set_fact:
+    log_file: "{{ log_file_dir }}/ansible_{{ change_order }}.log"
+
+- name: Log playbook begin
+  template:
+    src: ../templates/playbook_begin.j2
+    dest: "{{ log_template }}"
+  delegate_to: 127.0.0.1
+  run_once: true
+
+- name: Append log to {{ log_file }}
+  shell: cat {{ log_template }} >> {{ log_file }}
+  delegate_to: 127.0.0.1
+  run_once: true
+
+- name: Generate random string
+  set_fact:
+    suffix: "{{ lookup('community.general.random_string', special=false) }}"
+
+- name: Get current timestamp
+  shell: date '+%Y-%m-%d %H:%M:%S %Z'
+  register: timestamp
+  delegate_to: 127.0.0.1
+
+- name: Log execution begin
+  template:
+    src: ../templates/log_begin.j2
+    dest: "{{ log_template }}.{{ suffix }}"
+  delegate_to: 127.0.0.1
+
+- name: Append log to {{ log_file }}
+  shell: cat {{ log_template }}.{{ suffix }} >> {{ log_file }}
+  delegate_to: 127.0.0.1
+
+- name: Remove template file
+  file:
+    path: "{{ log_template }}.{{ suffix }}"
+    state: absent
+  delegate_to: 127.0.0.1

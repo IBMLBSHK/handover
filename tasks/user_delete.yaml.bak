@@ -1,0 +1,12 @@
+- name: Delete user {{ item.name }}
+  ibm.power_aix.user:
+    state: absent
+    name: "{{ item.name }}"
+    remove_homedir: "true"
+  register: results
+
+- name: "Delete {{ item.name }}'s mail and cron"
+  shell: |
+    sudo -n rm -f /var/spool/mail/{{ item.name }} 
+    sudo -n rm -f /var/spool/cron/crontabs/{{ item.name}}
+  register: results

@@ -1,0 +1,6 @@
+- name: Resize fs {{ item.filesystem }}
+  ibm.power_aix.filesystem:
+    state: present
+    filesystem: "{{ item.filesystem }}"
+    attributes: "size={{ item.size }}"
+  register: results

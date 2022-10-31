@@ -1,0 +1,7 @@
+- block:
+    - shell: |
+         sudo -n lsvg | grep -w {{ item.vg }}
+  rescue:
+    - fail:
+        msg: "{{ item.vg }} does not exist." 
+      register: results

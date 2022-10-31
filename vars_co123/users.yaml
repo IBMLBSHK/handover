@@ -1,0 +1,19 @@
+users_add:
+  - name: "yltest1"
+    password: "123456Aa!"
+    manager_email: "yanglong123@ibm.com"
+    attributes:
+      account_locked: "true"
+      home: "/appl/epr/home/yltest1"
+      id: "20461"
+      rlogin: "false"
+      gecos: "xxx"
+
+users_edit:
+  - name: "yltest1"
+    attributes:
+      gecos: 'xx\ yy\ zz'
+
+users_delete:
+  - name: "yltest1"
+  - name: "yltest2"

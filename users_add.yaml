@@ -1,0 +1,114 @@
+---
+- name: Add users
+  hosts: all
+  vars:
+    - group_list: []
+    - home_list: []
+  vars_files:
+    - vars_{{ change_order }}/users.yaml
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: PreCheck current user is ansiadm
+      include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+    - name: PreCheck parameter manager_email is specified
+      include_tasks: tasks/fail_when_not_specify_manager_email.yaml
+      vars:
+        parameters: "{{ item }}"
+      loop: "{{ users_add }}"
+      run_once: true
+      tags: precheck
+
+    - name: PreCheck the users don't exist
+      include_tasks: tasks/fail_when_user_exist.yaml
+      vars:
+        user_name: "{{ item.name }}"
+      loop: "{{ users_add }}"
+      tags: precheck
+
+    - set_fact:
+        group_list: "{{ group_list + [ item.attributes.pgrp ] }}"
+      when: item.attributes.pgrp is defined
+      loop: "{{ users_add }}"
+      tags: precheck
+
+    - set_fact:
+        group_list: "{{ group_list + item.attributes.groups.split(',') }}"
+      when: item.attributes.groups is defined
+      loop: "{{ users_add }}"
+      tags: precheck
+        
+    - name: PreCheck the groups exist
+      include_tasks: tasks/fail_when_group_not_exist.yaml
+      vars:
+        group_name: "{{ item }}"
+      loop: "{{ group_list }}"
+      tags: precheck
+
+    - set_fact:
+        home_list: "{{ home_list + [ item.attributes.home ] }}"
+      when: item.attributes.home is defined
+      loop: "{{ users_add }}"
+      tags: precheck
+
+    - set_fact:
+        home_list2: "{{ home_list2|default([]) +
+                   [{'key': item,
+                     'freq': home_list|select('regex', myregex)|list|length}] }}"
+      loop: "{{ home_list|unique|sort }}"
+      vars:
+        myregex: "^{{ item }}$"
+      tags: precheck
+
+    - name: PreCheck no duplicated home
+      include_tasks: tasks/fail_when_home_is_duplicated.yaml
+      vars:
+        home: "{{ item }}"
+      loop: "{{ home_list2 }}"
+      tags: precheck
+
+    - name: PreCheck home not used by other user
+      include_tasks: tasks/fail_when_home_used_by_other_user.yaml
+      vars:
+        home: "{{ item }}"
+      loop: "{{ home_list }}"
+      tags: precheck
+    
+    - name: PreCheck home not exist
+      include_tasks: tasks/fail_when_home_exist.yaml
+      vars:
+        home: "{{ item }}"
+      loop: "{{ home_list }}"
+      tags: precheck
+
+    - name: PreCheck unlock.sh and lock.sh exist
+      include_tasks: tasks/fail_when_file_not_exist.yaml
+      vars:
+        path: "{{ item }}"
+      loop: [ "/usr/local/bin/unlock.sh", "/usr/local/bin/lock.sh" ]
+      tags: precheck
+
+    - name: Set log vars
+      set_fact:
+        action: users_add
+        items: "{{ users_add }}"
+      run_once: true
+
+    - name: Add users
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - include_tasks: tasks/user_add.yaml
+          loop: "{{ users_add }}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml
+
+    - name: PostCheck- Verify the users exists
+      include_tasks: tasks/fail_when_user_not_exist.yaml
+      vars:
+        user_name: "{{ item.name }}"
+      loop: "{{ users_add }}"
+      tags: postcheck

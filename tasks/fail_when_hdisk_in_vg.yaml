@@ -1,0 +1,12 @@
+- block:
+    - shell: |
+         sudo -n lspv | grep {{ item.hdisk }} | grep None
+      register: results
+      ignore_errors: true
+      tags: 
+        - precheck
+    - fail:
+        msg: "{{ item.hdisk }}({{ item.uuid }}) is in a VG already." 
+      when: results.rc != 0
+      tags: 
+        - precheck

@@ -1,0 +1,5 @@
+- name: Delete NTP itme at line "{{ item }}"
+  shell: |
+    sudo -n sed '{{ item }}d' {{ ntp_conf_file }} > /tmp/ntp.$$
+    sudo -n mv /tmp/ntp.$$ {{ ntp_conf_file }}
+  register: results

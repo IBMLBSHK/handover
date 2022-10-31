@@ -1,0 +1,55 @@
+---
+- name: Delete user password history
+  hosts: all
+  vars:
+    aix_users: 
+      - osadm
+      - osadmbg
+      - ossup
+      - osrec
+      - atladm
+      - atladmbg
+      - atlsup
+      - patrol
+      - patrolbg
+      - patrolsup
+      - sanmopr
+      - sanadm
+      - sansup
+      - sanadmbg
+      - ctmagt
+      - ctmagtbg
+      - ctmag
+      - prodctrl
+      - addmuser
+      - sybase
+      - dbsdbadm
+      - rsmaint
+      - esmsup
+      - nessus
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: Set log vars
+      set_fact:
+        action: delete_user_password_history
+        items: ""
+      run_once: true
+
+    - name: Delete user password history
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - name: Run shell
+          shell: |
+            set -o errexit
+            /usr/local/bin/security/pwdhist_delete {{ item }}
+          loop: "{{ aix_users }}"
+          register: results
+        - debug:
+            msg: "{{ results }}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml
+

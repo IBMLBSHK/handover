@@ -1,0 +1,22 @@
+- block:
+    - shell: |
+         sudo -n lsvg {{ vg_name }} | grep 'MAX PVs' | awk '{ print $8 }'
+      register: results
+        
+    - set_fact:
+        max_pvs: "{{ results.stdout }}"
+
+    - shell: |
+         sudo -n lsvg {{ vg_name }} | grep 'ACTIVE PVs' | awk '{ print $3 }'
+      register: results
+
+    - set_fact:
+        active_pvs: "{{ results.stdout }}"
+
+    - fail:
+        msg: "VG {{ vg_name }} can not extend. It's MAX_PVS is {{ max_pvs }} and ACTIVE_PVS is {{ active_pvs }}. {{ pvs_count }}" 
+      when: active_pvs|int + pvs_count|int > max_pvs|int
+      
+  tags: 
+  - precheck
+  - postcheck

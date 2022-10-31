@@ -1,0 +1,19 @@
+- name: Generate random string
+  set_fact:
+    suffix: "{{ lookup('community.general.random_string', special=false) }}"
+
+- name: Log success
+  template:
+    src: ../templates/log_success.j2
+    dest: "{{ log_template }}.{{ suffix }}"
+  delegate_to: 127.0.0.1
+
+- name: Append log to {{ log_file }}
+  shell: cat {{ log_template }}.{{ suffix }} >> {{ log_file }}
+  delegate_to: 127.0.0.1
+
+- name: Remove template file
+  file:
+    path: "{{ log_template }}.{{ suffix }}"
+    state: absent  
+  delegate_to: 127.0.0.1

@@ -1,0 +1,14 @@
+- block:
+    - shell: |
+         test -e "{{ home }}"  
+      register: results
+      ignore_errors: true
+      tags: 
+        - precheck
+        - postcheck
+    - fail:
+        msg: "HOME {{ home }} exists already." 
+      when: results.rc == 0
+      tags: 
+        - precheck
+        - postcheck

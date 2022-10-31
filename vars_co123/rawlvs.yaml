@@ -1,0 +1,8 @@
+rawlvs_add:
+ - rawlv: rinfluxdb03
+   vg: 82vg02
+   size: 5120G
+   user: influxdb
+   group: influxdb
+
+

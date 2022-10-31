@@ -1,0 +1,27 @@
+- block:
+    - shell: |
+        ip={{ ip_address }}
+        
+        if expr "$ip" : '[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*$' >/dev/null; then
+          IFS=.
+          set $ip
+          for quad in 1 2 3 4; do
+            if eval [ \$$quad -gt 255 ]; then
+              exit 1
+            fi
+          done
+          exit 0
+        else
+          exit 1
+        fi
+      register: results
+      ignore_errors: true
+      tags: 
+        - precheck
+        - postcheck
+    - fail:
+        msg: "'{{ ip_address }}' is not a valid IP address" 
+      when: results.rc != 0
+      tags: 
+        - precheck
+        - postcheck

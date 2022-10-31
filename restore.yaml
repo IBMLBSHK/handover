@@ -1,0 +1,30 @@
+---
+- name: Restore files from tar ball
+  hosts: all
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: Set log vars
+      set_fact:
+        action: restore_files_from_tarball
+        items: ""
+      run_once: true
+
+    - name: Restore files from tar ball
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - name: Restore files from tar ball
+          shell: |
+            set -o errexit
+            cd /
+            sudo -n zcat /fsbackup/dbms.dc7tst03.aix72.backup.Z          | sudo -n restore -xqvf - > /fsbackup/dbms.log          2>&1
+            sudo -n zcat /fsbackup/product.dc7tst03.aix72.backup.Z       | sudo -n restore -xqvf - > /fsbackup/product.log       2>&1
+            sudo -n zcat /fsbackup/appl.dc7tst03.aix72.backup.Z          | sudo -n restore -xqvf - > /fsbackup/appl.log          2>&1
+          register: results
+        - debug:
+            msg: "{{ results.stdout_lines}}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml

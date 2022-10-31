@@ -1,0 +1,43 @@
+---
+- name: Add items to route table 
+  hosts: all
+  vars_files:
+    - vars_{{ change_order }}/route.yaml
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: PreCheck current user is ansiadm
+      include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+    - set_fact:
+        net_string: "{{ route_add | map(attribute='net') | join(',') }}"
+      tags: precheck
+        
+    - set_fact:
+        netmask_string: "{{ route_add | map(attribute='netmask') | join(',') }}"
+      tags: precheck
+
+    - name: Validate IP address
+      include_tasks: tasks/fail_when_invalid_IP.yaml
+      vars:
+        ip_address: "{{ item }}"
+      loop: "{{ net_string.split(',') + netmask_string.split(',') }}"
+      run_once: true
+      tags: precheck
+
+    - name: Set log vars
+      set_fact:
+        action: route_add
+        items: "{{ route_add }}"
+      run_once: true
+         
+    - name: Add items to route table
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - include_tasks: tasks/route_add.yaml
+          loop: "{{ route_add }}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml

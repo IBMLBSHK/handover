@@ -1,0 +1,12 @@
+- name: Unmount {{ item.filesystem }}
+  ibm.power_aix.mount:
+    state: umount
+    mount_dir: "{{ item.filesystem }}"
+    force: true
+  register: results
+
+- name: Delete {{ item.filesystem }}
+  ibm.power_aix.filesystem:
+    state: absent
+    filesystem: "{{ item.filesystem }}"
+  register: results

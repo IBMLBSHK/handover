@@ -1,0 +1,7 @@
+DC: DC6
+HW: lpar
+MODE: non-prod
+ZONE: Intranet
+OS_type: sybase
+CPU: 2
+RAM: 8

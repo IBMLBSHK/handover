@@ -1,0 +1,21 @@
+#!/usr/bin/ksh
+vmo -p -o enhanced_affinity_affin_time=0
+df -k |egrep -v var |egrep -q \/tmp && chmod 1777 /tmp
+chdev -l iocp0 -a autoconfig=available -P
+chvg -Qn rootvg
+lsdev -Cc adapter|grep ^ent|grep Virtual|awk '{print "chdev -l "$1" -a chksum_offload=no -P"}'| ksh
+lsdev -Cc adapter|grep ^ent|grep Port|awk '{print "chdev -l "$1" -a large_send=no -a chksum_offload=no -P"}'| ksh
+lsdev -Cc disk|grep MPIO|awk '{print "chdev -l "$1" -a algorithm=round_robin -a reserve_policy=no_reserve -a q_type=simple -a rw_timeout=60 -a queue_depth=8 -P"}'| ksh
+lsdev -Cc adapter|grep fcs|grep Port|awk '{print substr ($1, 4, 1)}'|awk '{print "chdev -l fscsi"$1" -a dyntrk=yes -a fc_err_recov=fast_fail -P"}'| ksh
+SAS_disk=`lsdev -Cc disk|grep SAS|grep hdisk1|wc -l`
+if [[ $SAS_disk -eq 1 ]]; then
+        no_use=`lspv|grep hdisk1|grep None|wc -l`
+        if [[ $no_use -eq 1 ]]; then
+        extendvg -f rootvg hdisk1
+        mirrorvg -S -c 2 rootvg
+        mklv -y dumplv1 -t sysdump rootvg 8
+        sysdumpdev -P -s /dev/dumplv1
+        bosboot -ad /dev/hdisk1
+        bootlist -m normal hdisk0 hdisk1
+        fi
+fi

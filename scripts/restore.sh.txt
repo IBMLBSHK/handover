@@ -1,0 +1,4 @@
+cd /
+zcat /fsbackup/dbms.dc7tst03.aix72.backup.Z          | restore -xqvf - > /fsbackup/dbms.log          2>&1
+zcat /fsbackup/product.dc7tst03.aix72.backup.Z       | restore -xqvf - > /fsbackup/product.log       2>&1
+zcat /fsbackup/appl.dc7tst03.aix72.backup.Z          | restore -xqvf - > /fsbackup/appl.log          2>&1

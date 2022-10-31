@@ -1,0 +1,6 @@
+[all]
+192.168.138.210 
+#localhost ansible_connection=local
+#192.168.138.64 
+#192.168.143.10
+#192.168.143.5 ansible_connection=ssh ansible_ssh_user=ansiadm ansible_ssh_pass=abcd1234

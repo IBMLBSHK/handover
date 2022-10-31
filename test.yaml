@@ -1,0 +1,18 @@
+---
+## Run this with something like "ansible-playbook -l localhost test.yml"
+- name: Testing playbook
+  hosts: all
+  tasks:
+    - name: Run shell script
+      shell: |
+        #set -o errexit
+        hostname
+        date
+        #false
+        uptime
+        
+      register: results
+
+    - name: Print results
+      debug:
+        msg: "{{ results.stdout_lines }}"

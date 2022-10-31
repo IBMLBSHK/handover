@@ -1,0 +1,21 @@
+rawlvs_add:
+  - rawlv: rawlv11
+    vg: datavg
+    size: 2G
+    user: aix1
+    group: usr
+  - rawlv: rawlv22
+    vg: datavg
+    size: 512M
+    user: aix2
+    group: usr
+
+rawlvs_chown:
+  - rawlv: rawlv1
+    user: aix2
+    group: system
+  - rawlv: rawlv2
+    user: aix2
+    group: system
+
+

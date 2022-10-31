@@ -1,0 +1,2 @@
+[aix72]
+cuhk73 ansible_connection=ssh

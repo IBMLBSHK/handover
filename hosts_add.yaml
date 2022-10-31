@@ -1,0 +1,74 @@
+---
+- name: Add items to host table file 
+  hosts: all
+  vars_files:
+    - vars_{{ change_order }}/hosts.yaml
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: PreCheck current user is ansiadm
+      include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+    - set_fact:
+        ip_string: "{{ lines_add | map(attribute='ip_address') | join(',') }}"
+      tags: precheck
+        
+    - name: PreCheck validate IP address
+      include_tasks: tasks/fail_when_invalid_IP.yaml
+      vars:
+        ip_address: "{{ item }}"
+      loop: "{{ ip_string.split(',') }}"
+      run_once: true
+      tags: precheck
+
+    - name: Precheck validate line number
+      fail:
+        msg: "{{ item.line_num }} is not a valid line number."
+      when: item.line_num != item.line_num|int or item.line_num < 1
+      loop: "{{ lines_add }}"
+      run_once: true
+      tags: precheck
+
+    - name: Set log vars
+      set_fact:
+        action: hosts_add
+        items: "{{ lines_add }}"
+      run_once: true
+
+    - name: Insert host items into {{ host_table_file }}
+      block: 
+        - include_tasks: tasks/log_begin.yaml
+
+        - name: Backup {{ host_table_file }}
+          shell: |
+            set -x
+            set -o errexit
+            suffix=`date '+%Y%m%d%H%M%S'`
+            sudo -n cp {{ host_table_file }} {{ host_table_file }}.$suffix
+            echo $suffix
+          register: results
+
+        - set_fact:
+            suffix: "{{ results.stdout }}"
+
+        - include_tasks: tasks/host_add.yaml
+          loop: "{{ lines_add }}"
+
+        - include_tasks: tasks/show_diff.yaml
+          vars:
+            file1: "{{ host_table_file }}"
+            file2: "{{ host_table_file }}.{{ suffix }}"
+
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:  
+        - include_tasks: tasks/log_end.yaml
+
+    - name: PostCheck- verify the content is added
+      include_tasks: tasks/fail_when_content_not_in_file.yaml
+      vars:
+        file_path: "{{ host_table_file }}"
+        content: "{{ item.ip_address }} {{ item.host_name }}"
+      loop: "{{ lines_add }}"
+      tags: postcheck

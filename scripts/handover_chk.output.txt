@@ -1,0 +1,60 @@
+[ 2020-06-29 14:07:32 ] /home/cmopr/bin/handover_chk.sh  --- START
+Which datacenter? e.g HCH,DC6,DC7,DC8
+VM or LPAR?
+Prod or non-prod
+DMZ or Intranet
+OS type? e.g Sybase or Oracle
+Enter no. of CPU
+Enter no. of RAM(GB)
+No. of CPU is valid
+Datacenter is valid
+
+
+-----------------------------------------------------------User Input configuration-----------------------------------------------------------
+    Hostname   DataCenter   Hardware-type    Real-HW-type            MODE            ZONE         OS-type             CPU             RAM
+    dc7tst03          dc7              vm            lpar            prod        intranet          oracle               1               8
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+***     Please DO NOT execute this script in production machine !!!      ***
+Confirm to go ahead? (y/n)
+
+******************************
+System verification now.......
+******************************
+Checking system services..........................OK
+Checking IOCP.....................................OK
+Checking IBM.DRM..................................OK
+Checking sendmail.................................OK
+Checking correct mail server......................ERROR
+Checking inittab .................................ERROR
+: cron:23456789:respawn:/usr/sbin/cron
+Checking filesystem.cfg ..........................OK
+Checking maxuproc.................................ERROR
+Checking SAN disks attributes.....................OK
+Checking CPU configure............................OK
+Checking memory configure.........................ERROR
+Checking GigaEthernet ent0 parameters.............OK
+Checking GigaEthernet ent1 parameters.............OK
+Checking GigaEthernet ent2 parameters.............OK
+Checking GigaEthernet ent3 parameters.............OK
+Checking GigaEthernet ent4 parameters.............OK
+Checking GigaEthernet ent5 parameters.............OK
+Checking GigaEthernet ent6 parameters.............OK
+Checking GigaEthernet ent7 parameters.............OK
+Checking /etc/ntp.conf ...........................ERROR
+Checking /etc/rc.ntp..............................ERROR
+Checking /etc/resolv.conf.........................ERROR
+Checking /etc/rc.local............................ERROR, wrong gateway
+Checking size of ~cmopr/log/messages..............OK
+Checking system backup in root cronjob............OK
+Checking system backup in /nimbackup..............OK
+Checking /etc/sudoers.............................OK
+Checking VLAN tag ID..............................OK
+Checking Etherchannel recovery....................ERROR
+
+A primary adapter in the EtherChannel recovered: returning to main channel
+Checking Etherchannel failover....................ERROR
+
+All primary EtherChannel adapters failed: switching over to backup adapter
+[ 2020-06-29 14:07:52 ] /home/cmopr/bin/handover_chk.sh  --- END

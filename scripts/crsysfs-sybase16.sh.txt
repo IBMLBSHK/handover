@@ -1,0 +1,161 @@
+mklv -y dbms -t jfs2 xxvg01 64
+crfs -v jfs2 -d'dbms' -m'/dbms' -A'yes' -p'rw' -a'check=true'
+mount /dbms
+
+mklv -y product -t jfs2 xxvg01 48
+crfs -v jfs2 -d'product' -m'/product' -A'yes' -p'rw' -a'check=true'
+mount /product
+
+mklv -y patrol_home_xx1 -t jfs2 xxvg01 64
+crfs -v jfs2 -d'patrol_home_xx1' -m'/appl/patrol/home' -A'yes' -p'rw' -a'check=true'
+mount /appl/patrol/home
+
+mklv -y rs_home_xx1 -t jfs2 xxvg01 4
+crfs -v jfs2 -d'rs_home_xx1' -m'/appl/rs/home' -A'yes' -p'rw' -a'check=true'
+mount /appl/rs/home
+
+mklv -y rs_rsmdata_xx1 -t jfs2 xxvg01 4
+crfs -v jfs2 -d'rs_rsmdata_xx1' -m'/appl/rs/rsmdata' -A'yes' -p'rw' -a'check=true'
+mount /appl/rs/rsmdata
+chown rsmaint.rs /appl/rs/rsmdata
+
+mklv -y oc_job_xx1 -t jfs2 xxvg01 1
+crfs -v jfs2 -d'oc_job_xx1' -m'/appl/oc/job' -A'yes' -p'rw' -a'check=true'
+mount /appl/oc/job
+
+mklv -y oc_stag_xx1 -t jfs2 xxvg01 1
+crfs -v jfs2 -d'oc_stag_xx1' -m'/appl/oc/staging' -A'yes' -p'rw' -a'check=true'
+mount /appl/oc/staging
+
+mklv -y san_data_xx1 -t jfs2 xxvg01 32
+crfs -v jfs2 -d'san_data_xx1' -m'/appl/san/data' -A'yes' -p'rw' -a'check=true'
+mount /appl/san/data
+chown sanmopr.san /appl/san/data
+
+mklv -y atl_home_xx1 -t jfs2 xxvg01 32
+crfs -v jfs2 -d'atl_home_xx1' -m'/appl/atl/home' -A'yes' -p'rw' -a'check=true'
+mount /appl/atl/home
+chown atladm.atl /appl/atl/home
+
+###################
+# FS for Sybase   #
+###################
+
+mklv -y sybase16 -t jfs2 xxvg01 64
+crfs -v jfs2 -d'sybase16' -m'/dbms/sybase16' -A'yes' -p'rw' -a'check=true'
+mount /dbms/sybase16
+
+mklv -y ebf27571 -t jfs2 xxvg01 192
+crfs -v jfs2 -d ebf27571 -m /dbms/sybase16/ebf27571 -A yes -p rw -a check=true
+mount /dbms/sybase16/ebf27571
+chown sybase.sybase /dbms/sybase16/ebf27571
+chmod 775 /dbms/sybase16/ebf27571
+
+mklv -y ebf27869 -t jfs2 xxvg01 320
+crfs -v jfs2 -d ebf27869 -m /dbms/sybase16/ebf27869 -A yes -p rw -a check=true
+mount /dbms/sybase16/ebf27869
+chown sybase.sybase /dbms/sybase16/ebf27869
+chmod 775 /dbms/sybase16/ebf27869
+
+mklv -y ebf28331 -t jfs2 xxvg01 320
+crfs -v jfs2 -d ebf28331 -m /dbms/sybase16/ebf28331 -A yes -p rw -a check=true
+mount /dbms/sybase16/ebf28331
+chown sybase.sybase /dbms/sybase16/ebf28331
+chmod 775 /dbms/sybase16/ebf28331
+
+mklv -y dbs_dump_xx1 -t jfs2 xxvg01 640
+crfs -v jfs2 -d dbs_dump_xx1 -m /appl/dbs/dump -A yes -p rw -a check=true
+mount /appl/dbs/dump
+chown sybase.sybase /appl/dbs/dump
+chmod 775 /appl/dbs/dump
+
+mklv -y rs1260 -t jfs2 xxvg01 64
+crfs -v jfs2 -d'rs1260' -m'/dbms/rs1260' -A'yes' -p'rw' -a'check=true'
+mount /dbms/rs1260
+chown sybase.sybase /dbms/rs1260
+
+mklv -y rs1570 -t jfs2 xxvg01 64
+crfs -v jfs2 -d rs1570 -m /dbms/rs1570 -A yes -p rw -a check=true
+mount /dbms/rs1570
+chown sybase.sybase /dbms/rs1570
+
+mklv -y sybasetar -t jfs2 xxvg01 320
+crfs -v jfs2 -d'sybasetar' -m'/dbms/sybasetar' -A'yes' -p'rw' -a'check=true'
+mount /dbms/sybasetar
+chown sybase.sybase /dbms/sybasetar
+
+mkdir /dbms/sybase1250
+
+mklv -y ebf11659 -t jfs2 xxvg01 64
+crfs -v jfs2 -d ebf11659 -m /dbms/sybase1250/ebf11659 -A yes -p rw -a check=true
+mount /dbms/sybase1250/ebf11659
+chown sybase.sybase /dbms/sybase1250/ebf11659
+
+###################
+# FS for Oracle   #
+###################
+
+#mklv -y oracle -t jfs2 xxvg01 160
+#crfs -v jfs2 -d'oracle' -m'/dbms/oracle' -A'yes' -p'rw' -a'check=true'
+#mount /dbms/oracle
+#chown oracle.oinstall /dbms/oracle
+#chmod 775 /dbms/oracle
+
+#mkdir /dbms/oracle/r1120
+#chown oracle.oinstall /dbms/oracle/r1120
+#chmod 775 /dbms/oracle/r1120
+
+#mklv -y db_01 -t jfs2 xxvg01 640
+#crfs -v jfs2 -d'db_01' -m'/dbms/oracle/r1120/db_01' -A'yes' -p'rw' -a'check=true'
+#mount /dbms/oracle/r1120/db_01
+#chown oracle.oinstall /dbms/oracle/r1120/db_01
+#chmod 775 /dbms/oracle/r1120/db_01
+
+#mklv -y clusterware -t jfs2 xxvg01 160
+#crfs -v jfs2 -d clusterware -m /dbms/clusterware -A yes -p rw -a check=true
+#mount /dbms/clusterware
+#chown grid.oinstall /dbms/clusterware
+#chmod 775 /dbms/clusterware
+
+#mkdir /dbms/clusterware/r1120
+#chown grid.oinstall /dbms/clusterware/r1120
+#chmod 775 /dbms/clusterware/r1120
+
+#mklv -y grid_01 -t jfs2 xxvg01 1600
+#crfs -v jfs2 -d grid_01 -m /dbms/clusterware/r1120/grid_01 -A yes -p rw -a check=true
+#mount /dbms/clusterware/r1120/grid_01
+#chown grid.oinstall /dbms/clusterware/r1120/grid_01
+#chmod 775 /dbms/clusterware/r1120/grid_01
+
+#mklv -y oratmp -t jfs2 xxvg01 640
+#crfs -v jfs2 -d oratmp -m /dbms/oratmp -A yes -p rw -a check=true
+#mount /dbms/oratmp
+#chown oracle.oinstall /dbms/oratmp
+#chmod 775 /dbms/oratmp
+
+#mklv -y dump_01 -t jfs2 xxvg01 160
+#crfs -v jfs2 -d dump_01 -m /dbms/clusterware/dump -A yes -p rw -a check=true
+#mount /dbms/clusterware/dump
+#chown grid.oinstall /dbms/clusterware/dump
+#chmod 775 /dbms/clusterware/dump
+
+#########################
+# Control-M , Truesight #
+#########################
+
+mklv -y ctrlm8_home_xx1 -t jfs2 xxvg01 48
+crfs -v jfs2 -d ctrlm8_home_xx1 -m /appl/ctrlm8/home -A yes -p rw -a check=true
+mount /appl/ctrlm8/home
+
+mklv -y ctrlm9_home_xx1 -t jfs2 xxvg01 160
+crfs -v jfs2 -d ctrlm9_home_xx1 -m /appl/ctrlm/home -A yes -p rw -a check=true
+mount /appl/ctrlm/home
+
+mklv -y addm_home_xx1 -t jfs2 xxvg01 1
+crfs -v jfs2 -d addm_home_xx1 -m /appl/addm/home -A yes -p rw -a check=true
+mount /appl/addm/home
+
+mklv -y truesight10 -t jfs2 xxvg01 320
+crfs -v jfs2 -d truesight10 -m /product/truesight10 -A yes -p rw -a check=true
+mount /product/truesight10
+chown patrol.patrol /product/truesight10

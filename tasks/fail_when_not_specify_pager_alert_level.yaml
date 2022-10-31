@@ -1,0 +1,7 @@
+- block:
+    - fail:
+        msg: "Parameter 'pager_alert_level' is not specified."
+      when: parameters.pager_alert_level is not defined
+      tags: 
+        - precheck
+        - postcheck

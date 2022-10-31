@@ -1,0 +1,20 @@
+
+
+vgs_add:
+  - vg: datavg1
+    uuids: FD00,FD01
+    host: 192.168.138.210 
+  - vg: datavg2
+    uuids: FD02
+    host: 192.168.138.210 
+  - vg: datavg1
+    uuids: FD03,FD04
+    host: ansible9
+
+vgs_extend:
+  - vg: datavg1
+    uuids: FD05,FD06
+    host: 192.168.138.210 
+  - vg: datavg1
+    uuids: FD07
+    host: ansible9

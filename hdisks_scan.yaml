@@ -1,0 +1,35 @@
+---
+- name: Scan new hdisks
+  hosts: all
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: Set log vars
+      set_fact:
+        action: hdisks_scan
+        items: ""
+      run_once: true
+
+    - name: Scan new hdisks
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - name: Run shell
+          shell: |
+            set -o errexit
+   
+            suffix=$$ 
+            sudo -n lsdev|grep hdisk > /tmp/a.$suffix
+            sudo -n cfgmgr
+            sudo -n lsdev|grep hdisk > /tmp/b.$suffix
+            sudo -n awk 'FNR == NR { oldfile[$0]=1; }; FNR != NR { if(oldfile[$0]==0) print; }' /tmp/a.$suffix /tmp/b.$suffix
+            sudo -n rm -f /tmp/a.$suffix /tmp/b.$suffix
+          register: results
+        - name: New hdisks
+          debug:
+            msg: "{{ results.stdout_lines }}"
+
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml

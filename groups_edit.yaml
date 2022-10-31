@@ -1,0 +1,49 @@
+---
+- name: Edit groups
+  hosts: all
+  vars:
+    - user_list: []
+  vars_files:
+    - vars_{{ change_order }}/groups.yaml
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: PreCheck current user is ansiadm
+      include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+    - name: PreCheck the groups exists
+      include_tasks: tasks/fail_when_group_not_exist.yaml
+      vars:
+        group_name: "{{ item.name }}"
+      loop: "{{ groups_edit }}"
+      tags: precheck
+
+    - set_fact:
+        user_list: "{{ user_list + item.attributes.users.split(',') }}"
+      when: item.attributes.users is defined
+      loop: "{{ groups_edit }}"
+      tags: precheck
+
+    - name: PreCheck the users exist
+      include_tasks: tasks/fail_when_user_not_exist.yaml
+      vars:
+        user_name: "{{ item }}"
+      loop: "{{ user_list }}"
+      tags: precheck
+
+    - name: Set log vars
+      set_fact:
+        action: groups_edit
+        items: "{{ groups_edit }}"
+      run_once: true
+
+    - name: Edit groups
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - include_tasks: tasks/group_edit.yaml
+          loop: "{{ groups_edit }}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml

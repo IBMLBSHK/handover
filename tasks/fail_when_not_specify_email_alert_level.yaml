@@ -1,0 +1,7 @@
+- block:
+    - fail:
+        msg: "Parameter 'email_alert_level' is not specified."
+      when: parameters.email_alert_level is not defined
+      tags: 
+        - precheck
+        - postcheck

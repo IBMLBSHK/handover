@@ -1,0 +1,569 @@
+#!/bin/sh
+
+######################################################################################
+## Scropt name: handover_chk.sh
+## Last update: 18-Jun-2020
+##
+## Change history
+##
+## Version 1.1: 18-Jun-2020
+##
+##
+######################################################################################
+
+chk_maxuproc="0"
+etcpath="/home/cmopr/etc"
+datacenter="$etcpath/DC.txt"
+cmopr_messages="/home/cmopr/log/messages"
+host_name=`hostname`
+ethercl_tmp="/home/cmopr/tmp/ethercl.txt"
+
+_printdate()
+{
+        date=`date +%Y-%m-%d`
+        time=`date | awk '{print $4}'`
+        echo ""
+        echo "[" $date $time "]"
+}
+echo `_printdate` "$0 $* --- START"
+
+echo "Which datacenter? e.g HCH,DC6,DC7,DC8";read DC
+echo "VM or LPAR? ";read HW
+echo "Prod or non-prod"; read MODE
+echo "DMZ or Intranet"; read ZONE
+echo "OS type? e.g Sybase or Oracle"; read OS_type
+echo "Enter no. of CPU";read CPU
+echo "Enter no. of RAM(GB)";read RAM
+
+### Input validation ###
+
+MODE=`echo $MODE | tr '[A-Z]' '[a-z]'`
+ZONE=`echo $ZONE | tr '[A-Z]' '[a-z]'`
+HW=`echo $HW | tr '[A-Z]' '[a-z]'`
+DC=`echo $DC | tr '[A-Z]' '[a-z]'`
+
+if [ $HW != "vm" ] && [ $HW != "lpar" ]; then
+        echo "Hardware type is invalid: please enter ( VM or LPAR )!"
+fi
+
+
+###echo "MODE and ZONE are",$MODE,$ZONE
+
+## Define the correct ntp_server1/2
+
+if [ $MODE = "prod" ] && [ $ZONE = "intranet" ]; then
+        ntp_server1="cdchkt71"
+        ntp_server2="cdchkt72"
+elif [ $MODE = "non-prod" ] && [ $ZONE = "intranet" ]; then
+        ntp_server1="cdchhk21"
+        ntp_server2="cdchkt22"
+elif [ $MODE = "prod" ] && [ $ZONE = "dmz" ]; then
+        ntp_server1="cdchkt91"
+        ntp_server2="cdchkt92"
+elif [ $MODE = "non-prod" ] && [ $ZONE = "dmz" ]; then
+        ntp_server1="cdchkt31"
+        ntp_server2="cdchkt32"
+fi
+
+## Define the correct mail server
+
+if [ $MODE = "prod" ] && [ $ZONE = "dmz" ] && [ $DC = "DC7" ]; then
+        mailserver="192.168.150.209"
+elif [ $MODE = "prod" ] && [ $ZONE = "dmz" ] && [ $DC = "DC6" ]; then
+        mailserver="192.168.50.159"
+elif [ $MODE = "prod" ] ; then
+        mailserver="DSmailcorphts.server.ha.org.hk"
+elif [ $MODE = "non-prod" ]; then
+        mailserver="DSmaildevsmtp"
+fi
+
+###echo "NTP server are "$ntp_server1, $ntp_server2
+
+echo $CPU |egrep '^[0-9]+$' > /dev/null 2>&1
+
+if [ "$?" -eq "0" ]; then
+  echo "No. of CPU is valid"
+else
+  echo "ERROR - No. of CPU is invalid"
+fi
+
+grep -i "$DC" "$datacenter" > /dev/null 2>&1
+
+if [ $? == 0 ]; then
+        echo "Datacenter is valid"
+else
+        echo "ERROR - Datacenter is not valid"
+fi
+
+
+## Verify whether it's VM or LPAR ##
+
+chk_real_type=`lsdev -C |grep -i "l-lan"`
+
+        if [ $? = 0 ] ; then
+                echo "It's a VM client"
+                RHW="vm"
+        else
+                RHW="lpar"
+        fi
+
+printf "\n\n"
+echo "-----------------------------------------------------------User Input configuration-----------------------------------------------------------"
+printf "%12s %12s %15s %15s %15s %15s %15s %15s %15s\n" Hostname DataCenter Hardware-type Real-HW-type MODE ZONE OS-type CPU RAM
+printf "%12s %12s %15s %15s %15s %15s %15s %15s %15s\n" `hostname` $DC $HW $RHW $MODE $ZONE $OS_type $CPU $RAM
+echo "----------------------------------------------------------------------------------------------------------------------------------------------"
+printf "\n\n"
+
+###if [ $DC != "HCH" ] && [ $DC != "DC2" ] && [ $DC != "DC6" ] && [ $DC != "DC7" ] && [ $DC != "DC8" ]; then
+###     echo "Datacenter is not valid"
+###fi
+
+### Confirm to go ahead
+echo "***       Please DO NOT execute this script in production machine !!!      ***"
+echo "Confirm to go ahead? (y/n) \c"
+echo "\n"
+read YESNO
+        if [ "${YESNO}" != "Y" -a "${YESNO}" != "y" ]; then
+                echo "Abort: Handover verification will not be performed."
+                exit 1
+        fi
+
+echo "******************************"
+echo "System verification now......."
+echo "******************************"
+
+## Start step 2 - Verify System services ##
+
+echo "Checking system services..........................\c"
+inittab=`cat /etc/inittab|egrep -w "xmquery|xmtopas"|grep '^:'`
+if [[ $? = 0 ]] ; then
+        echo "ERROR"
+        echo $inittab
+else
+        echo "OK"
+fi
+
+echo "Checking IOCP.....................................\c"
+iocp=`lsdev -C |grep iocp|grep Available`
+if [[ $? = 0 ]] ; then
+        echo "OK"
+else
+        echo "iocp is not available"
+fi
+
+echo "Checking IBM.DRM..................................\c"
+ibmdr=`ps -ef |grep -v grep |grep DRM`
+if [[ $? = 0 ]] ; then
+        echo "OK"
+else
+        echo "IBM.DRM is not available"
+fi
+
+echo "Checking sendmail.................................\c"
+mailsend=`echo 'Handover machine sendmail test '$DC |mail -v -s 'Handover machine sendmail test' lcc440@pyn.ha.org.hk`
+
+if [[ $? = 0 ]] ; then
+        echo "OK"
+else
+        echo "Mail is not working"
+fi
+
+echo "Checking correct mail server......................\c"
+inittab=`cat /etc/mail/sendmail.cf|egrep $mailserver`
+if [[ $? = 0 ]] ; then
+        echo "OK"
+else
+        echo "ERROR"
+fi
+
+## Start step 3,4 - Verify /etc/inittab and ~cmopr/etc/filesystem.cfg ##
+
+echo "Checking inittab .................................\c"
+inittab=`cat /etc/inittab|egrep -w "rcnfs|rcnsr|rctma1|ntp|cron|rclocal"|grep '^:'`
+if [[ $? = 0 ]] ; then
+        echo "ERROR"
+        echo $inittab
+else
+        echo "OK"
+fi
+
+
+echo "Checking filesystem.cfg ..........................\c"
+filecfg=`grep "\?" ~cmopr/etc/filesystem.cfg`
+if [[ $? = 0 ]] ; then
+        echo "ERROR"
+        echo $filecfg
+else
+        echo "OK"
+fi
+
+## Start step 5 - Verify system parameter and configurations ##
+
+echo "Checking maxuproc.................................\c"
+
+maxuproc=`lsattr -El sys0 |grep maxuproc|awk '{print $2}'`
+OS_type=`echo $OS_type | tr '[A-Z]' '[a-z]'`
+
+if [ $OS_type = "sybase" ]; then
+        chk_maxuproc="2048"
+elif [ $OS_type = "oracle" ]; then
+        chk_maxuproc="16384"
+else
+        echo "OS type should be Oracle or Sybase !"
+fi
+
+if [ "$chk_maxuproc" = "$maxuproc" ]; then
+        echo "OK"
+else
+        echo "ERROR"
+fi
+
+echo "Checking SAN disks attributes.....................\c"
+
+lsdev -Cc disk  |grep MPIO |while read DISK STATUS LOCT BRAND OTHER
+do
+        actl_algm=$(lsattr -El $DISK -a algorithm -F value)
+        actl_revdpol=$(lsattr -El $DISK -a reserve_policy -F value)
+        actl_qtype=$(lsattr -El $DISK -a q_type -F value)
+        actl_qdepth=$(lsattr -El $DISK -a queue_depth -F value)
+        actl_rwtout=$(lsattr -El $DISK -a rw_timeout -F value)
+        if [[ $BRAND = 'Hitachi' ]]; then
+                if [[ $actl_algm != 'round_robin' || $actl_revdpol != 'no_reserve' || $actl_qtype != 'simple' || $actl_qdepth != '8' || $actl_rwtout != '60'
+ ]]; then
+                        errsan=1
+                fi
+        fi
+done
+if [ errsan == 1 ] ; then
+         echo "ERROR"
+else
+         echo "OK"
+fi
+
+echo "Checking CPU configure............................\c"
+
+no_of_cpu=`lsdev -C |grep proc |grep Available|wc -l`
+
+if [ $no_of_cpu == $CPU ]; then
+        echo "OK"
+else
+        echo "ERROR"
+fi
+
+echo "Checking memory configure.........................\c"
+
+no_of_ram=`lsattr -El mem0|grep goodsize|awk '{print $2}'`
+ram_in_G=`expr $no_of_ram / 1024`
+
+if [ $ram_in_G == $RAM ]; then
+        echo "OK"
+else
+        echo "ERROR"
+fi
+
+## Checking ethernet attributes ##
+
+lsdev -Cc adapter |egrep ent|egrep Available |egrep "100\/1000|Gigabit|10GbE|1GbE" >/dev/null 2>&1
+if [[ $? -eq 1 ]]; then
+        echo "Checking GigaEthernet parameters...........OK"
+fi
+
+###lsdev -Cc adapter |egrep ent|egrep Available |egrep "100\/1000|Gigabit|10GbE|1GbE" |cut -d" " -f 1 |while read ent
+lsdev -Cc adapter |egrep ent|egrep Available |egrep "100\/1000|Gigabit|10GbE|1GbE|l-lan" |cut -d" " -f 1 |while read ent
+do
+        echo "Checking GigaEthernet $ent parameters.............\c"
+        lsattr -El $ent |egrep "chksum_offload|large_send" |egrep "yes" >/dev/null 2>&1
+        if [[ $? -eq 0 ]]; then
+                        # Either chksum_offload/large_send is greped
+
+                en=`echo $ent |sed s/ent/en/`
+                enstate=`lsattr -El $en |grep "^state" |awk '{print $2}' 2>/dev/null`
+                if [ $enstate = "up" ]; then
+                                # If status is up
+                        echo "ERROR"
+                else
+                                # Parameter is not OK, but not in used
+                        msg="OK"
+
+                        lsdev -Cc adapter |egrep -i Etherchannel|cut -d" " -f 1|while read ethc
+                        do
+                                        # EtherChannel Configured
+                                lsattr -El $ethc |egrep adapter_names |awk '{print $2}'|egrep $ent >/dev/null
+                                if [[ $? -eq 0 ]]; then
+                                                # The card is in used actually,
+                                                # but configured as EtherChannel
+                                        enc=`echo $ethc |sed s/ent/en/`
+                                        encstate=`lsattr -El $enc |grep "^state" |awk '{print $2}' 2>/dev/null`
+                                        if [ $encstate = "up" ]; then
+                                                     # The EtherChannel is in 'up' state
+                                                msg="ERROR"
+                                        fi
+                                fi
+                        done
+                        echo "$msg"
+                fi
+        else
+                echo "OK"
+        fi
+done
+
+## Checking gateway of EtherChannel(s) if HW is VM ##
+
+default_gw=`netstat -rn |grep default|awk '{print $2}'`
+
+##echo "The default gateway is: "$default_gw
+
+if [ $HW != "VM" ]; then
+
+lsdev -C |grep -i etherchannel|cut -d" " -f 1 |while read etherchannel
+do
+        gwent=`lsattr -El $etherchannel|grep netaddr|awk '{print $2}'`
+        atlip=`grep $host_name"-atl" /etc/hosts |awk '{print $1}'`
+        atlip2=`echo $atlip |sed s/\://|cut -d "." -f 1-3`
+        atlgw=$atlip2".254"
+        echo "Checking gateway of EtherChannel $etherchannel.............\c"
+
+        cent=`echo $etherchannel|sed 's/ent/en/'`
+
+        entip=`ifconfig $cent|grep inet|head -1|awk '{print $2}'`
+
+        echo $entip |egrep "^20.." > /dev/null 2>&1
+        if [ "$?" -eq "0" ]; then
+                iptype="Private"
+        else
+                iptype="non-Private"
+        fi
+
+## Verify whether it is 10G ATL ##
+
+
+#       if [ $gwent == $default_gw ]; then
+#       echo "OK"
+#       elif [ $iptype == "Private" ]; then
+#               echo "OK"
+#       else
+#               echo "ERROR"
+#       fi
+
+
+        if [ $gwent == $default_gw ]; then
+        echo "OK"
+        elif [ $iptype == "Private" ]; then
+                echo "OK"
+        elif [ $gwent == $atlgw ]; then
+                echo "OK"
+        else
+                echo "ERROR"
+        fi
+done
+
+fi
+
+## Checking NTP conf in /etc/ntp.conf and /etc/rc.ntp ##
+
+echo "Checking /etc/ntp.conf ...........................\c"
+ntpsrv=`cat /etc/ntp.conf|egrep -w server|egrep "$ntp_server1|$ntp_server2" |wc -l`
+
+###echo "$ntp_server1, $ntp_server2"
+
+if [ $ntpsrv -eq 2 ] ; then
+        echo "OK"
+else
+        echo "ERROR"
+fi
+
+echo "Checking /etc/rc.ntp..............................\c"
+ntprc=`cat /etc/rc.ntp|egrep -w ntpdate|egrep "$ntp_server1|$ntp_server2" |wc -l`
+
+###echo "$ntp_server1, $ntp_server2"
+
+if [ $ntprc -eq 2 ] ; then
+        echo "OK"
+else
+        echo "ERROR"
+fi
+
+echo "Checking /etc/resolv.conf.........................\c"
+
+if [ $ZONE = "dmz" ]; then
+        if [ $MODE = "non-prod" ]; then
+                resolvfile="resolv.conf.dmz.non-prod"
+        else
+                resolvfile="resolv.conf.dmz."$DC
+        fi
+else
+        resolvfile="resolv.conf."$DC
+fi
+
+##echo $resolvfile
+
+cmpresolv=`diff -b /etc/resolv.conf $etcpath/$resolvfile`
+###cmpresolv=`diff -b /etc/resolv.conf /home/cmopr/etc/resolv.conf.$DC`
+
+if [ $? = 0 ] ; then
+        echo "OK"
+else
+        echo "ERROR"
+fi
+
+
+echo "Checking /etc/rc.local............................\c"
+
+###cat rc.local.bak|grep route|awk '{print $NF}' > /home/lamccm/test/atlgw.txt
+
+atlip=`ping -c 1 \`hostname\`-atl|grep from|awk '{print $4}'|sed s/\://|cut -d "." -f 1-3`
+###echo $atlip
+### real netstat chk_route=`netstat -rn |grep -w UG|grep -v default|awk '{print $2}'|grep -v $atlip|sort -u`
+### chk_route=`cat /home/lamccm/test/atlgw.txt |grep -w UG|grep -v default|awk '{print $2}'|sort -u|cut -d "." -f 1-3`
+chk_route=`netstat -rn |grep -w UG|grep -v default|awk '{print $2}'|sort -u|cut -d "." -f 1-3`
+###chk_route_count=`cat /home/lamccm/test/atlgw.txt |grep -w UG|grep -v default|awk '{print $2}'|sort -u|wc -l`
+chk_route_count=`netstat -rn |grep -w UG|grep -v default|awk '{print $2}'|sort -u|wc -l`
+
+###echo $chk_route_count
+
+if [ $chk_route_count -ne 1 ]; then
+        echo "ERROR, wrong gateway "
+
+##elif [[ `echo $chk_route |wc -l` -ne 1 ]]; then
+##      echo "ERROR"
+
+elif [ $atlip == $chk_route ]; then
+        echo "OK"
+fi
+
+
+echo "Checking size of ~cmopr/log/messages..............\c"
+
+if [ -s $cmopr_messages ]; then
+        echo "ERROR, messages file is not empty"
+else
+        echo "OK"
+fi
+
+
+echo "Checking system backup in root cronjob............\c"
+## Checking access permission of cronjob ##
+
+if [ -r /var/spool/cron/crontabs/root ]
+then
+
+        cronsys_err="0"
+        croncount_err="0"
+
+        croncount=`crontab -l|grep system_backup|wc -l`
+        if [ $? = 0 ] ; then
+                croncount_err="1"
+                cronsys_err="1"
+        fi
+
+        cronsys=`crontab -l |grep system_backup|grep '^#'`
+        if [ $? = 0 ]; then
+                cronsys_err="0"
+        fi
+
+        if [ $croncount_err = "1" ] && [ $cronsys_err = "1" ]; then
+                echo "OK"
+        else
+                echo "ERROR"
+        fi
+
+        echo "Checking system backup in /nimbackup..............\c"
+        nimsys=`ls -lrt /nimbackup/bos.obj.$host_name`
+
+        if [ $? = 0 ] ; then
+                echo "OK"
+        else
+                echo "ERROR"
+        fi
+
+else
+        echo  "ERROR - Cannot read crontab"
+fi
+
+echo "Checking /etc/sudoers.............................\c"
+if [ -r /etc/sudoers ]
+then
+
+        sudoers=`cat /etc/sudoers|egrep -i "sybase|oracle|grid|informix|ctmag|ctmagt|tivoli|patrol|sanadm|atladm"`
+        if [[ $? = 0 ]] ; then
+                echo "ERROR"
+                echo $sudoers
+        else
+                echo "OK"
+        fi
+else
+                echo  "ERROR - Cannot read /etc/sudoers"
+fi
+
+## Verify whether it's VM or LPAR ##
+
+chk_real_type=`lsdev -C |grep -i "l-lan"`
+
+        if [ $? = 0 ] ; then
+                ##echo "It's a VM client"
+                HW="vm"
+        else
+                HW="lpar"
+        fi
+
+
+###if [ $HW != "vm" ]; then
+if [ $HW = "lpar" ]; then
+
+vlanent=`lsdev -C |grep ent |grep VLAN|awk '{print $1}'`
+vlanentcount=`lsdev -C |grep ent |grep VLAN|awk '{print $1}'|wc -l `
+
+        if [ $vlanentcount -eq 1 ] ; then
+
+                echo "Checking VLAN tag ID..............................\c"
+
+                entvlan=`lsattr -El $vlanent |grep vlan_tag_id|awk '{print $2}'`
+
+                vlanen=`echo $vlanent |sed s/ent/en/`
+
+                envlan=`ifconfig $vlanen|grep inet |cut -d "." -f 3`
+
+                        if [ $entvlan = $envlan ]; then
+                                echo "OK"
+                        else
+                                echo "ERROR"
+                        fi
+        fi
+fi
+
+if [ $HW = "lpar" ]; then
+echo "Checking Etherchannel recovery....................\c"
+
+errpt |egrep -i "ETHERCHANNEL RECOVERY|ETHERCHANNEL FAILOVER" |sort -u |sort -rn +1|head -2 > $ethercl_tmp
+
+recovery_test_chk=`cat $ethercl_tmp |head -1 |awk '{print "errpt -J ECH_CHAN_RCVRY -a -s "$2}'|ksh|awk '/Detail Data/{x=NR+1}(NR<=x){print}'|tail -1`
+##recovery_test_chk=`cat $ethercl_tmp |head -1 |awk '{print "errpt -a -s "$2}'|ksh|awk '/Detail Data/{x=NR+1}(NR<=x){print}'|tail -1`
+recovery_statement="A primary adapter in the EtherChannel recovered: returning to main channel"
+
+if [ "$recovery_test_chk" = "$recovery_statement" ]; then
+        echo "OK"
+else
+        echo "ERROR"
+fi
+
+##echo $recovery_test_chk
+##echo $recovery_statement
+
+echo "Checking Etherchannel failover....................\c"
+
+failover_test_chk=`cat $ethercl_tmp |tail -1 |awk '{print "errpt -J ECH_CHAN_FAIL -a -s "$2}'|ksh|awk '/Detail Data/{x=NR+1}(NR<=x){print}'|tail -1`
+##failover_test_chk=`cat $ethercl_tmp |tail -1 |awk '{print "errpt -a -s "$2}'|ksh|awk '/Detail Data/{x=NR+1}(NR<=x){print}'|tail -1`
+failover_statement="All primary EtherChannel adapters failed: switching over to backup adapter"
+
+if [ "$failover_test_chk" = "$failover_statement" ]; then
+        echo "OK"
+else
+        echo "ERROR"
+fi
+
+##echo $failover_test_chk
+##echo $failover_statement
+fi
+
+echo `_printdate` "$0 $* --- END"
+

@@ -1,0 +1,7 @@
+- block:
+    - fail:
+        msg: "Parameter 'manager_email' is not specified."
+      when: parameters.manager_email is not defined
+      tags: 
+        - precheck
+        - postcheck

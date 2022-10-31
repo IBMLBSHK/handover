@@ -1,0 +1,67 @@
+---
+- name: Add vgs
+  hosts: all
+  vars_files:
+    - vars_{{ change_order }}/vgs.yaml
+  vars:
+    - disks: []
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - set_fact:
+        vgs_add: "{{ vgs_add | selectattr('host','==',inventory_hostname) | list  }}"
+
+    - name: PreCheck current user is ansiadm
+      include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+    - name: Run cfgmgr
+      shell: |
+        sudo -n cfgmgr
+      register: results
+      tags: precheck
+
+    - name: PreCheck the vgs don't exist
+      include_tasks: tasks/fail_when_vg_exist.yaml
+      vars:
+        vg_name: "{{ item.vg }}"
+      loop: "{{ vgs_add }}"
+      tags: precheck
+
+    - set_fact:
+        uuids_string: "{{ vgs_add | map(attribute='uuids') | join(',') }}"
+      tags: precheck
+
+    - name: PreCheck there is only one hdisk matching each UUID
+      include_tasks: tasks/fail_when_hdisk_uuid_not_match.yaml
+      loop: "{{ uuids_string.split(',') }}"
+      tags: precheck
+
+    - name: PreCheck the hdisk is not in any VG
+      include_tasks: tasks/fail_when_hdisk_in_vg.yaml
+      loop: "{{ disks }}"
+      tags: precheck
+
+    - name: Set log vars
+      set_fact:
+        action: vgs_add
+        items: "{{ vgs_add }}"
+      run_once: true
+
+    - name: Add vgs
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - include_tasks: tasks/set_hidsk_attributes.yaml
+        - include_tasks: tasks/vg_add.yaml
+          loop: "{{ vgs_add }}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml
+
+    - name: PostCheck the vgs exist
+      include_tasks: tasks/fail_when_vg_not_exist.yaml
+      vars:
+        vg_name: "{{ item.vg }}"
+      loop: "{{ vgs_add }}"
+      tags: postcheck

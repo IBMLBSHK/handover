@@ -1,0 +1,8 @@
+filesystems_delete:
+  - filesystem: /dbms/oraInventory
+  - filesystem: /dbms/oracle/base
+  - filesystem: /dbms/oracle/goldengate_oracle
+  - filesystem: /dbms/oracle/goldengate_sybase
+  - filesystem: /dbms/oracle/r1220/cln_01
+  - filesystem: /dbms/oracle/r1220/db_01
+  - filesystem: /dbms/oratmp

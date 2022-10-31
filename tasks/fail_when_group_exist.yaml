@@ -1,0 +1,14 @@
+- block:
+    - shell: |
+         sudo -n lsgroup {{ group_name }}
+      register: results
+      ignore_errors: true
+      tags: 
+        - precheck
+        - postcheck
+    - fail:
+        msg: "Group {{ group_name }} exists." 
+      when: results.rc == 0
+      tags: 
+        - precheck
+        - postcheck

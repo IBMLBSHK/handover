@@ -1,0 +1,28 @@
+---
+- name: Create jfs2log
+  hosts: all
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: Set log vars
+      set_fact:
+        action: create_jfs2log
+        items: ""
+      run_once: true
+
+    - name: Create jfs2log
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - name: Create jfs2log
+          ibm.power_aix.lvol:
+            state: present
+            vg: xxvg01
+            lv: jfs2log_xx1
+            lv_type: jfs2log
+            size: 16
+          register: results
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml

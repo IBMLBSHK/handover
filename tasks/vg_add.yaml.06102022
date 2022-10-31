@@ -1,0 +1,19 @@
+- set_fact:
+    pvs_array: []
+
+- set_fact:
+    pvs_array: "{{ pvs_array + [ nested_var[0].hdisk ] }}"
+  when: nested_var[0].uuid == nested_var[1]
+  with_nested:
+    - "{{ disks }}"
+    - "{{ item.uuids.split(',') }}"
+  loop_control:
+    loop_var: nested_var 
+
+- name: Add vg {{ item.vg }}
+  ibm.power_aix.lvg:
+    state: present
+    vg_name: "{{ item.vg }}"
+    pvs: "{{ pvs_array | join(',') }}"
+  register: results
+

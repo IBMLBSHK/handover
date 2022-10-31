@@ -1,0 +1,24 @@
+groups_add:
+  - name: g1
+    attributes:
+      id: 996
+      users: aix3
+  - name: g2
+    attributes:
+      admin: "true"
+      users: aix1,aix22
+
+groups_edit:
+  - name: g1
+    attributes:
+      admin: "true"
+      users: ivan
+  - name: g2
+    attributes:
+      admin: "true"
+      users: aix2 
+
+groups_delete:
+  - name: g1
+  - name: g2
+

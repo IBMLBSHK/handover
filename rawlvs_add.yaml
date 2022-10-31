@@ -1,0 +1,63 @@
+---
+- name: Add raw lvs
+  hosts: all
+  vars_files:
+    - vars_{{ change_order }}/rawlvs.yaml
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: PreCheck current user is ansiadm
+      include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+    - name: PreCheck the lvs don't exist
+      include_tasks: tasks/fail_when_lv_exist.yaml
+      vars:
+        lv_name: "{{ item.rawlv }}"
+      loop: "{{ rawlvs_add }}"
+      tags: precheck
+
+    - name: PreCheck the vg exist
+      include_tasks: tasks/fail_when_vg_not_exist.yaml
+      vars:
+        vg_name: "{{ item.vg }}"
+      loop: "{{ rawlvs_add }}"
+      tags: precheck
+
+    - name: PreCheck the users exists
+      include_tasks: tasks/fail_when_user_not_exist.yaml
+      vars:
+        user_name: "{{ item.user }}"
+      loop: "{{ rawlvs_add }}"
+      tags: precheck
+
+    - name: PreCheck the groups exists
+      include_tasks: tasks/fail_when_group_not_exist.yaml
+      vars:
+        group_name: "{{ item.group }}"
+      loop: "{{ rawlvs_add }}"
+      tags: precheck
+
+    - name: Set log vars
+      set_fact:
+        action: rawlvs_add
+        items: "{{ rawlvs_add }}"
+      run_once: true
+
+    - name: Add raw lvs
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - name: Add raw lvs
+          include_tasks: tasks/rawlv_add.yaml
+          loop: "{{ rawlvs_add }}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml
+
+    - name: PostCheck- Verify the lvs exist
+      include_tasks: tasks/fail_when_lv_not_exist.yaml
+      vars:
+        lv_name: "{{ item.rawlv }}"
+      loop: "{{ rawlvs_add }}"
+      tags: postcheck

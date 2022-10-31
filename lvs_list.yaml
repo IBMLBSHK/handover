@@ -1,0 +1,27 @@
+---
+- name: List lvs
+  hosts: all
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: Set log vars
+      set_fact:
+        action: lvs_list
+        items: ""
+      run_once: true
+
+    - name: List lvs
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - name: List lvs
+          shell: sudo -n lsvg | sudo -n xargs -l lsvg -l
+          register: results
+        - name: List lvs
+          debug:
+            msg: "{{ results.stdout_lines }}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml
+

@@ -1,0 +1,3 @@
+- name: Delete route item
+  command: sudo -n route delete -net {{ item.net }} -netmask {{ item.netmask }} {{ item.gateway }}
+  register: results

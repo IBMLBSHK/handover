@@ -1,0 +1,35 @@
+---
+- name: Resize filesystems
+  hosts: all
+  vars_files:
+    - vars_{{ change_order }}/filesystems.yaml
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: PreCheck current user is ansiadm
+      include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+    - name: PreCheck the filesystems exists
+      include_tasks: tasks/fail_when_filesystem_not_exist.yaml
+      vars:
+        filesystem_name: "{{ item.filesystem }}"
+      loop: "{{ filesystems_resize }}"
+      tags: precheck
+
+    - name: Set log vars
+      set_fact:
+        action: filesystems_resize
+        items: "{{ filesystems_resize }}"
+      run_once: true
+
+    - name: Resize filesystems
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - include_tasks: tasks/fs_resize.yaml
+          loop: "{{ filesystems_resize }}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml
+

@@ -1,0 +1,30 @@
+users_add:
+  - name: "epreapo"
+    password: "dB0uYoj2ebJsc"
+    manager_email: "changkw@pyn.ha.org.hk"
+    attributes:
+      account_locked: "true"
+      pgrp: "epr"
+      home: "/appl/epr/home/epreapo"
+      id: "2046"
+      rlogin: "false"
+  - name: "eprjavao"
+    password: "B5xyGDI3mWDMM"
+    manager_email: "changkw@pyn.ha.org.hk"
+    attributes:
+      account_locked: "true"
+      pgrp: "epr"
+      home: "/appl/epr/home/eprjavao"
+      id: "2047"
+      rlogin: "true"
+
+users_edit:
+  - name: "epreapo"
+    attributes:
+      rlogin: "true"
+  - name: "eprjavao"
+    attributes:
+      rlogin: "false"
+
+users_delete:
+  - name: "eprjavao"

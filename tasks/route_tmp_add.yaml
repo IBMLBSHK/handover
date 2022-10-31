@@ -1,0 +1,3 @@
+- name: Add route itme 
+  command: sudo -n route add -net {{ item.net }} -netmask {{ item.netmask }} {{ item.gateway }}
+  register: results

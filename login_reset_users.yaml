@@ -1,0 +1,49 @@
+---
+- name: Reset user login accounts
+  hosts: all
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: Set log vars
+      set_fact:
+        action: reset_user_login_accounts
+        items: ""
+      run_once: true
+
+    - name: Reset user login accounts
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - name: Reset user login accounts
+          shell: |
+            set -o errexit
+            /usr/local/bin/security/login_reset.sh osadm; sudo -n pwdadm -c osadm
+            /usr/local/bin/security/login_reset.sh osadmbg; sudo -n pwdadm -c osadmbg
+            /usr/local/bin/security/login_reset.sh ossup; sudo -n pwdadm -c ossup
+            /usr/local/bin/security/login_reset.sh osrec; sudo -n pwdadm -c osrec
+            /usr/local/bin/security/login_reset.sh atladm; sudo -n pwdadm -c atladm
+            /usr/local/bin/security/login_reset.sh atladmbg; sudo -n pwdadm -c atladmbg
+            /usr/local/bin/security/login_reset.sh atlsup; sudo -n pwdadm -c atlsup
+            /usr/local/bin/security/login_reset.sh patrol; sudo -n pwdadm -c patrol
+            /usr/local/bin/security/login_reset.sh patrolbg; sudo -n pwdadm -c patrolbg
+            /usr/local/bin/security/login_reset.sh patrolsup; sudo -n pwdadm -c patrolsup
+            /usr/local/bin/security/login_reset.sh sanmopr; sudo -n pwdadm -c sanmopr
+            /usr/local/bin/security/login_reset.sh sanadm; sudo -n pwdadm -c sanadm
+            /usr/local/bin/security/login_reset.sh sansup; sudo -n pwdadm -c sansup
+            /usr/local/bin/security/login_reset.sh sanadmbg; sudo -n pwdadm -c sanadmbg
+            /usr/local/bin/security/login_reset.sh ctmag; sudo -n pwdadm -c ctmag
+            /usr/local/bin/security/login_reset.sh ctmagt; sudo -n pwdadm -c ctmagt
+            /usr/local/bin/security/login_reset.sh ctmagt; sudo -n pwdadm -c ctmagtbg
+            /usr/local/bin/security/login_reset.sh ctmagt; sudo -n pwdadm -c prodctrl
+            /usr/local/bin/security/login_reset.sh addmuser; sudo -n pwdadm -c addmuser
+            /usr/local/bin/security/login_reset.sh sybase; sudo -n pwdadm -c sybase
+            /usr/local/bin/security/login_reset.sh dbsdbadm; sudo -n pwdadm -c dbsdbadm
+            /usr/local/bin/security/login_reset.sh rsmaint; sudo -n pwdadm -c rsmaint
+            /usr/local/bin/security/login_reset.sh rsmaint; sudo -n pwdadm -c nessus
+          register: results
+        - debug:
+            msg: "{{ results.stdout_lines}}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml

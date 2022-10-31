@@ -1,0 +1,6 @@
+- name: Edit user {{ item.name }}
+  ibm.power_aix.user:
+    state: modify
+    name: "{{ item.name }}"
+    attributes: "{{ item.attributes }}"
+  register: results

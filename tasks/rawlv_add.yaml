@@ -1,0 +1,12 @@
+- name: Create raw lv {{ item.rawlv }}
+  ibm.power_aix.lvol:
+    state: present
+    vg: "{{ item.vg }}"
+    lv: "{{ item.rawlv }}"
+    lv_type: raw
+    size: "{{ item.size }}"
+  register: results
+
+- name: Set owner for {{ item.rawlv }}
+  command: "sudo -n chown {{ item.user }}:{{ item.group }} /dev/r{{ item.rawlv }}"
+  register: results

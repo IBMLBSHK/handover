@@ -1,0 +1,14 @@
+- block:
+    - shell: |
+         sudo -n cat {{ file_path }} | grep "{{ content }}"
+      register: results
+      ignore_errors: true
+      tags: 
+        - precheck
+        - postcheck
+    - fail:
+        msg: "'{{ content }}' is not shown in {{ file_path }} yet." 
+      when: results.rc != 0
+      tags: 
+        - precheck
+        - postcheck

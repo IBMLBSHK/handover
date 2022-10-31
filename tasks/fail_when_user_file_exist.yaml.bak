@@ -1,0 +1,22 @@
+- block:
+
+    - shell: |
+         sudo -n find / -user {{ user_name }} | grep -v 0652-023 | grep -v /var/spool/mail/{{ user_name }} | grep -v /var/spool/cron/crontabs/{{ user_name}}
+      register: results
+      ignore_errors: true
+      tags: 
+        - precheck
+        - postcheck
+
+    - set_fact:
+        lines_count: "{{ results.stdout.splitlines() | length }}"
+      tags: 
+        - precheck
+        - postcheck
+
+    - fail:
+        msg: "Please delete {{ user_name }}'s files first. {{ results.stdout }}" 
+      when: lines_count|int > 1
+      tags: 
+        - precheck
+        - postcheck

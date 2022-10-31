@@ -1,0 +1,5 @@
+- name: Delete host itme at line "{{ item }}"
+  shell: |
+    sudo -n sed '{{ item }}d' {{ host_table_file }} > /tmp/hosts.$$
+    sudo -n mv /tmp/hosts.$$ {{ host_table_file }}
+  register: results

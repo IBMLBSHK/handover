@@ -1,0 +1,18 @@
+vgs_add:
+  - vg: datavg1
+    pvs: hdisk1,hdisk2
+    #    pvs: hdisk2,hdisk3
+    #  - vg: vg2
+    #    pvs: hdisk4
+  - vg: xxvg01
+    pvs: hdisk5,hdisk6
+
+vgs_extend:
+  - vg: datavg
+    pvs: hdisk1,hdisk2
+  - vg: xxvg01a
+    pvs: hdisk5,hdisk6
+    #    pvs: hdisk5
+    #  - vg: vg2
+    #    pvs: hdisk6,hdisk7
+

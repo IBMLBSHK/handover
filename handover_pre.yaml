@@ -1,0 +1,6 @@
+- import_playbook: aix_7.2_post_script.yaml
+- import_playbook: crjfs2log.yaml
+- import_playbook: crsysfs-sybase16.yaml
+- import_playbook: restore.yaml
+- import_playbook: login_reset_users.yaml
+- import_playbook: pwdhist_delete_users.yaml

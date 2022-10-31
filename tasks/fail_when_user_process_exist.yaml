@@ -1,0 +1,22 @@
+- block:
+
+    - shell: |
+         sudo -n ps -ef | grep {{ user_name }}
+      register: results
+      ignore_errors: true
+      tags: 
+        - precheck
+        - postcheck
+
+    - set_fact:
+        lines_count: "{{ results.stdout.splitlines() | length }}"
+      tags: 
+        - precheck
+        - postcheck
+
+    - fail:
+        msg: "Please stop {{ user_name }}'s process first. {{ results.stdout }}" 
+      when: lines_count|int > 1
+      tags: 
+        - precheck
+        - postcheck

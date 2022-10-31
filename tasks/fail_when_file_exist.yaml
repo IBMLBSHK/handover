@@ -1,0 +1,14 @@
+- block:
+    - shell: |
+         sudo -n ls {{ path }}
+      register: results
+      ignore_errors: true
+      tags: 
+        - precheck
+        - postcheck
+    - fail:
+        msg: "File {{ path }} exists." 
+      when: results.rc == 0
+      tags: 
+        - precheck
+        - postcheck

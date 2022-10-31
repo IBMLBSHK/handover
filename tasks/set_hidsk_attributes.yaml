@@ -1,0 +1,6 @@
+- name: Set hdisk attributes
+  shell: |
+    sudo -n chdev -l {{ item.hdisk }} -a algorithm=round_robin -a reserve_policy=no_reserve -a q_type=simple -a rw_timeout=60 -a queue_depth=8
+  loop: "{{ disks }}"
+  register: results
+

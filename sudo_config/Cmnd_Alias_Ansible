@@ -1,0 +1,39 @@
+Cmnd_Alias      ANSISUPCMD = /usr/sbin/lsuser, \
+                         /usr/sbin/lsof, \
+                         /usr/sbin/lsnim, \
+                         /usr/bin/cat, \
+                         /usr/bin/more, \
+                         /usr/bin/tail, \
+                         /usr/bin/ls, \
+                         /usr/bin/df, \
+                         /usr/bin/du, \
+                         /usr/bin/ipcs, \
+                         /usr/bin/svmon, \
+                         /usr/bin/view, \
+                         /usr/bin/lpstat, \
+                         /usr/local/bin/security/ctime, \
+                         /usr/local/bin/syscheck, \
+                         /usr/sbin/ntpq -p, \
+                         /usr/sbin/emgr -l, \
+                         /usr/sbin/emgr -P, \
+                         /usr/bin/bootlist -m normal -o, \
+                         /usr/sbin/lsfs, \
+                         /usr/sbin/lsvg, \
+                         /usr/sbin/lspv, \
+                         /usr/sbin/lsdev, \
+                         /usr/sbin/lscfg, \
+                         /usr/sbin/lsattr, \
+                         /usr/bin/ps, \
+                         /usr/bin/netstat, \
+                         /usr/bin/diff, \
+                         /usr/bin/xargs
+
+Cmnd_Alias      ANSIADMCMD = /usr/bin/smit, /usr/bin/rm, /usr/bin/acledit, /usr/bin/rm, /usr/bin/vi, /usr/bin/ls, /usr/bin/chmod, /usr/bin/chown, /usr/bin/chgrp, /usr/bin/crontab, /usr/bin/mv, /usr/bin/cp, /usr/bin/tar, /usr/bin/kill, /usr/sbin/mount, /usr/sbin/umount, /etc/accton, /usr/bin/startsrc, /usr/bin/stopsrc, /usr/bin/refresh, /usr/bin/cancel, /usr/bin/lp, /usr/bin/lpstat, /usr/bin/enq, /usr/bin/enable, /usr/bin/disable, /usr/bin/lpr, /usr/bin/qchk, /usr/bin/cat, /usr/bin/id, /usr/bin/whoami, /usr/sbin/useradd, /usr/bin/chuser, /usr/sbin/userdel, /usr/bin/mkgroup, /usr/sbin/rmgroup, /usr/bin/chgroup, /usr/bin/chgrpmem, /usr/bin/mkuser, /usr/bin/mkdir, /usr/bin/passwd, /usr/bin/awk, /usr/bin/echo, /usr/bin/sed, /usr/bin/wc, /usr/sbin/lsuser, /usr/sbin/lsgroup, /usr/bin/chpasswd, /usr/sbin/lsdev, /usr/sbin/cfgmgr, /etc/route, /usr/sbin/mklv, /usr/sbin/lquerylv, /usr/sbin/extendlv, /usr/sbin/chlv, /usr/sbin/rmlvcopy, /usr/sbin/mklvcopy, /usr/sbin/rmlv, /usr/sbin/lslv, /usr/sbin/lsfs, /usr/sbin/chfs, /usr/sbin/crfs, /usr/sbin/rmfs, /usr/sbin/mkvg, /usr/sbin/extendvg, /usr/sbin/chvg, /usr/sbin/reducevg, /usr/sbin/varyonvg, /usr/sbin/varyoffvg, /usr/sbin/vmo, /usr/sbin/chdev, /usr/sbin/mirrorvg, /usr/bin/sysdumpdev, /usr/sbin/bosboot, /usr/bin/bootlist, /usr/bin/zcat, /usr/sbin/restore, /usr/bin/mail, /usr/bin/crontab, /usr/bin/errpt, /usr/bin/find, /usr/bin/grep, /usr/bin/touch, /usr/local/bin/unlock.sh, /usr/local/bin/lock.sh, /usr/sbin/xntpd, /usr/bin/kill
+
+Cmnd_Alias    NOEXECMD= !/usr/sbin/shutdown, !/usr/sbin/reboot, !/usr/sbin/init, !/usr/sbin/halt
+
+# User specification
+ansisup   ALL=(ALL:ALL) NOPASSWD: ANSISUPCMD
+ansiadm   ALL=(ALL:ALL) NOPASSWD: ANSISUPCMD
+ansiadm   ALL=(ALL:ALL) NOPASSWD: ANSIADMCMD
+ansiadm   ALL=(ALL) NOEXEC: NOEXECMD

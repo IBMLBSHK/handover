@@ -1,0 +1,2 @@
+mklv -y jfs2log_xx1 -t jfs2log xxvg01 16
+logform /dev/jfs2log_xx1

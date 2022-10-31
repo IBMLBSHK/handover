@@ -1,0 +1,10 @@
+- shell: |
+    sudo -n lscfg vpl {{ hdisk }} | grep "{{ uuid }}"
+  register: results
+  ignore_errors: true
+  tags: precheck
+
+- set_fact: 
+    m_hdisks: "{{ m_hdisks + [ hdisk ] }}"
+  when: results.rc == 0
+  tags: precheck

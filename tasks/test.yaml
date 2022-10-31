@@ -1,0 +1,29 @@
+- block: 
+    - shell: |
+         sudo -n lsuser -a home {{ user_name }} |cut -d= -f 2| grep -v mail
+      register: home_dir
+      tags: 
+        - precheck
+        - postcheck
+        
+    - shell: |
+         sudo -n lsfs {{ home_dir.stdout }}
+      register: results
+      ignore_errors: true
+      tags: 
+        - precheck
+        - postcheck
+
+    - name: Unmount {{ home_dir.stdout }}
+      ibm.power_aix.mount:
+        state: umount
+        mount_dir: "{{ home_dir.stdout }}"
+        force: true
+    - name: Delete {{ home_dir.stdout }}
+      ibm.power_aix.filesystem:
+        state: absent
+        filesystem: "{{ home_dir.stdout }}"	
+      when: results.rc == 0
+      tags: 
+        - precheck
+        - postcheck

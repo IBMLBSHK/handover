@@ -1,0 +1,379 @@
+---
+- name: Create file systems for Sybase16
+  hosts: all
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: Set log vars
+      set_fact:
+        action: create_fs_for_sybase16
+        items: ""
+      run_once: true
+
+    - name: Create file systems for Sybase16
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - name: Create lv dbms
+          ibm.power_aix.lvol:
+            state: present
+            vg: xxvg01
+            lv: dbms
+            lv_type: jfs2
+            size: 64
+          register: results
+    
+        - name: Creat fs /dbms
+          ibm.power_aix.filesystem:
+            state: present
+            filesystem: /dbms
+            device: dbms
+            fs_type: jfs2
+            attributes: check=true
+            permissions: rw
+            auto_mount: true
+          register: results
+    
+        - name: Mount /dbms
+          ibm.power_aix.mount:
+            mount_over_dir: /dbms
+          register: results
+    
+        - name: Create lv product
+          ibm.power_aix.lvol:
+            state: present
+            vg: xxvg01
+            lv: product
+            lv_type: jfs2
+            size: 48
+          register: results
+    
+        - name: Creat fs /product
+          ibm.power_aix.filesystem:
+            state: present
+            filesystem: /product
+            device: product
+            fs_type: jfs2
+            attributes: check=true
+            permissions: rw
+            auto_mount: true
+          register: results
+    
+        - name: Mount /product
+          ibm.power_aix.mount:
+            mount_over_dir: /product
+          register: results
+    
+        - name: Create lv patrol_home_xx1
+          ibm.power_aix.lvol:
+            state: present
+            vg: xxvg01
+            lv: patrol_home_xx1
+            lv_type: jfs2
+            size: 64
+          register: results
+    
+        - name: Creat fs /appl/patrol/home
+          ibm.power_aix.filesystem:
+            state: present
+            filesystem: /appl/patrol/home
+            device: patrol_home_xx1
+            fs_type: jfs2
+            attributes: check=true
+            permissions: rw
+            auto_mount: true
+          register: results
+    
+        - name: Mount /appl/patrol/home
+          ibm.power_aix.mount:
+            mount_over_dir: /appl/patrol/home
+          register: results
+            
+        - name: Create lv rs_home_xx1
+          ibm.power_aix.lvol:
+            state: present
+            vg: xxvg01
+            lv: rs_home_xx1
+            lv_type: jfs2
+            size: 4
+          register: results
+    
+        - name: Creat fs /appl/rs/home
+          ibm.power_aix.filesystem:
+            state: present
+            filesystem: /appl/rs/home
+            device: rs_home_xx1
+            fs_type: jfs2
+            attributes: check=true
+            permissions: rw
+            auto_mount: true
+          register: results
+    
+        - name: Mount /appl/rs/home
+          ibm.power_aix.mount:
+            mount_over_dir: /appl/rs/home
+          register: results
+            
+        - name: Create lv rs_rsmdata_xx1
+          ibm.power_aix.lvol:
+            state: present
+            vg: xxvg01
+            lv: rs_rsmdata_xx1
+            lv_type: jfs2
+            size: 4
+          register: results
+    
+        - name: Creat fs /appl/rs/rsmdata
+          ibm.power_aix.filesystem:
+            state: present
+            filesystem: /appl/rs/rsmdata
+            device: rs_rsmdata_xx1
+            fs_type: jfs2
+            attributes: check=true
+            permissions: rw
+            auto_mount: true
+          register: results
+    
+        - name: Mount /appl/rs/rsmdata
+          ibm.power_aix.mount:
+            mount_over_dir: /appl/rs/rsmdata
+          register: results
+    
+        - name: Change /appl/rs/rsmdata ownership
+          command: sudo -n chown rsmaint:rs /appl/rs/rsmdata
+          register: results
+    
+        - name: Create lv oc_job_xx1
+          ibm.power_aix.lvol:
+            state: present
+            vg: xxvg01
+            lv: oc_job_xx1
+            lv_type: jfs2
+            size: 1
+          register: results
+    
+        - name: Creat fs /appl/oc/job
+          ibm.power_aix.filesystem:
+            state: present
+            filesystem: /appl/oc/job
+            device: oc_job_xx1
+            fs_type: jfs2
+            attributes: check=true
+            permissions: rw
+            auto_mount: true
+          register: results
+    
+        - name: Mount /appl/oc/job
+          ibm.power_aix.mount:
+            mount_over_dir: /appl/oc/job
+          register: results
+            
+        - name: Create lv oc_stag_xx1
+          ibm.power_aix.lvol:
+            state: present
+            vg: xxvg01
+            lv: oc_stag_xx1
+            lv_type: jfs2
+            size: 1
+          register: results
+    
+        - name: Creat fs /appl/oc/staging
+          ibm.power_aix.filesystem:
+            state: present
+            filesystem: /appl/oc/staging
+            device: oc_stag_xx1
+            fs_type: jfs2
+            attributes: check=true
+            permissions: rw
+            auto_mount: true
+          register: results
+    
+        - name: Mount /appl/oc/staging
+          ibm.power_aix.mount:
+            mount_over_dir: /appl/oc/staging
+          register: results
+            
+        - name: Create lv san_data_xx1
+          ibm.power_aix.lvol:
+            state: present
+            vg: xxvg01
+            lv: san_data_xx1
+            lv_type: jfs2
+            size: 32
+          register: results
+    
+        - name: Creat fs /appl/san/data
+          ibm.power_aix.filesystem:
+            state: present
+            filesystem: /appl/san/data
+            device: san_data_xx1
+            fs_type: jfs2
+            attributes: check=true
+            permissions: rw
+            auto_mount: true
+          register: results
+    
+        - name: Mount /appl/san/data
+          ibm.power_aix.mount:
+            mount_over_dir: /appl/san/data
+          register: results
+    
+        - name: Change /appl/san/data ownership
+          command: sudo -n chown sanmopr:san /appl/san/data
+          register: results
+            
+        - name: Create lv atl_home_xx1
+          ibm.power_aix.lvol:
+            state: present
+            vg: xxvg01
+            lv: atl_home_xx1
+            lv_type: jfs2
+            size: 32
+          register: results
+    
+        - name: Creat fs /appl/atl/home
+          ibm.power_aix.filesystem:
+            state: present
+            filesystem: /appl/atl/home
+            device: atl_home_xx1
+            fs_type: jfs2
+            attributes: check=true
+            permissions: rw
+            auto_mount: true
+          register: results
+    
+        - name: Mount /appl/atl/home
+          ibm.power_aix.mount:
+            mount_over_dir: /appl/atl/home
+          register: results
+    
+        - name: Change /appl/atl/home ownership
+          command: sudo -n chown atladm:atl /appl/atl/home
+          register: results
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml        
+        
+        ###################
+        ## FS for Sybase   #
+        ####################
+        #
+        #mklv -y sybase16 -t jfs2 xxvg01 64
+        #crfs -v jfs2 -d'sybase16' -m'/dbms/sybase16' -A'yes' -p'rw' -a'check=true'
+        #mount /dbms/sybase16
+        #
+        #mklv -y ebf27571 -t jfs2 xxvg01 192
+        #crfs -v jfs2 -d ebf27571 -m /dbms/sybase16/ebf27571 -A yes -p rw -a check=true
+        #mount /dbms/sybase16/ebf27571
+        #chown sybase.sybase /dbms/sybase16/ebf27571
+        #chmod 775 /dbms/sybase16/ebf27571
+        #
+        #mklv -y ebf27869 -t jfs2 xxvg01 320
+        #crfs -v jfs2 -d ebf27869 -m /dbms/sybase16/ebf27869 -A yes -p rw -a check=true
+        #mount /dbms/sybase16/ebf27869
+        #chown sybase.sybase /dbms/sybase16/ebf27869
+        #chmod 775 /dbms/sybase16/ebf27869
+        #
+        #mklv -y ebf28331 -t jfs2 xxvg01 320
+        #crfs -v jfs2 -d ebf28331 -m /dbms/sybase16/ebf28331 -A yes -p rw -a check=true
+        #mount /dbms/sybase16/ebf28331
+        #chown sybase.sybase /dbms/sybase16/ebf28331
+        #chmod 775 /dbms/sybase16/ebf28331
+        #
+        #mklv -y dbs_dump_xx1 -t jfs2 xxvg01 640
+        #crfs -v jfs2 -d dbs_dump_xx1 -m /appl/dbs/dump -A yes -p rw -a check=true
+        #mount /appl/dbs/dump
+        #chown sybase.sybase /appl/dbs/dump
+        #chmod 775 /appl/dbs/dump
+        #
+        #mklv -y rs1260 -t jfs2 xxvg01 64
+        #crfs -v jfs2 -d'rs1260' -m'/dbms/rs1260' -A'yes' -p'rw' -a'check=true'
+        #mount /dbms/rs1260
+        #chown sybase.sybase /dbms/rs1260
+        #
+        #mklv -y rs1570 -t jfs2 xxvg01 64
+        #crfs -v jfs2 -d rs1570 -m /dbms/rs1570 -A yes -p rw -a check=true
+        #mount /dbms/rs1570
+        #chown sybase.sybase /dbms/rs1570
+        #
+        #mklv -y sybasetar -t jfs2 xxvg01 320
+        #crfs -v jfs2 -d'sybasetar' -m'/dbms/sybasetar' -A'yes' -p'rw' -a'check=true'
+        #mount /dbms/sybasetar
+        #chown sybase.sybase /dbms/sybasetar
+        #
+        #mkdir /dbms/sybase1250
+        #
+        #mklv -y ebf11659 -t jfs2 xxvg01 64
+        #crfs -v jfs2 -d ebf11659 -m /dbms/sybase1250/ebf11659 -A yes -p rw -a check=true
+        #mount /dbms/sybase1250/ebf11659
+        #chown sybase.sybase /dbms/sybase1250/ebf11659
+        #
+        ####################
+        ## FS for Oracle   #
+        ####################
+        #
+        ##mklv -y oracle -t jfs2 xxvg01 160
+        ##crfs -v jfs2 -d'oracle' -m'/dbms/oracle' -A'yes' -p'rw' -a'check=true'
+        ##mount /dbms/oracle
+        ##chown oracle.oinstall /dbms/oracle
+        ##chmod 775 /dbms/oracle
+        #
+        ##mkdir /dbms/oracle/r1120
+        ##chown oracle.oinstall /dbms/oracle/r1120
+        ##chmod 775 /dbms/oracle/r1120
+        #
+        ##mklv -y db_01 -t jfs2 xxvg01 640
+        ##crfs -v jfs2 -d'db_01' -m'/dbms/oracle/r1120/db_01' -A'yes' -p'rw' -a'check=true'
+        ##mount /dbms/oracle/r1120/db_01
+        ##chown oracle.oinstall /dbms/oracle/r1120/db_01
+        ##chmod 775 /dbms/oracle/r1120/db_01
+        #
+        ##mklv -y clusterware -t jfs2 xxvg01 160
+        ##crfs -v jfs2 -d clusterware -m /dbms/clusterware -A yes -p rw -a check=true
+        ##mount /dbms/clusterware
+        ##chown grid.oinstall /dbms/clusterware
+        ##chmod 775 /dbms/clusterware
+        #
+        ##mkdir /dbms/clusterware/r1120
+        ##chown grid.oinstall /dbms/clusterware/r1120
+        ##chmod 775 /dbms/clusterware/r1120
+        #
+        ##mklv -y grid_01 -t jfs2 xxvg01 1600
+        ##crfs -v jfs2 -d grid_01 -m /dbms/clusterware/r1120/grid_01 -A yes -p rw -a check=true
+        ##mount /dbms/clusterware/r1120/grid_01
+        ##chown grid.oinstall /dbms/clusterware/r1120/grid_01
+        ##chmod 775 /dbms/clusterware/r1120/grid_01
+        #
+        ##mklv -y oratmp -t jfs2 xxvg01 640
+        ##crfs -v jfs2 -d oratmp -m /dbms/oratmp -A yes -p rw -a check=true
+        ##mount /dbms/oratmp
+        ##chown oracle.oinstall /dbms/oratmp
+        ##chmod 775 /dbms/oratmp
+        #
+        ##mklv -y dump_01 -t jfs2 xxvg01 160
+        ##crfs -v jfs2 -d dump_01 -m /dbms/clusterware/dump -A yes -p rw -a check=true
+        ##mount /dbms/clusterware/dump
+        ##chown grid.oinstall /dbms/clusterware/dump
+        ##chmod 775 /dbms/clusterware/dump
+        #
+        ##########################
+        ## Control-M , Truesight #
+        ##########################
+        #
+        #mklv -y ctrlm8_home_xx1 -t jfs2 xxvg01 48
+        #crfs -v jfs2 -d ctrlm8_home_xx1 -m /appl/ctrlm8/home -A yes -p rw -a check=true
+        #mount /appl/ctrlm8/home
+        #
+        #mklv -y ctrlm9_home_xx1 -t jfs2 xxvg01 160
+        #crfs -v jfs2 -d ctrlm9_home_xx1 -m /appl/ctrlm/home -A yes -p rw -a check=true
+        #mount /appl/ctrlm/home
+        #
+        #mklv -y addm_home_xx1 -t jfs2 xxvg01 1
+        #crfs -v jfs2 -d addm_home_xx1 -m /appl/addm/home -A yes -p rw -a check=true
+        #mount /appl/addm/home
+        #
+        #mklv -y truesight10 -t jfs2 xxvg01 320
+        #crfs -v jfs2 -d truesight10 -m /product/truesight10 -A yes -p rw -a check=true
+        #mount /product/truesight10
+        #chown patrol.patrol /product/truesight10

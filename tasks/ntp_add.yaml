@@ -1,0 +1,19 @@
+- name: Add NTP itme "{{ item.content }}"
+  shell: |
+    set -x
+    set -o errexit
+
+    line_num={{ item.line_num }}
+    line_count=`sudo -n wc {{ ntp_conf_file }} | awk  '{print $1}'`
+
+    if [ $line_num -gt $line_count ]
+    then
+      sudo -n cp {{ ntp_conf_file }} /tmp/ntp.$$
+      sudo -n chown $USER /tmp/ntp.$$
+      sudo -n echo {{ item.content }} >> /tmp/ntp.$$
+    else
+      sudo -n awk 'NR=={{ item.line_num }}{ print "{{ item.content }}" }1' {{ ntp_conf_file }} > /tmp/ntp.$$
+    fi
+    sudo -n mv /tmp/ntp.$$ {{ ntp_conf_file }}
+    sudo -n chown root:system {{ ntp_conf_file }}
+  register: results

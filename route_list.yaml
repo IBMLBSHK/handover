@@ -1,0 +1,26 @@
+---
+- name: List route table 
+  hosts: all
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: Set log vars
+      set_fact:
+        action: route_list
+        items: ""
+      run_once: true
+
+    - name: List route table
+      block:
+        - include_tasks: tasks/log_begin.yaml
+        - name: List route table
+          shell: sudo -n netstat -nr
+          register: results
+        - name: List route table
+          debug: 
+            msg: "{{ results.stdout_lines }}"
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml

@@ -1,0 +1,3 @@
+- name: Change owner for {{ item.rawlv }}
+  command: "sudo -n chown {{ item.user }}:{{ item.group }} /dev/r{{ item.rawlv }}"
+  register: results

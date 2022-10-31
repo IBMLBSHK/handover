@@ -1,0 +1,11 @@
+lines_add:
+  - line_num: 39
+    content: "server 1time.google.hk"
+  - line_num: 40  
+    content: "server 2hk.pool.ntp.org"
+  - line_num: 41
+    content: "server 3sg.pool.ntp.org"
+
+lines_delete:
+  - 49
+  - 5

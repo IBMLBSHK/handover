@@ -1,0 +1,6 @@
+version: 1.0.5.15
+log_file_dir: /home/ansiadm/ansible_log
+ntp_conf_file: /etc/ntp.conf
+host_table_file: /etc/hosts
+log_template: /home/ansiadm/ansible_log/template.log
+extra_path: /usr/local/bin

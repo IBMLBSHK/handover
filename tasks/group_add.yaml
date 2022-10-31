@@ -1,0 +1,6 @@
+- name: Add group {{ item.name }}
+  ibm.power_aix.group:
+    state: present
+    name: "{{ item.name }}"
+    group_attributes: "{{ item.attributes }}"
+  register: results

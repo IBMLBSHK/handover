@@ -1,0 +1,8 @@
+users_add:
+  - name: "ux1"
+    #password: POnY7mo4oICN.
+    password: "J5YKcj82DOlaA"
+    attributes:
+      home: "/home/ivan_test2"
+      umask: "002"
+      id: 3012

@@ -1,0 +1,75 @@
+---
+- name: Add items to NTP conf file 
+  hosts: all
+  vars_files:
+    - vars_{{ change_order }}/ntp.yaml
+  environment:
+    PATH: "{{ extra_path }}:{{ ansible_env.PATH }}"
+  tasks:
+    - name: PreCheck current user is ansiadm
+      include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+    - name: PreCheck validate NTP entry
+      include_tasks: tasks/fail_when_invalid_ntp.yaml
+      vars:
+        ntp_entry: "{{ item.content }}"
+      loop: "{{ lines_add }}"
+      run_once: true
+      tags: precheck
+
+    - name: PreCheck validate line number
+      fail:
+        msg: "{{ item.line_num }} is not a valid line number."
+      when: item.line_num != item.line_num|int or item.line_num < 1
+      loop: "{{ lines_add }}"
+      run_once: true
+      tags: precheck
+
+    - name: Set log vars
+      set_fact:
+        action: ntp_add
+        items: "{{ lines_add }}"
+      run_once: true
+    - name: Insert NTP items into {{ ntp_conf_file }}
+      block:
+        - include_tasks: tasks/log_begin.yaml
+
+        - name: Backup {{ ntp_conf_file }}
+          shell: |
+            set -x
+            set -o errexit
+            suffix=`date '+%Y%m%d%H%M%S'`
+            sudo -n cp {{ ntp_conf_file}} {{ ntp_conf_file }}.$suffix
+            echo $suffix
+          register: results
+
+        - set_fact:
+            suffix: "{{ results.stdout }}"
+
+        - include_tasks: tasks/ntp_add.yaml
+          loop: "{{ lines_add }}"
+    
+        - name: Reload NTP conf file
+          shell: | 
+            sudo -n ps -elf | grep xntpd | grep -v grep | awk '{print $4}' | xargs -l sudo -n kill -9
+            sudo -n /usr/sbin/xntpd -l /var/adm/xntpd.log -x
+          register: results
+
+        - include_tasks: tasks/show_diff.yaml
+          vars:
+            file1: "{{ ntp_conf_file }}"
+            file2: "{{ ntp_conf_file }}.{{ suffix }}"
+
+        - include_tasks: tasks/log_success.yaml
+      rescue:
+        - include_tasks: tasks/log_error.yaml
+      always:
+        - include_tasks: tasks/log_end.yaml
+
+    - name: PostCheck- verify the content is added
+      include_tasks: tasks/fail_when_content_not_in_file.yaml
+      vars:
+        file_path: "{{ ntp_conf_file }}"
+        content: "{{ item.content }}"
+      loop: "{{ lines_add }}"
+      tags: postcheck

@@ -1,0 +1,24 @@
+- block:
+    - shell: |
+        keyword=`echo {{ ntp_entry }} | awk {'print $1'}`
+        if [ $keyword != server 2>/dev/null ]; then
+           exit 3
+        fi
+        echo {{ ntp_entry }} | awk {'print $2'} | grep -E -i "[a-z]|[A-Z]|[0-9]"
+      register: results
+      ignore_errors: true
+      tags: 
+        - precheck
+        - postcheck
+    - fail:
+        msg: "'{{ ntp_entry }}' is invalid. Keyword 'server' must be specified. Example: 'server time.stdtime.gov.hk' "
+      when: results.rc == 3
+      tags: 
+        - precheck
+        - postcheck
+    - fail:
+        msg: "'{{ ntp_entry }}' is invalid. Example: 'server time.stdtime.gov.hk' "
+      when: results.rc != 0
+      tags: 
+        - precheck
+        - postcheck

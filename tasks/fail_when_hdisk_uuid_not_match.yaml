@@ -1,0 +1,35 @@
+- set_fact:
+    m_hdisks: []
+  tags: precheck
+
+- set_fact:
+    uuid: "{{ item }}"
+  tags: precheck
+
+- name: Get all hdisks matching UUID
+  shell: |
+    /app1/san/home/sanmopr/bin/sanquery.sh | grep {{ uuid }} | awk '{ print $1 }'
+  register: results
+  tags: precheck
+
+- set_fact:
+    m_hdisks: "{{ results.stdout.split('\n') }}"
+  tags: precheck
+
+- fail:
+    msg: "No hdisk matches UUID {{ uuid }}." 
+  when: results.stdout == ""
+  tags: precheck
+  
+- fail:
+    msg: "More than one hdisks match UUID {{ uuid }}." 
+  when: m_hdisks | length > 1
+  tags: precheck
+  
+- set_fact: 
+    disks: "{{ disks + [ { 'uuid': uuid, 'hdisk': m_hdisks[0] } ] }}"
+  tags: precheck
+
+- set_fact:
+    m_hdisks: []
+  tags: precheck
