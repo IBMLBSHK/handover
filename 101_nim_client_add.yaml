@@ -1,0 +1,70 @@
+---
+- name: NIM management
+  hosts: aix
+  gather_facts: yes
+  vars_files:
+    - "./vars/nim_master.yaml"
+    - "./vars_{{ change_order }}/nim_client.yaml"
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: nim_client_add
+      items: ""
+    run_once: true
+
+  - name: PreCheck current user is ansiadm
+    include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+  - name: Adding the nim clients
+    block:
+    - include_tasks: tasks/log_begin.yaml
+  
+    - name: Check and add master nim server address in /etc/hosts of client servers
+      lineinfile:
+        dest: /etc/hosts
+        line: "{{ nim_master.ipaddr }} {{ nim_master.name }}"
+        state: present
+      when: inventory_hostname == item.name
+      loop: "{{ nim_client }}"
+      tags: add_hosts
+
+    - name: Check if the client server added in master server /etc/hosts
+      lineinfile:
+        dest: /etc/hosts
+        line: "{{ item.ipaddr }} {{ item.name }}"
+        state: present
+        backup: yes
+      loop: "{{ nim_client }}"
+      when: inventory_hostname == nim_master.name
+      tags: add_hosts
+
+    - name: Add the nim clients using nimint command
+      vars:
+        nimmaster: "{{ nim_master.name }}"
+      shell: |
+        /usr/sbin/niminit -a name={{ item.name }} -a master={{ nimmaster }} -a pif_name={{ item.ifen }} -a platform=chrp -a connect=nimsh -a netboot_kernel=up
+      when: inventory_hostname == item.name 
+      loop: "{{ nim_client }}"
+      tags: add_nim
+
+    - name: List the nim clients
+      shell: |
+        /usr/sbin/lsnim -t standalone
+      register: lsnim_result
+      when: inventory_hostname == nim_master.name
+      tags: list_nimclient
+  
+    - name: Display lsnim nim clients
+      debug:
+        msg: "{{ item }}"
+      loop: "{{ lsnim_result.stdout_lines }}"
+      when: inventory_hostname == nim_master.name
+      tags: list_nimclient
+
+    - include_tasks: tasks/log_success.yaml
+
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+
+    always:
+    - include_tasks: tasks/log_end.yaml

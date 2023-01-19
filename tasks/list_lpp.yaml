@@ -1,0 +1,33 @@
+- name: List the lpp resource  
+  shell: |
+    /usr/sbin/lsnim -t lpp_source| awk '{ print $1 }'
+  register: lslpp_result
+  when: inventory_hostname == nim_master.name
+  tags: list_nimlpp
+  
+- name: Output lpp resource to json logfile ./logfile/lpp_list.json
+  copy:
+    content: "{{ lslpp_result }}"
+    dest: "./logfile/lpp_list.json"
+    owner: ansiadm
+    group: ansiadm
+    force: yes
+  delegate_to: 127.0.0.1
+
+- name: Output lpp resourcelist to menu yaml file ./vars_{{ change_order }}/lpp_list.yaml (first line)
+  copy:
+    content: "lpp:"
+    dest: "./vars_{{ change_order }}/lpp_list.yaml"
+    owner: ansiadm
+    group: ansiadm
+    force: yes
+  delegate_to: 127.0.0.1
+
+- name: Output spot list to menu yaml file ./vars_{{ change_order }}/lpp_list.yaml
+  lineinfile:
+    line: "  - option: {{ ansible_loop.index }}\n    name: {{ item }}"
+    path: "./vars_{{ change_order }}/lpp_list.yaml"
+  loop: "{{ lslpp_result.stdout_lines }}"
+  loop_control:
+    extended: yes
+  delegate_to: 127.0.0.1

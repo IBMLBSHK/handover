@@ -1,0 +1,34 @@
+- name: List the mksysb image
+  shell: |
+    /usr/sbin/lsnim -t mksysb | awk '{ print $1 }'
+  register: lsnim_result
+  when: inventory_hostname == nim_master.name
+  tags: list_nimclient
+  
+- name: Output mksysb list to json logfile ./logfile/mksysb_list.json
+  copy:
+    content: "{{ lsnim_result }}"
+    dest: "./logfile/mksysb_list.json"
+    owner: ansiadm
+    group: ansiadm
+    force: yes
+  delegate_to: 127.0.0.1
+
+- name: Output mksysb list to menu yaml file ./vars_{{ change_order }}/mksysb_list.yaml (first line)
+  copy:
+    content: "mksysb:"
+    dest: "./vars_{{ change_order }}/mksysb_list.yaml"
+    owner: ansiadm
+    group: ansiadm
+    force: yes
+  delegate_to: 127.0.0.1
+
+- name: Output mksysb list to menu yaml file ./vars_{{ change_order }}/mksysb_list.yaml
+  lineinfile:
+    line: "  - option: {{ ansible_loop.index }}\n    name: {{ item }}"
+    path: "./vars_{{ change_order }}/mksysb_list.yaml"
+  loop: "{{ lsnim_result.stdout_lines }}"
+  loop_control:
+    extended: yes
+  delegate_to: 127.0.0.1
+

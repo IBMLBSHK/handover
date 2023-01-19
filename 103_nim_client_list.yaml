@@ -1,0 +1,42 @@
+---
+- name: NIM management
+  hosts: aix
+  gather_facts: yes
+  vars_files:
+    - "./vars/nim_master.yaml"
+    - "./vars_{{ change_order }}/nim_client.yaml"
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: nim_mksysb_list
+      items: ""
+    run_once: true
+
+  - name: PreCheck current user is ansiadm
+    include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+  - name: List the nim clients
+    block:
+    - include_tasks: tasks/log_begin.yaml
+
+    - name: Start list the nim clients
+      shell: |
+        /usr/sbin/lsnim -t standalone
+      register: lsnim_result
+      when: inventory_hostname == nim_master.name
+      tags: list_nimclient
+  
+    - name: Display lsnim nim clients
+      debug:
+        msg: "{{ item }}"
+      loop: "{{ lsnim_result.stdout_lines }}"
+      when: inventory_hostname == nim_master.name
+      tags: list_nimclient
+
+    - include_tasks: tasks/log_success.yaml
+   
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+    
+    always:
+    - include_tasks: tasks/log_end.yaml

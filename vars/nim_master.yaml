@@ -1,0 +1,4 @@
+nim_master:
+  name: Anthony_nimserver
+  ipaddr: 192.168.140.40
+  ifen: en0

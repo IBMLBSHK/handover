@@ -1,0 +1,8 @@
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+

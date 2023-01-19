@@ -1,0 +1,84 @@
+---
+- name: NIM management
+  hosts: nimserver
+  gather_facts: yes
+  vars_files:
+    - "./vars/nim_master.yaml"
+    - "./vars_{{ change_order }}/savevg_list.yaml"
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: nim_client_add
+      items: ""
+    run_once: true
+
+  - name: PreCheck current user is ansiadm
+    include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+  - name: Start to delete savevg images
+    block:
+    - include_tasks: tasks/log_begin.yaml
+
+    - name: Make a list of savevg images in nim server
+      include_tasks: tasks/list_savevg.yaml
+      
+    - name: Check the list savevg images exist
+      fail:
+        msg: "There is no savevg images in NIM server"
+      failed_when: savevg|length == 0
+  
+    - pause:
+        prompt: |-
+          Delete savevg options:
+          =====================================
+          {% for i in savevg %}
+          {{ i.option }} - {{ i.name }}
+          {% endfor %}
+        echo: yes
+      register: result 
+      #when: inventory_hostname == nim_master.name
+      #delegate_to: localhost
+  
+    - set_fact:
+        savevg_option: "{{ result.user_input }}"
+  
+    - name: display input
+      debug:
+        msg: "{{ savevg_option|int - 1 }}"
+      delegate_to: 127.0.0.1
+  
+    - name: Invalid option to delete savevg
+      fail:
+        msg: "Do not delete savevg image since option invalid (not in menu range)"
+      when: savevg_option|int > savevg|length or savevg_option|int == 0
+      delegate_to: 127.0.0.1
+  
+    - pause:
+        prompt: |-
+          Do you want to delete {{ savevg[savevg_option|int - 1].name }} (yes/no)?
+        echo: yes
+      register: boolen_savevg
+      failed_when: not boolen_savevg.user_input | bool  
+    
+    - name: Start to delete the savevg 
+      ibm.power_aix.nim_resource:
+        action: delete
+        object_type: savevg
+        name: "{{ savevg[savevg_option|int - 1].name }}"
+      when: boolen_savevg.user_input | bool and savevg_option|int -1 <  savevg|length
+  
+    - include_tasks: tasks/log_success.yaml
+
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+
+    always:
+    - include_tasks: tasks/log_end.yaml
+
+      #- name: change to readable format
+    #
+    #  shell: |
+    #    cat "./logfile/savevg_list.json" | jq > ./logfile/savevg_list.log
+    #  delegate_to: 127.0.0.1
+  
+  

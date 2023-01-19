@@ -1,0 +1,1 @@
+{"changed": true, "stdout": "Anthony_test2_savevg_20230118T150636", "stderr": "", "rc": 0, "cmd": "/usr/sbin/lsnim -t savevg | awk '{ print $1 }'\n", "start": "2023-01-18 16:40:59.707471", "end": "2023-01-18 16:40:59.819588", "delta": "0:00:00.112117", "msg": "", "stdout_lines": ["Anthony_test2_savevg_20230118T150636"], "stderr_lines": [], "failed": false}

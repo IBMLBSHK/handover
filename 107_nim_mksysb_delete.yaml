@@ -1,0 +1,101 @@
+---
+- name: NIM management
+  hosts: nimserver
+  gather_facts: yes
+  vars_files:
+    - "./vars/nim_master.yaml"
+    - "./vars_{{ change_order }}/mksysb_list.yaml"
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: nim_mksysb_delete
+      items: ""
+    run_once: true
+  
+  - name: PreCheck current user is ansiadm
+    include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+  - name: Make the menu for mksysb and choose options
+    block:
+    - include_tasks: tasks/log_begin.yaml  
+
+    - name: Output the mksysb list to file ./vars_{{ change_order }}/mksysb_list.yaml and ./logfile/mksysb_list.json
+      include_tasks: tasks/list_mksysb.yaml
+
+    - name: Check the list mksysb images exist
+      debug:
+        msg: "There is no mksysb images in NIM server"
+      when: mksysb|length == 0
+
+    - pause:
+        prompt: |-
+          Delete mksysb options:
+          =====================================
+          {% for i in mksysb %}
+          {{ i.option }} - {{ i.name }}
+          {% endfor %}
+        echo: yes
+      register: result
+      when: mksysb|length > 0
+      #failed_when: result.user_input|int > mksysb|length or result.user_input|int == 0
+      #when: inventory_hostname == nim_master.name
+      #delegate_to: localhost
+  
+    - set_fact:
+        mksysb_option: "{{ result.user_input }}" 
+  
+    - name: display input
+      debug:
+        msg: "{{ mksysb_option|int - 1 }}"
+      delegate_to: 127.0.0.1
+  
+    - name: Invalid option to delete mksysb
+      fail:
+        msg: "Do not delete mksysb image since option invalid (not in menu range)"
+      when:
+        - mksysb|length > 0
+        - mksysb_option|int > mksysb|length or mksysb_option|int == 0
+      delegate_to: 127.0.0.1
+  
+    - pause:
+        prompt: |-
+          Do you want to delete {{ mksysb[mksysb_option|int - 1].name }} (yes/no)?
+        echo: yes
+      register: boolen_mksysb
+      failed_when: not boolen_mksysb.user_input | bool 
+      when: 
+        - mksysb_option|int <= mksysb|length
+        - mksysb_option|int > 0
+    
+    #- meta: end_play
+    #  when:
+    #    - not boolen_mksysb.user_input | bool 
+
+    - name: Start to delete the mksysb 
+      ibm.power_aix.nim_resource:
+        action: delete
+        object_type: mksysb
+        name: "{{ mksysb[mksysb_option|int - 1].name }}"
+      when:
+        - mksysb_option|int -1 <  mksysb|length
+        - mksysb_option|int > 0
+  
+    - name: Deny to delete mksysb
+      debug:
+        msg: "Do not delete mksysb image since do not choose 'yes' to confirm "
+      when:
+        - not boolen_mksysb.user_input | bool 
+        - mksysb_option|int -1 <  mksysb|length
+        - mksysb_option|int > 0
+      #- name: change to readable format
+    #
+    #  shell: |
+    #    cat "./logfile/mksysb_list.json" | jq > ./logfile/mksysb_list.log
+    #  delegate_to: 127.0.0.1
+    - include_tasks: tasks/log_success.yaml
+   
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+    
+    always:
+    - include_tasks: tasks/log_end.yaml

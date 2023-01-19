@@ -1,0 +1,18 @@
+- name: Dsiplay mksysb images list
+  collections:
+    - ibm.power_aix
+  nim:
+    action: show
+    object_type: mksysb
+  register: mksysb_result
+
+- name: Write to file
+  lineinfile:
+    path: ./logfile/mksysb_list.json
+    line: "{{ mksysb_result }}"
+    create: yes
+    owner: ansiadm
+    group: ansiadm
+  delegate_to: 127.0.0.1
+
+

@@ -1,0 +1,23 @@
+---
+- name: LPARS list
+  hosts: all
+  gather_facts: no
+  tasks:
+  - name: Retrieve the LPAR related information
+    ibm.power_aix.lpar_facts:
+
+  #- set_fact:
+  #   lparsfacts: ansible_facts.lpar
+
+  - name: Store the LPAR related information in log
+    copy:
+      content: "{{ ansible_facts.lpar }}"
+      dest: "./logfile/{{ inventory_hostname }}_lpar_facts.json"
+      owner: ansiadm
+      group: ansiadm
+    delegate_to: 127.0.0.1
+
+  - name: Json to easy read file (combine all hosts)
+    shell: |
+      cat "./logfile/{{ inventory_hostname }}_lpar_facts.json" | jq >> ./logfile/lpar_facts.log
+    delegate_to: 127.0.0.1

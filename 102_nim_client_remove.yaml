@@ -1,0 +1,49 @@
+---
+- name: NIM management
+  hosts: aix
+  gather_facts: yes
+  vars_files:
+    - "./vars/nim_master.yaml"
+    - "./vars_{{ change_order }}/nim_rm_list.yaml"
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: nim_client_remove
+      items: ""
+    run_once: true
+
+  - name: PreCheck current user is ansiadm
+    include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+  - name: Remove nim client by command
+    block:
+    - include_tasks: tasks/log_begin.yaml
+
+    - name: Start to remove nim clients
+      vars:
+        nimmaster: "{{ nim_master.name }}"
+      shell: |
+        /usr/sbin/nim -o remove {{ item.name }}
+      when: inventory_hostname == nim_master.name
+      loop: "{{ nim_rm_client }}"
+      tags: rm_nim
+
+    - name: List the nim clients
+      shell: |
+        /usr/sbin/lsnim -t standalone
+      register: lsnim_result
+      when: inventory_hostname == nim_master.name
+      tags: list_nimclient
+   
+    - name: Display lsnim nim clients
+      debug:
+        msg: "{{ item }}"
+      loop: "{{ lsnim_result.stdout_lines }}"
+      when: inventory_hostname == nim_master.name
+      tags: list_nimclient2
+
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+    
+    always:
+    - include_tasks: tasks/log_end.yaml

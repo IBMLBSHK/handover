@@ -1,0 +1,53 @@
+---
+- name: alt disk 
+  hosts: aix
+  gather_facts: yes
+  vars_files:
+    - "./vars_{{ change_order }}/alt_disk_list.yaml"
+  vars:
+    cur_time: "{{ ansible_date_time.iso8601_basic_short }}"
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: alt_disk_copy
+      items: ""
+    run_once: true
+  
+  - name: PreCheck current user is ansiadm
+    include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+  - name: Start to create alt disk ...
+    block:
+    - include_tasks: tasks/log_begin.yaml
+
+    - name: Create alt disk
+      ibm.power_aix.alt_disk:
+        action: copy
+        force: yes
+        targets: "{{ item.altdisk }}"
+      register: alt_result
+      when: inventory_hostname == item.name
+      loop: "{{ alt_server }}"
+  
+    - set_fact:
+       alt_re: "{{ alt_result }}"
+  
+    - name: Output to the log
+      vars:
+        create_alt_time: "alt_create_{{ cur_time }}.log"
+      copy:
+        content: "{{ item.stdout }}"
+        dest: "./logfile/{{ item.item.name }}_{{ create_alt_time }}"
+        owner: ansiadm
+        group: ansiadm
+      when: item.item.name == inventory_hostname
+      loop: "{{ alt_re.results }}"
+      delegate_to: 127.0.0.1
+
+    - include_tasks: tasks/log_success.yaml
+
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+
+    always:
+    - include_tasks: tasks/log_end.yaml

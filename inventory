@@ -1,9 +1,9 @@
-[aix72]
-#localhost ansible_connection=local
-#192.168.138.64 ansible_connection=ssh ansible_ssh_user=ansiadm ansible_ssh_pass=abcd1234
-#192.168.138.64 ansible_connection=ssh ansible_ssh_user=aix3 ansible_ssh_pass=passw0rd
-#192.168.138.210 ansible_connection=ssh ansible_ssh_user=ansiadm ansible_ssh_pass=abcd1234
-ansible9
-aixansiblec10
-#192.168.143.9 ansible_connection=ssh ansible_ssh_user=aix3 ansible_ssh_pass=passw0rd 
-#192.168.143.9 ansible_connection=ssh ansible_ssh_user=root ansible_ssh_pass=abcd1234
+[aix]
+Anthony_nimserver
+Anthony_test2
+
+[nimserver]
+Anthony_nimserver
+
+[nimclient]
+Anthony_test2

@@ -2,7 +2,8 @@
 ------------------ [ {{ action }} ] ------------------
 
 hosts: {{ ansible_play_hosts }}
-user: {{ ansible_user }}
+sudo user: {{ ansible_env.SUDO_USER }}
+become user: {{ ansible_env.USER }}
 items: 
 {{ items  }}
 

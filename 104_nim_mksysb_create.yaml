@@ -1,0 +1,47 @@
+---
+- name: Create NIM backup for clients
+  hosts: all
+  collections: 
+    - ibm.power_aix
+  vars_files:
+    - "./vars_{{ change_order }}/nim_mksysb_list.yaml"
+    - "./vars/nim_master.yaml"
+  vars:
+    cur_time: "{{ ansible_date_time.iso8601_basic_short }}"
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: nim_mksysb_create
+      items: ""
+    run_once: true
+  
+  - name: PreCheck current user is ansiadm
+    include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+  - name: Start to create mksysb
+    block:
+    - include_tasks: tasks/log_begin.yaml  
+    
+    - name: Create mksysb image
+      vars:
+        postfixtime: "_mksysb_{{ cur_time }}"
+      nim_backup:
+        action: create
+        type: mksysb
+        targets: "{{ item.name }}"
+        name_postfix: "{{ postfixtime }}"
+      register: mksysb_result
+      loop: "{{ nim_client }}"
+      when: inventory_hostname == nim_master.name
+  
+    - name: Display the result of mksysb
+      debug:
+        msg: "{{ mksysb_result }}"
+  
+    - include_tasks: tasks/log_success.yaml
+   
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+    
+    always:
+    - include_tasks: tasks/log_end.yaml

@@ -1,0 +1,35 @@
+---
+- name: NIM management
+  hosts: nimserver
+  gather_facts: yes
+  vars_files:
+    - "./vars/nim_master.yaml"
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: nim_lpp_list
+      items: ""
+    run_once: true
+
+  - name: PreCheck current user is ansiadm
+    include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+  - name: Start to list the lpp
+    block:
+    - include_tasks: tasks/log_begin.yaml
+    
+    - name: Output the lpp_resource list to file ./vars/list_lpp.yaml and ./logfile/list_lpp.json
+      include_tasks: tasks/list_lpp.yaml
+  
+    - debug:
+        msg: "{{ lslpp_result.stdout_lines }}"
+      when: lslpp_result.stdout_lines 
+      delegate_to: 127.0.0.1
+      
+    - include_tasks: tasks/log_success.yaml
+   
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+    
+    always:
+    - include_tasks: tasks/log_end.yaml

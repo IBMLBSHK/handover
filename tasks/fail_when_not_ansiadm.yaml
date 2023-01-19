@@ -1,5 +1,5 @@
 - block:
     - fail:
         msg: "Only user 'ansiadm' can run this playbook. Or you can run precheck with '--tags precheck'." 
-      when: ansible_user != 'ansiadm'
+      when: lookup('env','USER') != 'ansiadm'
       delegate_to: 127.0.0.1

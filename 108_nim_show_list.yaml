@@ -1,0 +1,10 @@
+---
+- name: List nim objects 
+  hosts: nimserver
+  gather_facts: no
+  tasks:
+  - name: List mksysb
+    include_tasks: ./tasks/nim_show.yaml
+
+  - name: list value
+

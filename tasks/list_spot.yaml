@@ -1,0 +1,33 @@
+- name: List the spot image
+  shell: |
+    /usr/sbin/lsnim -t spot | awk '{ print $1 }'
+  register: lsspot_result
+  when: inventory_hostname == nim_master.name
+  tags: list_nimclient
+  
+- name: Output spot list to json logfile ./logfile/spot_list.json
+  copy:
+    content: "{{ lsspot_result }}"
+    dest: "./logfile/spot_list.json"
+    owner: ansiadm
+    group: ansiadm
+    force: yes
+  delegate_to: 127.0.0.1
+
+- name: Output spot list to menu yaml file ./vars_{{ change_order }}/spot_list.yaml (first line)
+  copy:
+    content: "spot:"
+    dest: "./vars_{{ change_order }}/spot_list.yaml"
+    owner: ansiadm
+    group: ansiadm
+    force: yes
+  delegate_to: 127.0.0.1
+
+- name: Output spot list to menu yaml file ./vars_{{ change_order }}/spot_list.yaml
+  lineinfile:
+    line: "  - option: {{ ansible_loop.index }}\n    name: {{ item }}"
+    path: "./vars_{{ change_order }}/spot_list.yaml"
+  loop: "{{ lsspot_result.stdout_lines }}"
+  loop_control:
+    extended: yes
+  delegate_to: 127.0.0.1

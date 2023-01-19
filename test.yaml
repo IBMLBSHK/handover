@@ -1,18 +1,10 @@
 ---
-## Run this with something like "ansible-playbook -l localhost test.yml"
-- name: Testing playbook
-  hosts: all
+- name: create new menu
+  hosts: localhost
+  gather_facts: no
   tasks:
-    - name: Run shell script
-      shell: |
-        #set -o errexit
-        hostname
-        date
-        #false
-        uptime
-        
-      register: results
+  - name: display menu
+    pause:
+      prompt:
+         " this is menu "
 
-    - name: Print results
-      debug:
-        msg: "{{ results.stdout_lines }}"

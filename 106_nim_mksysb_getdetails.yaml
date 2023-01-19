@@ -1,0 +1,50 @@
+---
+- name: NIM management
+  hosts: aix
+  gather_facts: yes
+  vars_files:
+    - "./vars/nim_master.yaml"
+  
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: nim_mksysb_list
+      items: ""
+    run_once: true
+
+  - name: PreCheck current user is ansiadm
+    include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+  - name: List the mksysb detail
+    block:
+    - include_tasks: tasks/log_begin.yaml
+    
+    - name: List the mksysb image
+      ibm.power_aix.nim_resource:
+        action: show
+        object_type: mksysb
+      register: lsnim_result
+      when: inventory_hostname == nim_master.name
+      tags: list_nimclient
+    
+     #- name: Out to file
+      #lineinfile:
+      #  line: "{{ item }}"
+      #  path: "./logfile/mksysb_list.log"
+      #  create: yes
+      #loop: "{{ lsnim_result.stdout_lines }}"
+      #delegate_to: 127.0.0.1
+      #when: inventory_hostname == nim_master.name
+  
+    - name: display output
+      debug:
+        msg: "{{ lsnim_result.stdout_lines }}"
+      when: inventory_hostname == nim_master.name
+
+    - include_tasks: tasks/log_success.yaml
+   
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+    
+    always:
+    - include_tasks: tasks/log_end.yaml
