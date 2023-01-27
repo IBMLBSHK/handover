@@ -1,0 +1,17 @@
+- name: List the alt_disk image
+  shell: |
+    /usr/sbin/lsvg| grep altinst_rootvg
+  register: lsalt_result
+  
+- name: Output alt_disk list to json logfile ./logfile/alt_disk_list.json
+  copy:
+    content: "{{ lsalt_result }}"
+    dest: "./logfile/alt_disk_list.json"
+    owner: ansiadm
+    group: ansiadm
+    force: yes
+  delegate_to: 127.0.0.1
+
+- name: Display the result
+  debug:
+    msg: "{{ lsalt_result.stdout }}"

@@ -1,5 +1,5 @@
 
------------------- [ alt_disk_copy ] ------------------
+------------------ [ alt_disk_list ] ------------------
 
 hosts: ['Anthony_nimserver', 'Anthony_test2']
 sudo user: ansiadm
