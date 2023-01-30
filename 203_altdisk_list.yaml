@@ -22,27 +22,32 @@
     
     - name: List the alt_disk image
       shell: |
-        /usr/sbin/lsvg| grep altinst_rootvg
+        /usr/sbin/lspv | grep altinst_rootvg | awk {'print $1'}
       register: lsalt_result
       ignore_errors: true
   
+    - name: Create new list log
+      file:
+        dest: "./logfile/alt_disk_list.json"
+        state: touch
+        owner: ansiadm
+        group: ansiadm
+      delegate_to: 127.0.0.1
+
     - name: Display the result (rc=0)
       debug:
-        msg: "This host contain alt rootvg disk" 
+        msg: "This host: {{ inventory_hostname }} contain alt rootvg disk on {{ lsalt_result.stdout_lines }}" 
       when: lsalt_result.rc == 0
 
     - name: Display the result (rc=1)
       debug:
-        msg: "This host DO NOT contain alt rootvg disk" 
+        msg: "This host: {{ inventory_hostname }} DO NOT contain alt rootvg disk" 
       when: lsalt_result.rc == 1
 
     - name: Output alt_disk list to json logfile ./logfile/alt_disk_list.json
-      copy:
-        content: "{{ lsalt_result }}"
+      lineinfile:
+        line: "{{ lsalt_result }}"
         dest: "./logfile/alt_disk_list.json"
-        owner: ansiadm
-        group: ansiadm
-        force: yes
       delegate_to: 127.0.0.1
 
     - include_tasks: tasks/log_success.yaml

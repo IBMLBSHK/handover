@@ -1,1 +1,0 @@
-{"changed": true, "stdout": "", "stderr": "", "rc": 0, "cmd": "/usr/sbin/lsnim -t spot | awk '{ print $1 }'\n", "start": "2023-01-18 14:26:36.546297", "end": "2023-01-18 14:26:36.648785", "delta": "0:00:00.102488", "msg": "", "stdout_lines": [], "stderr_lines": [], "failed": false}

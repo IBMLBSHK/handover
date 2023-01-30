@@ -1,1527 +1,62 @@
 
------------------- [ users_list ] ------------------
-
-hosts: ['192.168.140.40', '192.168.140.41']
-user: root
-items: 
-
-2022-12-30 11:25:41 HKT [ 192.168.140.40 ] [ users_list ] began
-
-2022-12-30 11:25:41 HKT [ 192.168.140.41 ] [ users_list ] began
-
-[ 192.168.140.40 ] [ users_list ] suceeded
-root id=0 pgrp=system groups=system,bin,sys,security,cron,audit,lp home=/ shell=/usr/bin/ksh auditclasses=general login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 time_last_login=1671766072 time_last_unsuccessful_login=1670465649 tty_last_login=/dev/pts/0 tty_last_unsuccessful_login=ssh host_last_login=192.168.138.245 host_last_unsuccessful_login=192.168.138.245 unsuccessful_login_count=0 roles=
-daemon id=1 pgrp=staff groups=staff home=/etc login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-bin id=2 pgrp=bin groups=bin,sys,adm home=/bin login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-sys id=3 pgrp=sys groups=sys home=/usr/sys login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-adm id=4 pgrp=adm groups=adm home=/var/adm login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-uucp id=5 pgrp=uucp groups=uucp home=/usr/lib/uucp login=false su=true rlogin=false daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-guest id=100 pgrp=usr groups=usr home=/home/guest login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-nobody id=4294967294 pgrp=nobody groups=nobody home=/ login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-lpd id=9 pgrp=nobody groups=nobody home=/ login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-lp id=11 pgrp=lp groups=lp,printq home=/var/spool/lp shell=/bin/false login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-invscout id=6 pgrp=invscout groups=invscout home=/var/adm/invscout shell=/usr/bin/ksh login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-snapp id=200 pgrp=snapp groups=snapp home=/usr/sbin/snapp shell=/usr/sbin/snappd gecos=snapp login user login=true su=false rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=/dev/tty0 expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=NONE logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= dce_export=false default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-ipsec id=201 pgrp=staff groups=staff home=/etc/ipsec shell=/usr/bin/ksh login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-nuucp id=7 pgrp=uucp groups=uucp home=/var/spool/uucppublic shell=/usr/sbin/uucp/uucico gecos=uucp login user login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-srvproxy id=202 pgrp=system groups=system,staff home=/home/srvproxy shell=/usr/bin/ksh gecos=Service Proxy Daemon login=false su=true rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=2 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-smmsp id=203 pgrp=smmsp groups=smmsp,staff home=/etc/smmsp shell=/usr/bin/ksh login=false su=false rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-esaadmin id=8 pgrp=system groups=system,staff home=/var/esa shell=/usr/bin/ksh login=false su=true rlogin=false daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles=SysConfig fsize=2097151 cpu=-1 data=262144 stack=393216 core=2097151 rss=65536 nofiles=2000 stack_hard=393216 roles=SysConfig
-sshd id=204 pgrp=sshd groups=sshd,staff home=/var/empty shell=/usr/bin/ksh login=false su=true rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=true minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-anthony id=208 pgrp=staff groups=staff home=/home/anthony shell=/usr/bin/ksh login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-ansiadm id=214 pgrp=staff groups=staff home=/home/ansiadm shell=/usr/bin/ksh gecos=Ansible user account login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 time_last_login=1672370606 tty_last_login=ssh host_last_login=192.168.140.50 unsuccessful_login_count=0 roles=
-
-[ 192.168.140.41 ] [ users_list ] suceeded
-root id=0 pgrp=system groups=system,bin,sys,security,cron,audit,lp home=/ shell=/usr/bin/ksh auditclasses=general login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 time_last_login=1670465657 tty_last_login=/dev/pts/1 host_last_login=192.168.138.245 unsuccessful_login_count=0 roles=
-daemon id=1 pgrp=staff groups=staff home=/etc login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-bin id=2 pgrp=bin groups=bin,sys,adm home=/bin login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-sys id=3 pgrp=sys groups=sys home=/usr/sys login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-adm id=4 pgrp=adm groups=adm home=/var/adm login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-uucp id=5 pgrp=uucp groups=uucp home=/usr/lib/uucp login=false su=true rlogin=false daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-guest id=100 pgrp=usr groups=usr home=/home/guest login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-nobody id=4294967294 pgrp=nobody groups=nobody home=/ login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-lpd id=9 pgrp=nobody groups=nobody home=/ login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-lp id=11 pgrp=lp groups=lp,printq home=/var/spool/lp shell=/bin/false login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-invscout id=6 pgrp=invscout groups=invscout home=/var/adm/invscout shell=/usr/bin/ksh login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-snapp id=200 pgrp=snapp groups=snapp home=/usr/sbin/snapp shell=/usr/sbin/snappd gecos=snapp login user login=true su=false rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=/dev/tty0 expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=NONE logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= dce_export=false default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-ipsec id=201 pgrp=staff groups=staff home=/etc/ipsec shell=/usr/bin/ksh login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-nuucp id=7 pgrp=uucp groups=uucp home=/var/spool/uucppublic shell=/usr/sbin/uucp/uucico gecos=uucp login user login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-srvproxy id=202 pgrp=system groups=system,staff home=/home/srvproxy shell=/usr/bin/ksh gecos=Service Proxy Daemon login=false su=true rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=2 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-smmsp id=203 pgrp=smmsp groups=smmsp,staff home=/etc/smmsp shell=/usr/bin/ksh login=false su=false rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-esaadmin id=8 pgrp=system groups=system,staff home=/var/esa shell=/usr/bin/ksh login=false su=true rlogin=false daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles=SysConfig fsize=2097151 cpu=-1 data=262144 stack=393216 core=2097151 rss=65536 nofiles=2000 stack_hard=393216 roles=SysConfig
-sshd id=204 pgrp=sshd groups=sshd,staff home=/var/empty shell=/usr/bin/ksh login=false su=true rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=true minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-ivanng id=216 pgrp=staff groups=staff home=/home/ivanng shell=/usr/bin/ksh gecos=ivanng user account login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-anthony3 id=217 pgrp=staff groups=staff home=/home/anthony3 shell=/usr/bin/ksh gecos=anthony3 user account login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-ansiadm id=218 pgrp=staff groups=staff home=/home/ansiadm shell=/usr/bin/ksh gecos=Ansible user account login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 time_last_login=1672370603 tty_last_login=ssh host_last_login=192.168.140.50 unsuccessful_login_count=0 roles=
-
-2022-12-30 11:25:48 HKT [ 192.168.140.40 ] [ users_list ] ended
-
-2022-12-30 11:25:48 HKT [ 192.168.140.41 ] [ users_list ] ended
-
-
------------------- [ users_list ] ------------------
-
-hosts: ['192.168.140.40', '192.168.140.41']
-sudo user: ansiadm
-become user: root
-items: 
-
-2022-12-30 11:33:47 HKT [ 192.168.140.40 ] [ users_list ] began
-
-2022-12-30 11:33:47 HKT [ 192.168.140.41 ] [ users_list ] began
-
-[ 192.168.140.40 ] [ users_list ] suceeded
-root id=0 pgrp=system groups=system,bin,sys,security,cron,audit,lp home=/ shell=/usr/bin/ksh auditclasses=general login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 time_last_login=1671766072 time_last_unsuccessful_login=1670465649 tty_last_login=/dev/pts/0 tty_last_unsuccessful_login=ssh host_last_login=192.168.138.245 host_last_unsuccessful_login=192.168.138.245 unsuccessful_login_count=0 roles=
-daemon id=1 pgrp=staff groups=staff home=/etc login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-bin id=2 pgrp=bin groups=bin,sys,adm home=/bin login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-sys id=3 pgrp=sys groups=sys home=/usr/sys login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-adm id=4 pgrp=adm groups=adm home=/var/adm login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-uucp id=5 pgrp=uucp groups=uucp home=/usr/lib/uucp login=false su=true rlogin=false daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-guest id=100 pgrp=usr groups=usr home=/home/guest login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-nobody id=4294967294 pgrp=nobody groups=nobody home=/ login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-lpd id=9 pgrp=nobody groups=nobody home=/ login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-lp id=11 pgrp=lp groups=lp,printq home=/var/spool/lp shell=/bin/false login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-invscout id=6 pgrp=invscout groups=invscout home=/var/adm/invscout shell=/usr/bin/ksh login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-snapp id=200 pgrp=snapp groups=snapp home=/usr/sbin/snapp shell=/usr/sbin/snappd gecos=snapp login user login=true su=false rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=/dev/tty0 expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=NONE logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= dce_export=false default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-ipsec id=201 pgrp=staff groups=staff home=/etc/ipsec shell=/usr/bin/ksh login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-nuucp id=7 pgrp=uucp groups=uucp home=/var/spool/uucppublic shell=/usr/sbin/uucp/uucico gecos=uucp login user login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-srvproxy id=202 pgrp=system groups=system,staff home=/home/srvproxy shell=/usr/bin/ksh gecos=Service Proxy Daemon login=false su=true rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=2 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-smmsp id=203 pgrp=smmsp groups=smmsp,staff home=/etc/smmsp shell=/usr/bin/ksh login=false su=false rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-esaadmin id=8 pgrp=system groups=system,staff home=/var/esa shell=/usr/bin/ksh login=false su=true rlogin=false daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles=SysConfig fsize=2097151 cpu=-1 data=262144 stack=393216 core=2097151 rss=65536 nofiles=2000 stack_hard=393216 roles=SysConfig
-sshd id=204 pgrp=sshd groups=sshd,staff home=/var/empty shell=/usr/bin/ksh login=false su=true rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=true minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-anthony id=208 pgrp=staff groups=staff home=/home/anthony shell=/usr/bin/ksh login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-ansiadm id=214 pgrp=staff groups=staff home=/home/ansiadm shell=/usr/bin/ksh gecos=Ansible user account login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 time_last_login=1672371092 tty_last_login=ssh host_last_login=192.168.140.50 unsuccessful_login_count=0 roles=
-
-[ 192.168.140.41 ] [ users_list ] suceeded
-root id=0 pgrp=system groups=system,bin,sys,security,cron,audit,lp home=/ shell=/usr/bin/ksh auditclasses=general login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 time_last_login=1670465657 tty_last_login=/dev/pts/1 host_last_login=192.168.138.245 unsuccessful_login_count=0 roles=
-daemon id=1 pgrp=staff groups=staff home=/etc login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-bin id=2 pgrp=bin groups=bin,sys,adm home=/bin login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-sys id=3 pgrp=sys groups=sys home=/usr/sys login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-adm id=4 pgrp=adm groups=adm home=/var/adm login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-uucp id=5 pgrp=uucp groups=uucp home=/usr/lib/uucp login=false su=true rlogin=false daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-guest id=100 pgrp=usr groups=usr home=/home/guest login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-nobody id=4294967294 pgrp=nobody groups=nobody home=/ login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-lpd id=9 pgrp=nobody groups=nobody home=/ login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0101000070 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-lp id=11 pgrp=lp groups=lp,printq home=/var/spool/lp shell=/bin/false login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-invscout id=6 pgrp=invscout groups=invscout home=/var/adm/invscout shell=/usr/bin/ksh login=true su=true rlogin=true daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-snapp id=200 pgrp=snapp groups=snapp home=/usr/sbin/snapp shell=/usr/sbin/snappd gecos=snapp login user login=true su=false rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=/dev/tty0 expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=NONE logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= dce_export=false default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-ipsec id=201 pgrp=staff groups=staff home=/etc/ipsec shell=/usr/bin/ksh login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-nuucp id=7 pgrp=uucp groups=uucp home=/var/spool/uucppublic shell=/usr/sbin/uucp/uucico gecos=uucp login user login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-srvproxy id=202 pgrp=system groups=system,staff home=/home/srvproxy shell=/usr/bin/ksh gecos=Service Proxy Daemon login=false su=true rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=2 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-smmsp id=203 pgrp=smmsp groups=smmsp,staff home=/etc/smmsp shell=/usr/bin/ksh login=false su=false rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-esaadmin id=8 pgrp=system groups=system,staff home=/var/esa shell=/usr/bin/ksh login=false su=true rlogin=false daemon=true admin=true sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles=SysConfig fsize=2097151 cpu=-1 data=262144 stack=393216 core=2097151 rss=65536 nofiles=2000 stack_hard=393216 roles=SysConfig
-sshd id=204 pgrp=sshd groups=sshd,staff home=/var/empty shell=/usr/bin/ksh login=false su=true rlogin=false daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=true minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-ivanng id=216 pgrp=staff groups=staff home=/home/ivanng shell=/usr/bin/ksh gecos=ivanng user account login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-anthony3 id=217 pgrp=staff groups=staff home=/home/anthony3 shell=/usr/bin/ksh gecos=anthony3 user account login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 roles=
-ansiadm id=218 pgrp=staff groups=staff home=/home/ansiadm shell=/usr/bin/ksh gecos=Ansible user account login=true su=true rlogin=true daemon=true admin=false sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 account_locked=false minage=0 maxage=0 maxexpired=-1 minalpha=0 minloweralpha=0 minupperalpha=0 minother=0 mindigit=0 minspecialchar=0 mindiff=0 maxrepeats=8 minlen=0 histexpire=0 histsize=0 pwdchecks= dictionlist= default_roles= fsize=2097151 cpu=-1 data=262144 stack=65536 core=2097151 rss=65536 nofiles=2000 time_last_login=1672371089 tty_last_login=ssh host_last_login=192.168.140.50 unsuccessful_login_count=0 roles=
-
-2022-12-30 11:33:55 HKT [ 192.168.140.40 ] [ users_list ] ended
-
-2022-12-30 11:33:55 HKT [ 192.168.140.41 ] [ users_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
+------------------ [ log_housekeep ] ------------------
 
 hosts: ['Anthony_nimserver', 'Anthony_test2']
 sudo user: ansiadm
 become user: root
 items: 
 
-2023-01-16 11:46:08 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
+2023-01-30 12:02:54 HKT [ Anthony_nimserver ] [ log_housekeep ] began
 
-2023-01-16 11:46:08 HKT [ Anthony_test2 ] [ nim_mksysb_list ] began
+2023-01-30 12:02:54 HKT [ Anthony_test2 ] [ log_housekeep ] began
 
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
+[ Anthony_nimserver ] [ log_housekeep ] failed
 
-[ Anthony_test2 ] [ nim_mksysb_list ] suceeded
+[ Anthony_test2 ] [ log_housekeep ] failed
 
-2023-01-16 11:46:15 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
+2023-01-30 12:03:00 HKT [ Anthony_nimserver ] [ log_housekeep ] ended
 
-2023-01-16 11:46:15 HKT [ Anthony_test2 ] [ nim_mksysb_list ] ended
-
-[ Anthony_test2 ] [ nim_client_remove ] failed
-
-[ Anthony_nimserver ] [ nim_client_remove ] failed
-
-2023-01-16 13:14:36 HKT [ Anthony_nimserver ] [ nim_client_remove ] ended
-
-2023-01-16 13:14:36 HKT [ Anthony_test2 ] [ nim_client_remove ] ended
+2023-01-30 12:03:00 HKT [ Anthony_test2 ] [ log_housekeep ] ended
 
 
------------------- [ nim_mksysb_list ] ------------------
+------------------ [ log_housekeep ] ------------------
 
 hosts: ['Anthony_nimserver', 'Anthony_test2']
 sudo user: ansiadm
 become user: root
 items: 
 
-2023-01-16 13:15:14 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
+2023-01-30 12:04:14 HKT [ Anthony_nimserver ] [ log_housekeep ] began
 
-2023-01-16 13:15:14 HKT [ Anthony_test2 ] [ nim_mksysb_list ] began
+2023-01-30 12:04:14 HKT [ Anthony_test2 ] [ log_housekeep ] began
 
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
+[ Anthony_nimserver ] [ log_housekeep ] suceeded
 
-[ Anthony_test2 ] [ nim_mksysb_list ] suceeded
+[ Anthony_test2 ] [ log_housekeep ] suceeded
 
-2023-01-16 13:15:22 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
+2023-01-30 12:04:21 HKT [ Anthony_nimserver ] [ log_housekeep ] ended
 
-2023-01-16 13:15:22 HKT [ Anthony_test2 ] [ nim_mksysb_list ] ended
-
-[ Anthony_nimserver ] [ nim_client_remove ] failed
-
-[ Anthony_test2 ] [ nim_client_remove ] failed
-
-2023-01-16 13:18:46 HKT [ Anthony_test2 ] [ nim_client_remove ] ended
-
-2023-01-16 13:18:46 HKT [ Anthony_nimserver ] [ nim_client_remove ] ended
+2023-01-30 12:04:21 HKT [ Anthony_test2 ] [ log_housekeep ] ended
 
 
------------------- [ nim_client_remove ] ------------------
+------------------ [ log_housekeep ] ------------------
 
 hosts: ['Anthony_nimserver', 'Anthony_test2']
 sudo user: ansiadm
 become user: root
 items: 
 
-2023-01-16 13:36:33 HKT [ Anthony_nimserver ] [ nim_client_remove ] began
+2023-01-30 14:14:11 HKT [ Anthony_nimserver ] [ log_housekeep ] began
 
-2023-01-16 13:36:33 HKT [ Anthony_test2 ] [ nim_client_remove ] began
+2023-01-30 14:14:11 HKT [ Anthony_test2 ] [ log_housekeep ] began
 
-2023-01-16 13:36:39 HKT [ Anthony_nimserver ] [ nim_client_remove ] ended
+[ Anthony_nimserver ] [ log_housekeep ] suceeded
 
-2023-01-16 13:36:39 HKT [ Anthony_test2 ] [ nim_client_remove ] ended
+[ Anthony_test2 ] [ log_housekeep ] suceeded
 
+2023-01-30 14:14:18 HKT [ Anthony_nimserver ] [ log_housekeep ] ended
 
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 13:38:04 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-16 13:38:04 HKT [ Anthony_test2 ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-[ Anthony_test2 ] [ nim_mksysb_list ] suceeded
-
-2023-01-16 13:38:11 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-2023-01-16 13:38:11 HKT [ Anthony_test2 ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 14:45:59 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-16 14:45:59 HKT [ Anthony_test2 ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-[ Anthony_test2 ] [ nim_mksysb_list ] suceeded
-
-2023-01-16 14:46:06 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-2023-01-16 14:46:06 HKT [ Anthony_test2 ] [ nim_mksysb_list ] ended
-
-[ Anthony_nimserver ] [ nim_client_add ] failed
-
-[ Anthony_test2 ] [ nim_client_add ] failed
-
-2023-01-16 15:28:25 HKT [ Anthony_nimserver ] [ nim_client_add ] ended
-
-2023-01-16 15:28:25 HKT [ Anthony_test2 ] [ nim_client_add ] ended
-
-
------------------- [ nim_client_add ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 15:29:06 HKT [ Anthony_nimserver ] [ nim_client_add ] began
-
-2023-01-16 15:29:07 HKT [ Anthony_test2 ] [ nim_client_add ] began
-
-[ Anthony_nimserver ] [ nim_client_add ] suceeded
-
-[ Anthony_test2 ] [ nim_client_add ] suceeded
-
-2023-01-16 15:29:19 HKT [ Anthony_nimserver ] [ nim_client_add ] ended
-
-2023-01-16 15:29:19 HKT [ Anthony_test2 ] [ nim_client_add ] ended
-
-
------------------- [ nim_client_add ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 15:30:23 HKT [ Anthony_nimserver ] [ nim_client_add ] began
-
-2023-01-16 15:30:23 HKT [ Anthony_test2 ] [ nim_client_add ] began
-
-[ Anthony_nimserver ] [ nim_client_add ] suceeded
-
-[ Anthony_test2 ] [ nim_client_add ] failed
-
-2023-01-16 15:30:35 HKT [ Anthony_nimserver ] [ nim_client_add ] ended
-
-2023-01-16 15:30:35 HKT [ Anthony_test2 ] [ nim_client_add ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 15:49:32 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-2023-01-16 15:49:39 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 15:56:55 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-16 15:56:55 HKT [ Anthony_test2 ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-[ Anthony_test2 ] [ nim_mksysb_list ] suceeded
-
-2023-01-16 16:01:34 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-2023-01-16 16:01:34 HKT [ Anthony_test2 ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 16:08:14 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-16 16:08:14 HKT [ Anthony_test2 ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-[ Anthony_test2 ] [ nim_mksysb_list ] suceeded
-
-2023-01-16 16:08:20 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-2023-01-16 16:08:21 HKT [ Anthony_test2 ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 16:10:57 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-16 16:10:57 HKT [ Anthony_test2 ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-[ Anthony_test2 ] [ nim_mksysb_list ] suceeded
-
-2023-01-16 16:11:04 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-2023-01-16 16:11:04 HKT [ Anthony_test2 ] [ nim_mksysb_list ] ended
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 16:31:02 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 16:31:37 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 16:32:01 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 16:42:27 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-16 16:42:47 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 16:43:04 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-16 16:43:26 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 16:43:51 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-16 16:43:56 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 16:47:42 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-16 16:47:47 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 16:48:09 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-16 16:48:30 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 16:48:49 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-16 16:48:53 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 16:50:59 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
-
-2023-01-16 16:51:19 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 16:51:48 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
-
-2023-01-16 16:52:01 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 16:56:02 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
-
-2023-01-16 16:56:49 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 16:58:46 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-2023-01-16 16:58:55 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 16:59:42 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
-
-2023-01-16 17:00:05 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:00:23 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
-
-2023-01-16 17:00:42 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:09:23 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 17:09:58 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:10:42 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 17:11:03 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:12:13 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
-
-2023-01-16 17:12:37 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:13:08 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 17:13:19 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:13:41 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
-
-2023-01-16 17:13:54 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:14:12 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 17:14:18 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:15:32 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 17:15:39 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:16:13 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 17:16:20 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:16:56 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-16 17:16:56 HKT [ Anthony_test2 ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-[ Anthony_test2 ] [ nim_mksysb_list ] suceeded
-
-2023-01-16 17:21:39 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-2023-01-16 17:21:39 HKT [ Anthony_test2 ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:22:53 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-2023-01-16 17:23:01 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:23:32 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 17:23:44 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:24:52 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 17:25:02 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:25:22 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
-
-2023-01-16 17:25:49 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:32:45 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
-
-2023-01-16 17:33:20 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:33:38 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 17:33:44 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:35:01 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 17:35:07 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:38:10 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 17:38:17 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:38:45 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-16 17:38:45 HKT [ Anthony_test2 ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-[ Anthony_test2 ] [ nim_mksysb_list ] suceeded
-
-2023-01-16 17:43:29 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-2023-01-16 17:43:29 HKT [ Anthony_test2 ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:43:50 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 17:44:09 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:45:44 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-16 17:45:56 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:46:16 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
-
-2023-01-16 17:46:28 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-16 17:47:15 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
-
-2023-01-16 17:47:29 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-17 10:57:35 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-17 10:57:50 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-17 11:04:27 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-17 11:04:40 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-17 11:09:49 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-17 11:10:00 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-17 11:17:24 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-17 11:17:35 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 10:32:53 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-2023-01-18 10:33:02 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 10:33:32 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-18 10:33:45 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 10:41:40 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-18 10:42:24 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 10:44:43 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-18 10:44:51 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 10:56:53 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-18 10:57:04 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 10:57:23 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-18 10:57:37 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 10:57:56 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
-
-2023-01-18 10:58:56 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 10:59:29 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-2023-01-18 10:59:36 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 11:00:06 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-18 11:00:06 HKT [ Anthony_test2 ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-[ Anthony_test2 ] [ nim_mksysb_list ] suceeded
-
-2023-01-18 11:04:42 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-2023-01-18 11:04:42 HKT [ Anthony_test2 ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 11:53:32 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-18 11:53:43 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-
------------------- [ nim_mksysb_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 11:54:02 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
-
-2023-01-18 11:54:13 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] failed
-
-2023-01-18 13:10:53 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 13:11:38 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] failed
-
-2023-01-18 13:11:59 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 13:12:19 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] failed
-
-2023-01-18 13:12:33 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 13:13:11 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-18 13:17:13 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 13:18:44 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-18 13:18:49 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 13:19:44 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] failed
-
-2023-01-18 13:19:54 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 13:20:12 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] failed
-
-2023-01-18 13:25:42 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_spot_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 13:30:23 HKT [ Anthony_nimserver ] [ nim_spot_list ] began
-
-[ Anthony_nimserver ] [ nim_spot_list ] failed
-
-2023-01-18 13:30:36 HKT [ Anthony_nimserver ] [ nim_spot_list ] ended
-
-
------------------- [ nim_spot_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 13:30:54 HKT [ Anthony_nimserver ] [ nim_spot_list ] began
-
-2023-01-18 13:31:14 HKT [ Anthony_nimserver ] [ nim_spot_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 13:31:35 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-18 13:31:40 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 13:32:04 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-18 13:36:06 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 13:36:36 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-18 13:36:41 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_spot_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 13:37:05 HKT [ Anthony_nimserver ] [ nim_spot_list ] began
-
-2023-01-18 13:37:27 HKT [ Anthony_nimserver ] [ nim_spot_list ] ended
-
-
------------------- [ nim_lpp_create ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 13:48:58 HKT [ Anthony_nimserver ] [ nim_lpp_create ] began
-
-[ Anthony_nimserver ] [ nim_lpp_create ] suceeded
-
-2023-01-18 13:53:02 HKT [ Anthony_nimserver ] [ nim_lpp_create ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 14:08:40 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-2023-01-18 14:08:40 HKT [ Anthony_test2 ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-[ Anthony_test2 ] [ nim_mksysb_list ] suceeded
-
-2023-01-18 14:08:49 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-2023-01-18 14:08:49 HKT [ Anthony_test2 ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_mksysb_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 14:09:45 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
-
-[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
-
-2023-01-18 14:09:52 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
-
-
------------------- [ nim_spot_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 14:11:20 HKT [ Anthony_nimserver ] [ nim_spot_list ] began
-
-[ Anthony_nimserver ] [ nim_spot_list ] suceeded
-
-2023-01-18 14:11:28 HKT [ Anthony_nimserver ] [ nim_spot_list ] ended
-
-
------------------- [ nim_lpp_list ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 14:12:17 HKT [ Anthony_nimserver ] [ nim_lpp_list ] began
-
-[ Anthony_nimserver ] [ nim_lpp_list ] suceeded
-
-2023-01-18 14:12:24 HKT [ Anthony_nimserver ] [ nim_lpp_list ] ended
-
-
------------------- [ nim_lpp_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 14:15:46 HKT [ Anthony_nimserver ] [ nim_lpp_delete ] began
-
-[ Anthony_nimserver ] [ nim_lpp_delete ] failed
-
-2023-01-18 14:15:59 HKT [ Anthony_nimserver ] [ nim_lpp_delete ] ended
-
-
------------------- [ nim_lpp_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 14:16:16 HKT [ Anthony_nimserver ] [ nim_lpp_delete ] began
-
-[ Anthony_nimserver ] [ nim_lpp_delete ] failed
-
-2023-01-18 14:16:35 HKT [ Anthony_nimserver ] [ nim_lpp_delete ] ended
-
-
------------------- [ nim_lpp_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 14:17:15 HKT [ Anthony_nimserver ] [ nim_lpp_delete ] began
-
-[ Anthony_nimserver ] [ nim_lpp_delete ] suceeded
-
-2023-01-18 14:17:31 HKT [ Anthony_nimserver ] [ nim_lpp_delete ] ended
-
-
------------------- [ nim_lpp_create ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 14:18:09 HKT [ Anthony_nimserver ] [ nim_lpp_create ] began
-
-[ Anthony_nimserver ] [ nim_lpp_create ] suceeded
-
-2023-01-18 14:21:43 HKT [ Anthony_nimserver ] [ nim_lpp_create ] ended
-
-
------------------- [ nim_spot_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 14:29:44 HKT [ Anthony_nimserver ] [ nim_spot_delete ] began
-
-[ Anthony_nimserver ] [ nim_spot_delete ] failed
-
-2023-01-18 14:29:51 HKT [ Anthony_nimserver ] [ nim_spot_delete ] ended
-
-
------------------- [ nim_lpp_delete ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 14:30:36 HKT [ Anthony_nimserver ] [ nim_lpp_delete ] began
-
-[ Anthony_nimserver ] [ nim_lpp_delete ] failed
-
-2023-01-18 14:31:10 HKT [ Anthony_nimserver ] [ nim_lpp_delete ] ended
-
-[ Anthony_nimserver ] [ nim_client_add ] failed
-
-2023-01-18 14:57:12 HKT [ Anthony_nimserver ] [ nim_client_add ] ended
-
-
------------------- [ nim_client_add ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 14:59:14 HKT [ Anthony_nimserver ] [ nim_client_add ] began
-
-[ Anthony_nimserver ] [ nim_client_add ] suceeded
-
-2023-01-18 14:59:22 HKT [ Anthony_nimserver ] [ nim_client_add ] ended
-
-
------------------- [ nim_client_add ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 14:59:47 HKT [ Anthony_nimserver ] [ nim_client_add ] began
-
-[ Anthony_nimserver ] [ nim_client_add ] failed
-
-2023-01-18 14:59:58 HKT [ Anthony_nimserver ] [ nim_client_add ] ended
-
-
------------------- [ nim_client_add ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 15:00:16 HKT [ Anthony_nimserver ] [ nim_client_add ] began
-
-[ Anthony_nimserver ] [ nim_client_add ] failed
-
-2023-01-18 15:04:59 HKT [ Anthony_nimserver ] [ nim_client_add ] ended
-
-
------------------- [ nim_client_add ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 15:05:25 HKT [ Anthony_nimserver ] [ nim_client_add ] began
-
-[ Anthony_nimserver ] [ nim_client_add ] failed
-
-2023-01-18 15:05:36 HKT [ Anthony_nimserver ] [ nim_client_add ] ended
-
-
------------------- [ nim_client_add ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 15:07:39 HKT [ Anthony_nimserver ] [ nim_client_add ] began
-
-[ Anthony_nimserver ] [ nim_client_add ] suceeded
-
-2023-01-18 15:07:52 HKT [ Anthony_nimserver ] [ nim_client_add ] ended
-
-
------------------- [ nim_savevg_create ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 15:09:52 HKT [ Anthony_nimserver ] [ nim_savevg_create ] began
-
-2023-01-18 15:09:52 HKT [ Anthony_test2 ] [ nim_savevg_create ] began
-
-[ Anthony_nimserver ] [ nim_savevg_create ] suceeded
-
-[ Anthony_test2 ] [ nim_savevg_create ] suceeded
-
-2023-01-18 15:10:35 HKT [ Anthony_nimserver ] [ nim_savevg_create ] ended
-
-2023-01-18 15:10:35 HKT [ Anthony_test2 ] [ nim_savevg_create ] ended
-
-
------------------- [ nim_client_add ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 15:12:38 HKT [ Anthony_nimserver ] [ nim_client_add ] began
-
-[ Anthony_nimserver ] [ nim_client_add ] suceeded
-
-2023-01-18 15:12:45 HKT [ Anthony_nimserver ] [ nim_client_add ] ended
-
-
------------------- [ nim_client_add ] ------------------
-
-hosts: ['Anthony_nimserver']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 16:44:08 HKT [ Anthony_nimserver ] [ nim_client_add ] began
-
-[ Anthony_nimserver ] [ nim_client_add ] suceeded
-
-2023-01-18 16:44:15 HKT [ Anthony_nimserver ] [ nim_client_add ] ended
-
-
------------------- [ alt_disk_clean ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-18 17:23:40 HKT [ Anthony_nimserver ] [ alt_disk_clean ] began
-
-2023-01-18 17:23:40 HKT [ Anthony_test2 ] [ alt_disk_clean ] began
-
-[ Anthony_nimserver ] [ alt_disk_clean ] suceeded
-
-[ Anthony_test2 ] [ alt_disk_clean ] suceeded
-
-2023-01-18 17:23:50 HKT [ Anthony_nimserver ] [ alt_disk_clean ] ended
-
-2023-01-18 17:23:50 HKT [ Anthony_test2 ] [ alt_disk_clean ] ended
+2023-01-30 14:14:18 HKT [ Anthony_test2 ] [ log_housekeep ] ended
 
 
 ------------------ [ alt_disk_copy ] ------------------
@@ -1531,17 +66,17 @@ sudo user: ansiadm
 become user: root
 items: 
 
-2023-01-18 17:25:49 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+2023-01-30 14:15:30 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
 
-2023-01-18 17:25:49 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+2023-01-30 14:15:30 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
 
 [ Anthony_nimserver ] [ alt_disk_copy ] suceeded
 
 [ Anthony_test2 ] [ alt_disk_copy ] suceeded
 
-2023-01-18 17:30:37 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+2023-01-30 14:19:54 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
 
-2023-01-18 17:30:37 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+2023-01-30 14:19:54 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
 
 
 ------------------ [ alt_disk_list ] ------------------
@@ -1551,17 +86,17 @@ sudo user: ansiadm
 become user: root
 items: 
 
-2023-01-27 16:49:39 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+2023-01-30 14:20:27 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
 
-2023-01-27 16:49:39 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+2023-01-30 14:20:27 HKT [ Anthony_test2 ] [ alt_disk_list ] began
 
 [ Anthony_nimserver ] [ alt_disk_list ] suceeded
 
 [ Anthony_test2 ] [ alt_disk_list ] suceeded
 
-2023-01-27 16:49:48 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+2023-01-30 14:20:36 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
 
-2023-01-27 16:49:48 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+2023-01-30 14:20:36 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
 
 
 ------------------ [ alt_disk_list ] ------------------
@@ -1571,37 +106,17 @@ sudo user: ansiadm
 become user: root
 items: 
 
-2023-01-27 16:54:14 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+2023-01-30 14:27:21 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
 
-2023-01-27 16:54:14 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+2023-01-30 14:27:22 HKT [ Anthony_test2 ] [ alt_disk_list ] began
 
 [ Anthony_nimserver ] [ alt_disk_list ] suceeded
 
 [ Anthony_test2 ] [ alt_disk_list ] suceeded
 
-2023-01-27 16:54:22 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+2023-01-30 14:27:30 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
 
-2023-01-27 16:54:22 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
-
-
------------------- [ alt_disk_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-27 16:57:04 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
-
-2023-01-27 16:57:05 HKT [ Anthony_test2 ] [ alt_disk_list ] began
-
-[ Anthony_nimserver ] [ alt_disk_list ] failed
-
-[ Anthony_test2 ] [ alt_disk_list ] failed
-
-2023-01-27 16:57:13 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
-
-2023-01-27 16:57:13 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+2023-01-30 14:27:30 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
 
 
 ------------------ [ alt_disk_list ] ------------------
@@ -1611,37 +126,17 @@ sudo user: ansiadm
 become user: root
 items: 
 
-2023-01-27 16:58:18 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+2023-01-30 14:32:05 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
 
-2023-01-27 16:58:18 HKT [ Anthony_test2 ] [ alt_disk_list ] began
-
-[ Anthony_nimserver ] [ alt_disk_list ] failed
-
-[ Anthony_test2 ] [ alt_disk_list ] failed
-
-2023-01-27 16:58:26 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
-
-2023-01-27 16:58:26 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
-
-
------------------- [ alt_disk_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-27 16:59:10 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
-
-2023-01-27 16:59:10 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+2023-01-30 14:32:05 HKT [ Anthony_test2 ] [ alt_disk_list ] began
 
 [ Anthony_nimserver ] [ alt_disk_list ] suceeded
 
 [ Anthony_test2 ] [ alt_disk_list ] suceeded
 
-2023-01-27 16:59:17 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+2023-01-30 14:32:14 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
 
-2023-01-27 16:59:18 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+2023-01-30 14:32:14 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
 
 
 ------------------ [ alt_disk_list ] ------------------
@@ -1651,199 +146,235 @@ sudo user: ansiadm
 become user: root
 items: 
 
-2023-01-27 17:01:52 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+2023-01-30 15:21:19 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
 
-2023-01-27 17:01:52 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+2023-01-30 15:21:19 HKT [ Anthony_test2 ] [ alt_disk_list ] began
 
 [ Anthony_nimserver ] [ alt_disk_list ] suceeded
 
 [ Anthony_test2 ] [ alt_disk_list ] suceeded
 
-2023-01-27 17:02:00 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+2023-01-30 15:21:28 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
 
-2023-01-27 17:02:00 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
-
-
------------------- [ alt_disk_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-27 17:08:20 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
-
-2023-01-27 17:08:20 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+2023-01-30 15:21:28 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
 
 
------------------- [ alt_disk_list ] ------------------
+------------------ [ gather_nmon ] ------------------
 
 hosts: ['Anthony_nimserver', 'Anthony_test2']
 sudo user: ansiadm
 become user: root
 items: 
 
-2023-01-27 17:09:44 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+2023-01-30 16:17:18 HKT [ Anthony_nimserver ] [ gather_nmon ] began
 
-2023-01-27 17:09:44 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+2023-01-30 16:17:18 HKT [ Anthony_test2 ] [ gather_nmon ] began
 
+[ Anthony_nimserver ] [ gather_nmon ] failed
 
------------------- [ alt_disk_list ] ------------------
+[ Anthony_test2 ] [ gather_nmon ] failed
 
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
+2023-01-30 16:17:24 HKT [ Anthony_nimserver ] [ gather_nmon ] ended
 
-2023-01-27 17:18:45 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
-
-2023-01-27 17:18:45 HKT [ Anthony_test2 ] [ alt_disk_list ] began
-
-[ Anthony_nimserver ] [ alt_disk_list ] suceeded
-
-[ Anthony_test2 ] [ alt_disk_list ] suceeded
-
-2023-01-27 17:18:54 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
-
-2023-01-27 17:18:54 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+2023-01-30 16:17:24 HKT [ Anthony_test2 ] [ gather_nmon ] ended
 
 
------------------- [ alt_disk_list ] ------------------
+------------------ [ gather_nmon ] ------------------
 
 hosts: ['Anthony_nimserver', 'Anthony_test2']
 sudo user: ansiadm
 become user: root
 items: 
 
-2023-01-27 17:32:24 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+2023-01-30 16:19:17 HKT [ Anthony_nimserver ] [ gather_nmon ] began
 
-2023-01-27 17:32:24 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+2023-01-30 16:19:17 HKT [ Anthony_test2 ] [ gather_nmon ] began
 
-[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+[ Anthony_nimserver ] [ gather_nmon ] failed
 
-[ Anthony_test2 ] [ alt_disk_list ] suceeded
+[ Anthony_test2 ] [ gather_nmon ] failed
 
-2023-01-27 17:32:33 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+2023-01-30 16:19:25 HKT [ Anthony_nimserver ] [ gather_nmon ] ended
 
-2023-01-27 17:32:33 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
-
-
------------------- [ alt_disk_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-27 17:37:46 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
-
-2023-01-27 17:37:46 HKT [ Anthony_test2 ] [ alt_disk_list ] began
-
-[ Anthony_nimserver ] [ alt_disk_list ] suceeded
-
-[ Anthony_test2 ] [ alt_disk_list ] suceeded
-
-2023-01-27 17:37:54 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
-
-2023-01-27 17:37:54 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+2023-01-30 16:19:25 HKT [ Anthony_test2 ] [ gather_nmon ] ended
 
 
------------------- [ alt_disk_list ] ------------------
+------------------ [ gather_nmon ] ------------------
 
 hosts: ['Anthony_nimserver', 'Anthony_test2']
 sudo user: ansiadm
 become user: root
 items: 
 
-2023-01-27 18:07:08 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+2023-01-30 16:28:12 HKT [ Anthony_nimserver ] [ gather_nmon ] began
 
-2023-01-27 18:07:08 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+2023-01-30 16:28:12 HKT [ Anthony_test2 ] [ gather_nmon ] began
 
-[ Anthony_nimserver ] [ alt_disk_list ] failed
+[ Anthony_nimserver ] [ gather_nmon ] failed
 
-[ Anthony_test2 ] [ alt_disk_list ] failed
+[ Anthony_test2 ] [ gather_nmon ] failed
 
-2023-01-27 18:07:18 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+2023-01-30 16:28:18 HKT [ Anthony_nimserver ] [ gather_nmon ] ended
 
-2023-01-27 18:07:18 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
-
-
------------------- [ alt_disk_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-27 18:09:46 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
-
-2023-01-27 18:09:46 HKT [ Anthony_test2 ] [ alt_disk_list ] began
-
-[ Anthony_nimserver ] [ alt_disk_list ] suceeded
-
-[ Anthony_test2 ] [ alt_disk_list ] suceeded
-
-2023-01-27 18:09:55 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
-
-2023-01-27 18:09:55 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+2023-01-30 16:28:19 HKT [ Anthony_test2 ] [ gather_nmon ] ended
 
 
------------------- [ alt_disk_clean ] ------------------
+------------------ [ gather_nmon ] ------------------
 
 hosts: ['Anthony_nimserver', 'Anthony_test2']
 sudo user: ansiadm
 become user: root
 items: 
 
-2023-01-27 18:10:44 HKT [ Anthony_nimserver ] [ alt_disk_clean ] began
+2023-01-30 16:35:07 HKT [ Anthony_nimserver ] [ gather_nmon ] began
 
-2023-01-27 18:10:44 HKT [ Anthony_test2 ] [ alt_disk_clean ] began
+2023-01-30 16:35:07 HKT [ Anthony_test2 ] [ gather_nmon ] began
 
-[ Anthony_nimserver ] [ alt_disk_clean ] suceeded
+[ Anthony_nimserver ] [ gather_nmon ] suceeded
 
-[ Anthony_test2 ] [ alt_disk_clean ] suceeded
+[ Anthony_test2 ] [ gather_nmon ] suceeded
 
-2023-01-27 18:10:54 HKT [ Anthony_nimserver ] [ alt_disk_clean ] ended
+2023-01-30 16:35:14 HKT [ Anthony_test2 ] [ gather_nmon ] ended
 
-2023-01-27 18:10:54 HKT [ Anthony_test2 ] [ alt_disk_clean ] ended
-
-
------------------- [ alt_disk_list ] ------------------
-
-hosts: ['Anthony_nimserver', 'Anthony_test2']
-sudo user: ansiadm
-become user: root
-items: 
-
-2023-01-27 18:11:43 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
-
-2023-01-27 18:11:43 HKT [ Anthony_test2 ] [ alt_disk_list ] began
-
-[ Anthony_nimserver ] [ alt_disk_list ] suceeded
-
-[ Anthony_test2 ] [ alt_disk_list ] suceeded
-
-2023-01-27 18:11:51 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
-
-2023-01-27 18:11:51 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+2023-01-30 16:35:14 HKT [ Anthony_nimserver ] [ gather_nmon ] ended
 
 
------------------- [ alt_disk_list ] ------------------
+------------------ [ gather_nmon ] ------------------
 
 hosts: ['Anthony_nimserver', 'Anthony_test2']
 sudo user: ansiadm
 become user: root
 items: 
 
-2023-01-27 18:13:38 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+2023-01-30 16:39:03 HKT [ Anthony_nimserver ] [ gather_nmon ] began
 
-2023-01-27 18:13:38 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+2023-01-30 16:39:03 HKT [ Anthony_test2 ] [ gather_nmon ] began
 
-[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+[ Anthony_nimserver ] [ gather_nmon ] suceeded
 
-[ Anthony_test2 ] [ alt_disk_list ] suceeded
+[ Anthony_test2 ] [ gather_nmon ] suceeded
 
-2023-01-27 18:13:46 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+2023-01-30 16:39:10 HKT [ Anthony_nimserver ] [ gather_nmon ] ended
 
-2023-01-27 18:13:46 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+2023-01-30 16:39:10 HKT [ Anthony_test2 ] [ gather_nmon ] ended
+
+
+------------------ [ gather_nmon ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-01-30 16:42:50 HKT [ Anthony_nimserver ] [ gather_nmon ] began
+
+2023-01-30 16:42:50 HKT [ Anthony_test2 ] [ gather_nmon ] began
+
+[ Anthony_nimserver ] [ gather_nmon ] suceeded
+
+[ Anthony_test2 ] [ gather_nmon ] suceeded
+
+2023-01-30 16:42:57 HKT [ Anthony_nimserver ] [ gather_nmon ] ended
+
+2023-01-30 16:42:57 HKT [ Anthony_test2 ] [ gather_nmon ] ended
+
+
+------------------ [ gather_nmon ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-01-30 16:48:21 HKT [ Anthony_nimserver ] [ gather_nmon ] began
+
+2023-01-30 16:48:21 HKT [ Anthony_test2 ] [ gather_nmon ] began
+
+[ Anthony_nimserver ] [ gather_nmon ] suceeded
+
+[ Anthony_test2 ] [ gather_nmon ] suceeded
+
+2023-01-30 16:48:28 HKT [ Anthony_nimserver ] [ gather_nmon ] ended
+
+2023-01-30 16:48:28 HKT [ Anthony_test2 ] [ gather_nmon ] ended
+
+
+------------------ [ gather_nmon ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-01-30 16:49:20 HKT [ Anthony_nimserver ] [ gather_nmon ] began
+
+2023-01-30 16:49:20 HKT [ Anthony_test2 ] [ gather_nmon ] began
+
+[ Anthony_nimserver ] [ gather_nmon ] suceeded
+
+[ Anthony_test2 ] [ gather_nmon ] suceeded
+
+2023-01-30 16:49:34 HKT [ Anthony_nimserver ] [ gather_nmon ] ended
+
+2023-01-30 16:49:34 HKT [ Anthony_test2 ] [ gather_nmon ] ended
+
+
+------------------ [ gather_nmon ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-01-30 16:50:31 HKT [ Anthony_nimserver ] [ gather_nmon ] began
+
+2023-01-30 16:50:31 HKT [ Anthony_test2 ] [ gather_nmon ] began
+
+[ Anthony_nimserver ] [ gather_nmon ] suceeded
+
+[ Anthony_test2 ] [ gather_nmon ] suceeded
+
+2023-01-30 16:50:45 HKT [ Anthony_nimserver ] [ gather_nmon ] ended
+
+2023-01-30 16:50:45 HKT [ Anthony_test2 ] [ gather_nmon ] ended
+
+
+------------------ [ gather_nmon ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-01-30 16:52:23 HKT [ Anthony_nimserver ] [ gather_nmon ] began
+
+2023-01-30 16:52:23 HKT [ Anthony_test2 ] [ gather_nmon ] began
+
+[ Anthony_nimserver ] [ gather_nmon ] suceeded
+
+[ Anthony_test2 ] [ gather_nmon ] suceeded
+
+2023-01-30 16:52:37 HKT [ Anthony_nimserver ] [ gather_nmon ] ended
+
+2023-01-30 16:52:37 HKT [ Anthony_test2 ] [ gather_nmon ] ended
+
+
+------------------ [ gather_nmon ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-01-30 16:53:53 HKT [ Anthony_nimserver ] [ gather_nmon ] began
+
+2023-01-30 16:53:54 HKT [ Anthony_test2 ] [ gather_nmon ] began
+
+[ Anthony_nimserver ] [ gather_nmon ] suceeded
+
+[ Anthony_test2 ] [ gather_nmon ] suceeded
+
+2023-01-30 16:54:08 HKT [ Anthony_nimserver ] [ gather_nmon ] ended
+
+2023-01-30 16:54:08 HKT [ Anthony_test2 ] [ gather_nmon ] ended
 
