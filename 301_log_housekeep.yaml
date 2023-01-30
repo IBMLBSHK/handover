@@ -1,0 +1,44 @@
+---
+- name: Log housekeeping on ./logfile path
+  hosts: aix
+  gather_facts: yes
+  #vars_files:
+  #  - "./vars_{{ change_order }}/alt_disk_list.yaml"
+  vars:
+    cur_time: "{{ ansible_date_time.iso8601_basic_short }}"
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: log_housekeep
+      items: ""
+    run_once: true
+  
+  - name: PreCheck current user is ansiadm
+    include_tasks: tasks/fail_when_not_ansiadm.yaml
+
+  - name: Start to housekeeping the log ... 
+    block:
+    - include_tasks: tasks/log_begin.yaml
+  
+    - name: find all files that are older than 60 days
+      find:
+        paths: "./logfile/"
+        age: 60d
+        recurse: yes
+      register: log_overtime_result
+      delegate_to: 127.0.0.1
+
+    - name: Remove log over 60 dyas
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      with_items: "{{ log_overtime_result.files }}"
+      delegate_to: 127.0.0.1
+
+    - include_tasks: tasks/log_success.yaml
+
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+
+    always:
+    - include_tasks: tasks/log_end.yaml
