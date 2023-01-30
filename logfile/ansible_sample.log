@@ -378,3 +378,43 @@ items:
 
 2023-01-30 16:54:08 HKT [ Anthony_test2 ] [ gather_nmon ] ended
 
+
+------------------ [ gather_nmon ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-01-30 17:09:32 HKT [ Anthony_nimserver ] [ gather_nmon ] began
+
+2023-01-30 17:09:32 HKT [ Anthony_test2 ] [ gather_nmon ] began
+
+[ Anthony_test2 ] [ gather_nmon ] failed
+
+[ Anthony_nimserver ] [ gather_nmon ] failed
+
+2023-01-30 17:09:47 HKT [ Anthony_nimserver ] [ gather_nmon ] ended
+
+2023-01-30 17:09:47 HKT [ Anthony_test2 ] [ gather_nmon ] ended
+
+
+------------------ [ gather_nmon ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-01-30 17:11:00 HKT [ Anthony_nimserver ] [ gather_nmon ] began
+
+2023-01-30 17:11:00 HKT [ Anthony_test2 ] [ gather_nmon ] began
+
+[ Anthony_nimserver ] [ gather_nmon ] suceeded
+
+[ Anthony_test2 ] [ gather_nmon ] suceeded
+
+2023-01-30 17:11:15 HKT [ Anthony_nimserver ] [ gather_nmon ] ended
+
+2023-01-30 17:11:15 HKT [ Anthony_test2 ] [ gather_nmon ] ended
+

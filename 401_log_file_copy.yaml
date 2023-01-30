@@ -21,6 +21,21 @@
     block:
     - include_tasks: tasks/log_begin.yaml
     
+    - name: Checking the directory exists
+      stat:
+        path: "./nmon_logs/"
+      register: dir_stat
+      delegate_to: 127.0.0.1
+
+    - name: Create a directory if doesn't exist
+      file:
+        path: "./nmon_logs/"
+        state: directory
+        owner: ansiadm
+        group: ansiadm
+      when: not dir_stat.stat.exists
+      delegate_to: 127.0.0.1
+
     - name: Get the file names of nmon
       find:
         paths: "{{ nmon_path.src }}"
