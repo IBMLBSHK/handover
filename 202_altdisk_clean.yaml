@@ -2,6 +2,7 @@
 - name: alt disk 
   hosts: aix
   gather_facts: yes
+  serial: 3
   vars_files:
     - "./vars_{{ change_order }}/alt_disk_list.yaml"
   vars:

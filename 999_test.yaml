@@ -1,0 +1,10 @@
+---
+- name: create aix update
+  hosts: nimserver
+  tasks:
+  - name: Check NIM resource
+    ibm.power_aix.nim_suma:
+      action: download
+      targets: Anthony_test2
+      oslevel: Latest
+      download_dir: /export/nim/lpp_source

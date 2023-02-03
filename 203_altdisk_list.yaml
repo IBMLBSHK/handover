@@ -34,15 +34,15 @@
         group: ansiadm
       delegate_to: 127.0.0.1
 
-    - name: Display the result (rc=0)
+    - name: Display the result (Contain alt rootvg)
       debug:
         msg: "This host: {{ inventory_hostname }} contain alt rootvg disk on {{ lsalt_result.stdout_lines }}" 
-      when: lsalt_result.rc == 0
+      when: lsalt_result.stdout_lines | length > 0
 
-    - name: Display the result (rc=1)
+    - name: Display the result (Do not contain alt rootvg)
       debug:
         msg: "This host: {{ inventory_hostname }} DO NOT contain alt rootvg disk" 
-      when: lsalt_result.rc == 1
+      when: lsalt_result.stdout_lines | length == 0
 
     - name: Output alt_disk list to json logfile ./logfile/alt_disk_list.json
       lineinfile:
