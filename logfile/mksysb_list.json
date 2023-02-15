@@ -1,0 +1,1 @@
+{"changed": true, "stdout": "Anthony_test2_mksysb_20230215T143341", "stderr": "", "rc": 0, "cmd": "/usr/sbin/lsnim -t mksysb | awk '{ print $1 }'\n", "start": "2023-02-15 15:48:04.676898", "end": "2023-02-15 15:48:04.794835", "delta": "0:00:00.117937", "msg": "", "stdout_lines": ["Anthony_test2_mksysb_20230215T143341"], "stderr_lines": [], "failed": false}

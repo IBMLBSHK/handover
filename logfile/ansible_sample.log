@@ -618,3 +618,191 @@ items:
 
 2023-02-03 10:31:12 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
 
+
+------------------ [ nim_mksysb_delete ] ------------------
+
+hosts: ['Anthony_nimserver']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 14:26:15 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
+
+2023-02-15 14:26:32 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
+
+
+------------------ [ nim_mksysb_create ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 14:38:17 HKT [ Anthony_nimserver ] [ nim_mksysb_create ] began
+
+2023-02-15 14:38:17 HKT [ Anthony_test2 ] [ nim_mksysb_create ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_create ] suceeded
+
+[ Anthony_test2 ] [ nim_mksysb_create ] suceeded
+
+2023-02-15 14:43:06 HKT [ Anthony_nimserver ] [ nim_mksysb_create ] ended
+
+2023-02-15 14:43:06 HKT [ Anthony_test2 ] [ nim_mksysb_create ] ended
+
+
+------------------ [ nim_mksysb_list ] ------------------
+
+hosts: ['Anthony_nimserver']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 14:43:32 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
+
+2023-02-15 14:43:41 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
+
+
+------------------ [ nim_mksysb_delete ] ------------------
+
+hosts: ['Anthony_nimserver']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 14:44:19 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
+
+2023-02-15 14:44:31 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
+
+
+------------------ [ nim_mksysb_delete ] ------------------
+
+hosts: ['Anthony_nimserver']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 14:46:24 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
+
+2023-02-15 14:46:36 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
+
+
+------------------ [ nim_mksysb_delete ] ------------------
+
+hosts: ['Anthony_nimserver']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 15:34:49 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
+
+2023-02-15 15:35:05 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
+
+
+------------------ [ nim_mksysb_delete ] ------------------
+
+hosts: ['Anthony_nimserver']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 15:38:34 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
+
+2023-02-15 15:38:46 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
+
+
+------------------ [ nim_mksysb_delete ] ------------------
+
+hosts: ['Anthony_nimserver']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 15:40:12 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_delete ] failed
+
+2023-02-15 15:40:24 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
+
+
+------------------ [ nim_mksysb_delete ] ------------------
+
+hosts: ['Anthony_nimserver']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 15:42:06 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
+
+2023-02-15 15:42:20 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
+
+
+------------------ [ nim_mksysb_delete ] ------------------
+
+hosts: ['Anthony_nimserver']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 15:44:50 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
+
+2023-02-15 15:45:03 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
+
+
+------------------ [ nim_mksysb_delete ] ------------------
+
+hosts: ['Anthony_nimserver']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 15:46:42 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
+
+2023-02-15 15:47:52 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
+
+
+------------------ [ nim_mksysb_delete ] ------------------
+
+hosts: ['Anthony_nimserver']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 15:49:56 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
+
+2023-02-15 15:50:10 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
+
+
+------------------ [ nim_mksysb_delete ] ------------------
+
+hosts: ['Anthony_nimserver']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 15:52:31 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_delete ] suceeded
+
+2023-02-15 15:52:45 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
+

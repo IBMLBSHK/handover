@@ -76,10 +76,20 @@
         action: delete
         object_type: mksysb
         name: "{{ mksysb[mksysb_option|int - 1].name }}"
+      register: mksysb_del_result
       when:
         - mksysb_option|int -1 <  mksysb|length
         - mksysb_option|int > 0
   
+    - debug:
+        msg: "/export/nim/mksysb/{{ mksysb[mksysb_option|int - 1].name }}"
+    
+    - name: Delete the mksysb file
+      file:
+        path: "/export/nim/mksysb/{{ mksysb[mksysb_option|int - 1].name }}"
+        state: absent
+      when: mksysb_del_result.failed == false
+
     - name: Deny to delete mksysb
       debug:
         msg: "Do not delete mksysb image since do not choose 'yes' to confirm "

@@ -3287,3 +3287,1350 @@ core/2.13/reference_appendices/interpreter_discovery.html for more information.
 2023-02-03 10:31:14,260 p=3187013 u=ansiadm n=ansible | PLAY RECAP *****************************************************************************************************************
 2023-02-03 10:31:14,260 p=3187013 u=ansiadm n=ansible | Anthony_nimserver          : ok=27   changed=16   unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
 2023-02-03 10:31:14,260 p=3187013 u=ansiadm n=ansible | Anthony_test2              : ok=24   changed=14   unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2023-02-15 14:25:58,994 p=1652452 u=ansiadm n=ansible | PLAY [NIM management] ************************************************************************************
+2023-02-15 14:25:59,041 p=1652452 u=ansiadm n=ansible | TASK [Gathering Facts] ***********************************************************************************
+2023-02-15 14:26:11,477 p=1652452 u=ansiadm n=ansible | [WARNING]: Platform aix on host Anthony_nimserver is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.13/reference_appendices/interpreter_discovery.html for
+more information.
+
+2023-02-15 14:26:11,477 p=1652452 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:26:11,599 p=1652452 u=ansiadm n=ansible | TASK [Set log vars] **************************************************************************************
+2023-02-15 14:26:11,666 p=1652452 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:26:11,705 p=1652452 u=ansiadm n=ansible | TASK [PreCheck current user is ansiadm] ******************************************************************
+2023-02-15 14:26:11,780 p=1652452 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/fail_when_not_ansiadm.yaml for Anthony_nimserver
+2023-02-15 14:26:11,853 p=1652452 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 14:26:11,891 p=1652452 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:26:11,931 p=1652452 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:26:12,009 p=1652452 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_begin.yaml for Anthony_nimserver
+2023-02-15 14:26:12,060 p=1652452 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 14:26:12,090 p=1652452 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:26:12,128 p=1652452 u=ansiadm n=ansible | TASK [Setting variable log_file] *************************************************************************
+2023-02-15 14:26:12,182 p=1652452 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:26:12,234 p=1652452 u=ansiadm n=ansible | TASK [Log playbook begin] ********************************************************************************
+2023-02-15 14:26:13,780 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:13,853 p=1652452 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:26:14,585 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:14,634 p=1652452 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:26:14,926 p=1652452 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:26:14,985 p=1652452 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 14:26:15,431 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:15,476 p=1652452 u=ansiadm n=ansible | TASK [Log execution begin] *******************************************************************************
+2023-02-15 14:26:16,144 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:16,178 p=1652452 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:26:16,528 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:16,559 p=1652452 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:26:17,000 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:17,021 p=1652452 u=ansiadm n=ansible | TASK [Output the mksysb list to file ./vars_sample/mksysb_list.yaml and ./logfile/mksysb_list.json] ******
+2023-02-15 14:26:17,068 p=1652452 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/list_mksysb.yaml for Anthony_nimserver
+2023-02-15 14:26:17,101 p=1652452 u=ansiadm n=ansible | TASK [List the mksysb image] *****************************************************************************
+2023-02-15 14:26:18,302 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 14:26:18,386 p=1652452 u=ansiadm n=ansible | TASK [Output mksysb list to json logfile ./logfile/mksysb_list.json] *************************************
+2023-02-15 14:26:19,179 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:19,212 p=1652452 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml (first line)] ******************
+2023-02-15 14:26:19,901 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:19,934 p=1652452 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml] *******************************
+2023-02-15 14:26:20,423 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1] => (item=Anthony_test2_mksysb_20230118T105648)
+2023-02-15 14:26:20,451 p=1652452 u=ansiadm n=ansible | TASK [Check the list mksysb images exist] ****************************************************************
+2023-02-15 14:26:20,518 p=1652452 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:26:20,545 p=1652452 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 14:26:20,654 p=1653320 u=ansiadm n=ansible | [pause]
+Delete mksysb options:
+=====================================
+1 - Anthony_test2_mksysb_20230118T105648
+:
+2023-02-15 14:26:25,611 p=1652452 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:26:25,645 p=1652452 u=ansiadm n=ansible | TASK [set_fact] ******************************************************************************************
+2023-02-15 14:26:25,695 p=1652452 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:26:25,768 p=1652452 u=ansiadm n=ansible | TASK [display input] *************************************************************************************
+2023-02-15 14:26:25,832 p=1652452 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1] => {
+    "msg": "0"
+}
+2023-02-15 14:26:25,889 p=1652452 u=ansiadm n=ansible | TASK [Invalid option to delete mksysb] *******************************************************************
+2023-02-15 14:26:25,928 p=1652452 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:26:25,956 p=1652452 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 14:26:26,049 p=1653329 u=ansiadm n=ansible | [pause]
+Do you want to delete Anthony_test2_mksysb_20230118T105648 (yes/no)?:
+2023-02-15 14:26:27,715 p=1652452 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:26:27,755 p=1652452 u=ansiadm n=ansible | TASK [Start to delete the mksysb] ************************************************************************
+2023-02-15 14:26:29,103 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 14:26:29,137 p=1652452 u=ansiadm n=ansible | TASK [Deny to delete mksysb] *****************************************************************************
+2023-02-15 14:26:29,169 p=1652452 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:26:29,192 p=1652452 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:26:29,233 p=1652452 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_success.yaml for Anthony_nimserver
+2023-02-15 14:26:29,277 p=1652452 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:26:29,437 p=1652452 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:26:29,465 p=1652452 u=ansiadm n=ansible | TASK [Log success] ***************************************************************************************
+2023-02-15 14:26:30,007 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:30,041 p=1652452 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:26:30,563 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:30,635 p=1652452 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:26:31,121 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:31,160 p=1652452 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:26:31,261 p=1652452 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_end.yaml for Anthony_nimserver
+2023-02-15 14:26:31,377 p=1652452 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:26:31,658 p=1652452 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:26:31,690 p=1652452 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 14:26:32,155 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:32,212 p=1652452 u=ansiadm n=ansible | TASK [Log execution end] *********************************************************************************
+2023-02-15 14:26:32,875 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:32,915 p=1652452 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:26:33,256 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:33,290 p=1652452 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:26:33,662 p=1652452 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:26:33,703 p=1652452 u=ansiadm n=ansible | PLAY RECAP ***********************************************************************************************
+2023-02-15 14:26:33,704 p=1652452 u=ansiadm n=ansible | Anthony_nimserver          : ok=33   changed=18   unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+2023-02-15 14:37:59,088 p=1666508 u=ansiadm n=ansible | PLAY [Create NIM backup for clients] *********************************************************************
+2023-02-15 14:37:59,129 p=1666508 u=ansiadm n=ansible | TASK [Gathering Facts] ***********************************************************************************
+2023-02-15 14:38:11,624 p=1666508 u=ansiadm n=ansible | [WARNING]: Platform aix on host Anthony_nimserver is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.13/reference_appendices/interpreter_discovery.html for
+more information.
+
+2023-02-15 14:38:11,625 p=1666508 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:38:13,377 p=1666508 u=ansiadm n=ansible | [WARNING]: Platform aix on host Anthony_test2 is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.13/reference_appendices/interpreter_discovery.html for
+more information.
+
+2023-02-15 14:38:13,377 p=1666508 u=ansiadm n=ansible | ok: [Anthony_test2]
+2023-02-15 14:38:13,436 p=1666508 u=ansiadm n=ansible | TASK [Set log vars] **************************************************************************************
+2023-02-15 14:38:13,482 p=1666508 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:38:13,512 p=1666508 u=ansiadm n=ansible | TASK [PreCheck current user is ansiadm] ******************************************************************
+2023-02-15 14:38:13,648 p=1666508 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/fail_when_not_ansiadm.yaml for Anthony_nimserver, Anthony_test2
+2023-02-15 14:38:13,710 p=1666508 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 14:38:13,787 p=1666508 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:38:13,801 p=1666508 u=ansiadm n=ansible | skipping: [Anthony_test2]
+2023-02-15 14:38:13,839 p=1666508 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:38:13,991 p=1666508 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_begin.yaml for Anthony_nimserver, Anthony_test2
+2023-02-15 14:38:14,035 p=1666508 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 14:38:14,094 p=1666508 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:38:14,110 p=1666508 u=ansiadm n=ansible | skipping: [Anthony_test2]
+2023-02-15 14:38:14,148 p=1666508 u=ansiadm n=ansible | TASK [Setting variable log_file] *************************************************************************
+2023-02-15 14:38:14,220 p=1666508 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:38:14,263 p=1666508 u=ansiadm n=ansible | ok: [Anthony_test2]
+2023-02-15 14:38:14,320 p=1666508 u=ansiadm n=ansible | TASK [Log playbook begin] ********************************************************************************
+2023-02-15 14:38:15,673 p=1666508 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:38:15,740 p=1666508 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:38:16,351 p=1666508 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:38:16,372 p=1666508 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:38:16,562 p=1666508 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:38:16,575 p=1666508 u=ansiadm n=ansible | ok: [Anthony_test2]
+2023-02-15 14:38:16,619 p=1666508 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 14:38:17,130 p=1666508 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:38:17,214 p=1666508 u=ansiadm n=ansible | changed: [Anthony_test2 -> 127.0.0.1]
+2023-02-15 14:38:17,264 p=1666508 u=ansiadm n=ansible | TASK [Log execution begin] *******************************************************************************
+2023-02-15 14:38:18,121 p=1666508 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:38:18,161 p=1666508 u=ansiadm n=ansible | changed: [Anthony_test2 -> 127.0.0.1]
+2023-02-15 14:38:18,217 p=1666508 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:38:18,672 p=1666508 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:38:18,754 p=1666508 u=ansiadm n=ansible | changed: [Anthony_test2 -> 127.0.0.1]
+2023-02-15 14:38:18,807 p=1666508 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:38:19,517 p=1666508 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:38:19,570 p=1666508 u=ansiadm n=ansible | changed: [Anthony_test2 -> 127.0.0.1]
+2023-02-15 14:38:19,608 p=1666508 u=ansiadm n=ansible | TASK [Create mksysb image] *******************************************************************************
+2023-02-15 14:38:19,682 p=1666508 u=ansiadm n=ansible | skipping: [Anthony_test2] => (item={'name': 'Anthony_test2'}) 
+2023-02-15 14:43:02,566 p=1666508 u=ansiadm n=ansible | changed: [Anthony_nimserver] => (item={'name': 'Anthony_test2'})
+2023-02-15 14:43:02,599 p=1666508 u=ansiadm n=ansible | TASK [Display the result of mksysb] **********************************************************************
+2023-02-15 14:43:02,669 p=1666508 u=ansiadm n=ansible | ok: [Anthony_nimserver] => {
+    "msg": {
+        "changed": true,
+        "msg": "All items completed",
+        "results": [
+            {
+                "ansible_loop_var": "item",
+                "changed": true,
+                "failed": false,
+                "invocation": {
+                    "module_args": {
+                        "accept_licenses": true,
+                        "action": "create",
+                        "boot_target": true,
+                        "bosinst_data": null,
+                        "exclude_files": null,
+                        "flags": null,
+                        "group": null,
+                        "location": null,
+                        "name": null,
+                        "name_postfix": "_mksysb_20230215T143341",
+                        "name_prefix": null,
+                        "nim_node": null,
+                        "oslevel": null,
+                        "other_attributes": null,
+                        "remove_backup": false,
+                        "remove_spot": true,
+                        "shrink_fs": false,
+                        "spot_location": "/export/nim/spot",
+                        "spot_name": null,
+                        "spot_postfix": "_spot",
+                        "spot_prefix": null,
+                        "targets": [
+                            "Anthony_test2"
+                        ],
+                        "type": "mksysb",
+                        "volume_group": null
+                    }
+                },
+                "item": {
+                    "name": "Anthony_test2"
+                },
+                "meta": {
+                    "Anthony_test2": {
+                        "messages": [
+                            "mksysb Anthony_test2_mksysb_20230215T143341 created: /export/nim/mksysb/Anthony_test2_mksysb_20230215T143341."
+                        ],
+                        "res_name": "Anthony_test2_mksysb_20230215T143341",
+                        "stderr": "",
+                        "stdout": "\n+---------------------------------------------------------------------+\n                System Backup Image Space Information\n              (Sizes are displayed in 1024-byte blocks.)\n+---------------------------------------------------------------------+\n\nRequired = 3903841 (3813 MB)    Available = 207710404 (202843 MB)\n\n\n\nCreating information file (/image.data) for rootvg.\n\nCreating list of files to back up.\n.\nBacking up 65983 files.......................\n\n65983 of 65983 files (100%)\n0512-038 savevg: Backup Completed Successfully.\n"
+                    },
+                    "messages": []
+                },
+                "msg": "NIM backup create operation successfull. See status and meta for details.",
+                "nim_node": {
+                    "standalone": {
+                        "Anthony_test2": {
+                            "Cstate": "ready for a NIM operation",
+                            "Mstate": "currently running",
+                            "cable_type1": "N/A",
+                            "class": "machines",
+                            "connect": "nimsh",
+                            "cpuid": "00F946614C00",
+                            "if1": "master_net Anthony_test2 36DC6D12DF20 ent0",
+                            "netboot_kernel": "up",
+                            "platform": "chrp",
+                            "prev_state": "ready for a NIM operation",
+                            "type": "standalone"
+                        }
+                    },
+                    "vios": {}
+                },
+                "status": {
+                    "Anthony_test2": "SUCCESS"
+                },
+                "stderr": "",
+                "stderr_lines": [],
+                "stdout": "",
+                "stdout_lines": [],
+                "targets": [
+                    "Anthony_test2"
+                ]
+            }
+        ],
+        "skipped": false
+    }
+}
+2023-02-15 14:43:02,702 p=1666508 u=ansiadm n=ansible | ok: [Anthony_test2] => {
+    "msg": {
+        "changed": false,
+        "msg": "All items skipped",
+        "results": [
+            {
+                "ansible_loop_var": "item",
+                "changed": false,
+                "item": {
+                    "name": "Anthony_test2"
+                },
+                "skip_reason": "Conditional result was False",
+                "skipped": true
+            }
+        ],
+        "skipped": true
+    }
+}
+2023-02-15 14:43:02,736 p=1666508 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:43:02,859 p=1666508 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_success.yaml for Anthony_nimserver, Anthony_test2
+2023-02-15 14:43:02,914 p=1666508 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:43:03,122 p=1666508 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:43:03,145 p=1666508 u=ansiadm n=ansible | ok: [Anthony_test2]
+2023-02-15 14:43:03,174 p=1666508 u=ansiadm n=ansible | TASK [Log success] ***************************************************************************************
+2023-02-15 14:43:03,964 p=1666508 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:04,042 p=1666508 u=ansiadm n=ansible | changed: [Anthony_test2 -> 127.0.0.1]
+2023-02-15 14:43:04,100 p=1666508 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:43:04,711 p=1666508 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:04,812 p=1666508 u=ansiadm n=ansible | changed: [Anthony_test2 -> 127.0.0.1]
+2023-02-15 14:43:04,873 p=1666508 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:43:05,351 p=1666508 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:05,434 p=1666508 u=ansiadm n=ansible | changed: [Anthony_test2 -> 127.0.0.1]
+2023-02-15 14:43:05,471 p=1666508 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:43:05,616 p=1666508 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_end.yaml for Anthony_nimserver, Anthony_test2
+2023-02-15 14:43:05,682 p=1666508 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:43:05,945 p=1666508 u=ansiadm n=ansible | ok: [Anthony_test2]
+2023-02-15 14:43:05,960 p=1666508 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:43:05,992 p=1666508 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 14:43:06,378 p=1666508 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:06,446 p=1666508 u=ansiadm n=ansible | changed: [Anthony_test2 -> 127.0.0.1]
+2023-02-15 14:43:06,505 p=1666508 u=ansiadm n=ansible | TASK [Log execution end] *********************************************************************************
+2023-02-15 14:43:07,400 p=1666508 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:07,484 p=1666508 u=ansiadm n=ansible | changed: [Anthony_test2 -> 127.0.0.1]
+2023-02-15 14:43:07,530 p=1666508 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:43:07,974 p=1666508 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:08,015 p=1666508 u=ansiadm n=ansible | changed: [Anthony_test2 -> 127.0.0.1]
+2023-02-15 14:43:08,072 p=1666508 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:43:08,525 p=1666508 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:08,585 p=1666508 u=ansiadm n=ansible | changed: [Anthony_test2 -> 127.0.0.1]
+2023-02-15 14:43:08,645 p=1666508 u=ansiadm n=ansible | PLAY RECAP ***********************************************************************************************
+2023-02-15 14:43:08,645 p=1666508 u=ansiadm n=ansible | Anthony_nimserver          : ok=25   changed=14   unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2023-02-15 14:43:08,646 p=1666508 u=ansiadm n=ansible | Anthony_test2              : ok=21   changed=11   unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2023-02-15 14:43:18,492 p=1672906 u=ansiadm n=ansible | PLAY [NIM management] ************************************************************************************
+2023-02-15 14:43:18,520 p=1672906 u=ansiadm n=ansible | TASK [Gathering Facts] ***********************************************************************************
+2023-02-15 14:43:30,468 p=1672906 u=ansiadm n=ansible | [WARNING]: Platform aix on host Anthony_nimserver is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.13/reference_appendices/interpreter_discovery.html for
+more information.
+
+2023-02-15 14:43:30,468 p=1672906 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:43:30,534 p=1672906 u=ansiadm n=ansible | TASK [Set log vars] **************************************************************************************
+2023-02-15 14:43:30,588 p=1672906 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:43:30,625 p=1672906 u=ansiadm n=ansible | TASK [PreCheck current user is ansiadm] ******************************************************************
+2023-02-15 14:43:30,675 p=1672906 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/fail_when_not_ansiadm.yaml for Anthony_nimserver
+2023-02-15 14:43:30,731 p=1672906 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 14:43:30,753 p=1672906 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:43:30,787 p=1672906 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:43:30,850 p=1672906 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_begin.yaml for Anthony_nimserver
+2023-02-15 14:43:30,882 p=1672906 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 14:43:30,901 p=1672906 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:43:30,928 p=1672906 u=ansiadm n=ansible | TASK [Setting variable log_file] *************************************************************************
+2023-02-15 14:43:30,989 p=1672906 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:43:31,043 p=1672906 u=ansiadm n=ansible | TASK [Log playbook begin] ********************************************************************************
+2023-02-15 14:43:32,077 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:32,109 p=1672906 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:43:32,501 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:32,520 p=1672906 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:43:32,646 p=1672906 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:43:32,672 p=1672906 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 14:43:32,930 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:32,958 p=1672906 u=ansiadm n=ansible | TASK [Log execution begin] *******************************************************************************
+2023-02-15 14:43:33,599 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:33,648 p=1672906 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:43:34,177 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:34,234 p=1672906 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:43:35,255 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:35,341 p=1672906 u=ansiadm n=ansible | TASK [Output the mksysb list to file ./vars/mksysb_list.yaml and ./logfile/mksysb_list.json] *************
+2023-02-15 14:43:35,384 p=1672906 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/list_mksysb.yaml for Anthony_nimserver
+2023-02-15 14:43:35,426 p=1672906 u=ansiadm n=ansible | TASK [List the mksysb image] *****************************************************************************
+2023-02-15 14:43:36,693 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 14:43:36,747 p=1672906 u=ansiadm n=ansible | TASK [Output mksysb list to json logfile ./logfile/mksysb_list.json] *************************************
+2023-02-15 14:43:37,480 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:37,520 p=1672906 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml (first line)] ******************
+2023-02-15 14:43:38,186 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:38,216 p=1672906 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml] *******************************
+2023-02-15 14:43:38,780 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1] => (item=Anthony_test2_mksysb_20230215T143341)
+2023-02-15 14:43:38,811 p=1672906 u=ansiadm n=ansible | TASK [debug] *********************************************************************************************
+2023-02-15 14:43:38,835 p=1672906 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1] => {
+    "lsnim_result.stdout_lines": [
+        "Anthony_test2_mksysb_20230215T143341"
+    ]
+}
+2023-02-15 14:43:38,860 p=1672906 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:43:38,908 p=1672906 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_success.yaml for Anthony_nimserver
+2023-02-15 14:43:38,951 p=1672906 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:43:39,158 p=1672906 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:43:39,193 p=1672906 u=ansiadm n=ansible | TASK [Log success] ***************************************************************************************
+2023-02-15 14:43:39,781 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:39,811 p=1672906 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:43:40,133 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:40,166 p=1672906 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:43:40,524 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:40,543 p=1672906 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:43:40,576 p=1672906 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_end.yaml for Anthony_nimserver
+2023-02-15 14:43:40,607 p=1672906 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:43:40,722 p=1672906 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:43:40,748 p=1672906 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 14:43:41,072 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:41,112 p=1672906 u=ansiadm n=ansible | TASK [Log execution end] *********************************************************************************
+2023-02-15 14:43:41,738 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:41,768 p=1672906 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:43:42,078 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:42,114 p=1672906 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:43:42,454 p=1672906 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:43:42,491 p=1672906 u=ansiadm n=ansible | PLAY RECAP ***********************************************************************************************
+2023-02-15 14:43:42,491 p=1672906 u=ansiadm n=ansible | Anthony_nimserver          : ok=29   changed=17   unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2023-02-15 14:44:04,249 p=1674117 u=ansiadm n=ansible | PLAY [NIM management] ************************************************************************************
+2023-02-15 14:44:04,289 p=1674117 u=ansiadm n=ansible | TASK [Gathering Facts] ***********************************************************************************
+2023-02-15 14:44:16,052 p=1674117 u=ansiadm n=ansible | [WARNING]: Platform aix on host Anthony_nimserver is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.13/reference_appendices/interpreter_discovery.html for
+more information.
+
+2023-02-15 14:44:16,052 p=1674117 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:44:16,106 p=1674117 u=ansiadm n=ansible | TASK [Set log vars] **************************************************************************************
+2023-02-15 14:44:16,150 p=1674117 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:44:16,188 p=1674117 u=ansiadm n=ansible | TASK [PreCheck current user is ansiadm] ******************************************************************
+2023-02-15 14:44:16,240 p=1674117 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/fail_when_not_ansiadm.yaml for Anthony_nimserver
+2023-02-15 14:44:16,302 p=1674117 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 14:44:16,324 p=1674117 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:44:16,361 p=1674117 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:44:16,421 p=1674117 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_begin.yaml for Anthony_nimserver
+2023-02-15 14:44:16,467 p=1674117 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 14:44:16,490 p=1674117 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:44:16,527 p=1674117 u=ansiadm n=ansible | TASK [Setting variable log_file] *************************************************************************
+2023-02-15 14:44:16,586 p=1674117 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:44:16,644 p=1674117 u=ansiadm n=ansible | TASK [Log playbook begin] ********************************************************************************
+2023-02-15 14:44:18,012 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:18,069 p=1674117 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:44:18,582 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:18,601 p=1674117 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:44:18,799 p=1674117 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:44:18,843 p=1674117 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 14:44:19,175 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:19,206 p=1674117 u=ansiadm n=ansible | TASK [Log execution begin] *******************************************************************************
+2023-02-15 14:44:19,767 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:19,800 p=1674117 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:44:20,139 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:20,172 p=1674117 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:44:20,624 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:20,645 p=1674117 u=ansiadm n=ansible | TASK [Output the mksysb list to file ./vars_sample/mksysb_list.yaml and ./logfile/mksysb_list.json] ******
+2023-02-15 14:44:20,679 p=1674117 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/list_mksysb.yaml for Anthony_nimserver
+2023-02-15 14:44:20,717 p=1674117 u=ansiadm n=ansible | TASK [List the mksysb image] *****************************************************************************
+2023-02-15 14:44:21,873 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 14:44:21,931 p=1674117 u=ansiadm n=ansible | TASK [Output mksysb list to json logfile ./logfile/mksysb_list.json] *************************************
+2023-02-15 14:44:22,608 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:22,642 p=1674117 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml (first line)] ******************
+2023-02-15 14:44:23,189 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:23,221 p=1674117 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml] *******************************
+2023-02-15 14:44:23,699 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1] => (item=Anthony_test2_mksysb_20230215T143341)
+2023-02-15 14:44:23,735 p=1674117 u=ansiadm n=ansible | TASK [Check the list mksysb images exist] ****************************************************************
+2023-02-15 14:44:23,783 p=1674117 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:44:23,821 p=1674117 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 14:44:23,909 p=1674674 u=ansiadm n=ansible | [pause]
+Delete mksysb options:
+=====================================
+1 - Anthony_test2_mksysb_20230215T143341
+:
+2023-02-15 14:44:25,635 p=1674117 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:44:25,663 p=1674117 u=ansiadm n=ansible | TASK [set_fact] ******************************************************************************************
+2023-02-15 14:44:25,714 p=1674117 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:44:25,774 p=1674117 u=ansiadm n=ansible | TASK [display input] *************************************************************************************
+2023-02-15 14:44:25,834 p=1674117 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1] => {
+    "msg": "0"
+}
+2023-02-15 14:44:25,889 p=1674117 u=ansiadm n=ansible | TASK [Invalid option to delete mksysb] *******************************************************************
+2023-02-15 14:44:25,927 p=1674117 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:44:25,952 p=1674117 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 14:44:26,036 p=1674837 u=ansiadm n=ansible | [pause]
+Do you want to delete Anthony_test2_mksysb_20230215T143341 (yes/no)?:
+2023-02-15 14:44:28,064 p=1674117 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:44:28,101 p=1674117 u=ansiadm n=ansible | TASK [Start to delete the mksysb] ************************************************************************
+2023-02-15 14:44:29,489 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 14:44:29,531 p=1674117 u=ansiadm n=ansible | TASK [Delete the mksysb file] ****************************************************************************
+2023-02-15 14:44:29,551 p=1674117 u=ansiadm n=ansible | fatal: [Anthony_nimserver]: FAILED! => {"msg": "The conditional check 'mksysb_del_result.rc = 0' failed. The error was: template error while templating string: expected token 'end of statement block', got '='. String: {% if mksysb_del_result.rc = 0 %} True {% else %} False {% endif %}\n\nThe error appears to be in '/home/ansiadm/handover/107_nim_mksysb_delete.yaml': line 84, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - name: Delete the mksysb file\n      ^ here\n"}
+2023-02-15 14:44:29,587 p=1674117 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:44:29,650 p=1674117 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_error.yaml for Anthony_nimserver
+2023-02-15 14:44:29,700 p=1674117 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:44:29,914 p=1674117 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:44:29,951 p=1674117 u=ansiadm n=ansible | TASK [Log error] *****************************************************************************************
+2023-02-15 14:44:30,591 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:30,620 p=1674117 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:44:30,932 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:30,966 p=1674117 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:44:31,317 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:31,338 p=1674117 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:44:31,373 p=1674117 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_end.yaml for Anthony_nimserver
+2023-02-15 14:44:31,413 p=1674117 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:44:31,554 p=1674117 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:44:31,582 p=1674117 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 14:44:31,864 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:31,901 p=1674117 u=ansiadm n=ansible | TASK [Log execution end] *********************************************************************************
+2023-02-15 14:44:32,497 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:32,527 p=1674117 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:44:32,870 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:32,901 p=1674117 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:44:33,242 p=1674117 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:44:33,285 p=1674117 u=ansiadm n=ansible | PLAY RECAP ***********************************************************************************************
+2023-02-15 14:44:33,285 p=1674117 u=ansiadm n=ansible | Anthony_nimserver          : ok=33   changed=18   unreachable=0    failed=0    skipped=4    rescued=1    ignored=0   
+2023-02-15 14:46:10,542 p=1676869 u=ansiadm n=ansible | PLAY [NIM management] ************************************************************************************
+2023-02-15 14:46:10,560 p=1676869 u=ansiadm n=ansible | TASK [Gathering Facts] ***********************************************************************************
+2023-02-15 14:46:22,114 p=1676869 u=ansiadm n=ansible | [WARNING]: Platform aix on host Anthony_nimserver is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.13/reference_appendices/interpreter_discovery.html for
+more information.
+
+2023-02-15 14:46:22,114 p=1676869 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:46:22,168 p=1676869 u=ansiadm n=ansible | TASK [Set log vars] **************************************************************************************
+2023-02-15 14:46:22,201 p=1676869 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:46:22,223 p=1676869 u=ansiadm n=ansible | TASK [PreCheck current user is ansiadm] ******************************************************************
+2023-02-15 14:46:22,256 p=1676869 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/fail_when_not_ansiadm.yaml for Anthony_nimserver
+2023-02-15 14:46:22,289 p=1676869 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 14:46:22,301 p=1676869 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:46:22,321 p=1676869 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:46:22,356 p=1676869 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_begin.yaml for Anthony_nimserver
+2023-02-15 14:46:22,382 p=1676869 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 14:46:22,395 p=1676869 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:46:22,419 p=1676869 u=ansiadm n=ansible | TASK [Setting variable log_file] *************************************************************************
+2023-02-15 14:46:22,461 p=1676869 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:46:22,517 p=1676869 u=ansiadm n=ansible | TASK [Log playbook begin] ********************************************************************************
+2023-02-15 14:46:23,403 p=1676869 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:23,435 p=1676869 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:46:23,880 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:23,901 p=1676869 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:46:24,045 p=1676869 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:46:24,075 p=1676869 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 14:46:24,399 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:24,446 p=1676869 u=ansiadm n=ansible | TASK [Log execution begin] *******************************************************************************
+2023-02-15 14:46:25,159 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:25,191 p=1676869 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:46:25,514 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:25,545 p=1676869 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:46:25,902 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:25,922 p=1676869 u=ansiadm n=ansible | TASK [Output the mksysb list to file ./vars_sample/mksysb_list.yaml and ./logfile/mksysb_list.json] ******
+2023-02-15 14:46:25,956 p=1676869 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/list_mksysb.yaml for Anthony_nimserver
+2023-02-15 14:46:25,984 p=1676869 u=ansiadm n=ansible | TASK [List the mksysb image] *****************************************************************************
+2023-02-15 14:46:27,115 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 14:46:27,172 p=1676869 u=ansiadm n=ansible | TASK [Output mksysb list to json logfile ./logfile/mksysb_list.json] *************************************
+2023-02-15 14:46:27,758 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:27,791 p=1676869 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml (first line)] ******************
+2023-02-15 14:46:28,491 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:28,524 p=1676869 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml] *******************************
+2023-02-15 14:46:29,093 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1] => (item=Anthony_test2_mksysb_20230215T143341)
+2023-02-15 14:46:29,116 p=1676869 u=ansiadm n=ansible | TASK [Check the list mksysb images exist] ****************************************************************
+2023-02-15 14:46:29,147 p=1676869 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:46:29,173 p=1676869 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 14:46:29,258 p=1677471 u=ansiadm n=ansible | [pause]
+Delete mksysb options:
+=====================================
+1 - Anthony_test2_mksysb_20230215T143341
+:
+2023-02-15 14:46:30,981 p=1676869 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:46:31,015 p=1676869 u=ansiadm n=ansible | TASK [set_fact] ******************************************************************************************
+2023-02-15 14:46:31,054 p=1676869 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:46:31,094 p=1676869 u=ansiadm n=ansible | TASK [display input] *************************************************************************************
+2023-02-15 14:46:31,143 p=1676869 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1] => {
+    "msg": "0"
+}
+2023-02-15 14:46:31,184 p=1676869 u=ansiadm n=ansible | TASK [Invalid option to delete mksysb] *******************************************************************
+2023-02-15 14:46:31,218 p=1676869 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 14:46:31,244 p=1676869 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 14:46:31,297 p=1677480 u=ansiadm n=ansible | [pause]
+Do you want to delete Anthony_test2_mksysb_20230215T143341 (yes/no)?:
+2023-02-15 14:46:32,524 p=1676869 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:46:32,557 p=1676869 u=ansiadm n=ansible | TASK [Start to delete the mksysb] ************************************************************************
+2023-02-15 14:46:33,833 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 14:46:33,870 p=1676869 u=ansiadm n=ansible | TASK [Delete the mksysb file] ****************************************************************************
+2023-02-15 14:46:33,890 p=1676869 u=ansiadm n=ansible | fatal: [Anthony_nimserver]: FAILED! => {"msg": "The conditional check 'mksysb_del_result.rc == 0' failed. The error was: error while evaluating conditional (mksysb_del_result.rc == 0): 'dict object' has no attribute 'rc'\n\nThe error appears to be in '/home/ansiadm/handover/107_nim_mksysb_delete.yaml': line 84, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - name: Delete the mksysb file\n      ^ here\n"}
+2023-02-15 14:46:33,927 p=1676869 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:46:33,978 p=1676869 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_error.yaml for Anthony_nimserver
+2023-02-15 14:46:34,033 p=1676869 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:46:34,233 p=1676869 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:46:34,264 p=1676869 u=ansiadm n=ansible | TASK [Log error] *****************************************************************************************
+2023-02-15 14:46:34,829 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:34,861 p=1676869 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:46:35,182 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:35,215 p=1676869 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:46:35,643 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:35,693 p=1676869 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 14:46:35,771 p=1676869 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_end.yaml for Anthony_nimserver
+2023-02-15 14:46:35,837 p=1676869 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 14:46:36,091 p=1676869 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 14:46:36,158 p=1676869 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 14:46:36,644 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:36,702 p=1676869 u=ansiadm n=ansible | TASK [Log execution end] *********************************************************************************
+2023-02-15 14:46:37,614 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:37,670 p=1676869 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 14:46:38,025 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:38,056 p=1676869 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 14:46:38,438 p=1676869 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 14:46:38,479 p=1676869 u=ansiadm n=ansible | PLAY RECAP ***********************************************************************************************
+2023-02-15 14:46:38,480 p=1676869 u=ansiadm n=ansible | Anthony_nimserver          : ok=33   changed=17   unreachable=0    failed=0    skipped=4    rescued=1    ignored=0   
+2023-02-15 15:34:34,652 p=1731067 u=ansiadm n=ansible | PLAY [NIM management] ************************************************************************************
+2023-02-15 15:34:34,694 p=1731067 u=ansiadm n=ansible | TASK [Gathering Facts] ***********************************************************************************
+2023-02-15 15:34:47,080 p=1731067 u=ansiadm n=ansible | [WARNING]: Platform aix on host Anthony_nimserver is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.13/reference_appendices/interpreter_discovery.html for
+more information.
+
+2023-02-15 15:34:47,080 p=1731067 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:34:47,122 p=1731067 u=ansiadm n=ansible | TASK [Set log vars] **************************************************************************************
+2023-02-15 15:34:47,154 p=1731067 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:34:47,177 p=1731067 u=ansiadm n=ansible | TASK [PreCheck current user is ansiadm] ******************************************************************
+2023-02-15 15:34:47,213 p=1731067 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/fail_when_not_ansiadm.yaml for Anthony_nimserver
+2023-02-15 15:34:47,257 p=1731067 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:34:47,274 p=1731067 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:34:47,302 p=1731067 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:34:47,362 p=1731067 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_begin.yaml for Anthony_nimserver
+2023-02-15 15:34:47,401 p=1731067 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:34:47,420 p=1731067 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:34:47,448 p=1731067 u=ansiadm n=ansible | TASK [Setting variable log_file] *************************************************************************
+2023-02-15 15:34:47,505 p=1731067 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:34:47,563 p=1731067 u=ansiadm n=ansible | TASK [Log playbook begin] ********************************************************************************
+2023-02-15 15:34:48,748 p=1731067 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:34:48,782 p=1731067 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:34:49,392 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:34:49,430 p=1731067 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:34:49,624 p=1731067 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:34:49,653 p=1731067 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:34:49,967 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:34:50,001 p=1731067 u=ansiadm n=ansible | TASK [Log execution begin] *******************************************************************************
+2023-02-15 15:34:50,764 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:34:50,798 p=1731067 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:34:51,140 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:34:51,176 p=1731067 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:34:51,580 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:34:51,609 p=1731067 u=ansiadm n=ansible | TASK [Output the mksysb list to file ./vars_sample/mksysb_list.yaml and ./logfile/mksysb_list.json] ******
+2023-02-15 15:34:51,661 p=1731067 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/list_mksysb.yaml for Anthony_nimserver
+2023-02-15 15:34:51,715 p=1731067 u=ansiadm n=ansible | TASK [List the mksysb image] *****************************************************************************
+2023-02-15 15:34:52,735 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:34:52,792 p=1731067 u=ansiadm n=ansible | TASK [Output mksysb list to json logfile ./logfile/mksysb_list.json] *************************************
+2023-02-15 15:34:53,484 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:34:53,566 p=1731067 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml (first line)] ******************
+2023-02-15 15:34:54,573 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:34:54,662 p=1731067 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml] *******************************
+2023-02-15 15:34:55,442 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1] => (item=Anthony_test2_mksysb_20230215T143341)
+2023-02-15 15:34:55,474 p=1731067 u=ansiadm n=ansible | TASK [Check the list mksysb images exist] ****************************************************************
+2023-02-15 15:34:55,531 p=1731067 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:34:55,573 p=1731067 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:34:55,678 p=1731619 u=ansiadm n=ansible | [pause]
+Delete mksysb options:
+=====================================
+1 - Anthony_test2_mksysb_20230215T143341
+:
+2023-02-15 15:34:59,582 p=1731067 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:34:59,619 p=1731067 u=ansiadm n=ansible | TASK [set_fact] ******************************************************************************************
+2023-02-15 15:34:59,677 p=1731067 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:34:59,734 p=1731067 u=ansiadm n=ansible | TASK [display input] *************************************************************************************
+2023-02-15 15:34:59,793 p=1731067 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1] => {
+    "msg": "0"
+}
+2023-02-15 15:34:59,849 p=1731067 u=ansiadm n=ansible | TASK [Invalid option to delete mksysb] *******************************************************************
+2023-02-15 15:34:59,891 p=1731067 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:34:59,927 p=1731067 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:35:00,026 p=1731776 u=ansiadm n=ansible | [pause]
+Do you want to delete Anthony_test2_mksysb_20230215T143341 (yes/no)?:
+2023-02-15 15:35:01,793 p=1731067 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:35:01,832 p=1731067 u=ansiadm n=ansible | TASK [Start to delete the mksysb] ************************************************************************
+2023-02-15 15:35:03,206 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:35:03,234 p=1731067 u=ansiadm n=ansible | TASK [Delete the mksysb file] ****************************************************************************
+2023-02-15 15:35:03,249 p=1731067 u=ansiadm n=ansible | fatal: [Anthony_nimserver]: FAILED! => {"msg": "The conditional check 'mksysb_del_result.rc == 0' failed. The error was: error while evaluating conditional (mksysb_del_result.rc == 0): 'dict object' has no attribute 'rc'\n\nThe error appears to be in '/home/ansiadm/handover/107_nim_mksysb_delete.yaml': line 84, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - name: Delete the mksysb file\n      ^ here\n"}
+2023-02-15 15:35:03,274 p=1731067 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:35:03,323 p=1731067 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_error.yaml for Anthony_nimserver
+2023-02-15 15:35:03,379 p=1731067 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:35:03,594 p=1731067 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:35:03,635 p=1731067 u=ansiadm n=ansible | TASK [Log error] *****************************************************************************************
+2023-02-15 15:35:04,276 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:35:04,316 p=1731067 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:35:04,664 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:35:04,697 p=1731067 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:35:05,067 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:35:05,087 p=1731067 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:35:05,124 p=1731067 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_end.yaml for Anthony_nimserver
+2023-02-15 15:35:05,168 p=1731067 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:35:05,364 p=1731067 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:35:05,406 p=1731067 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:35:05,762 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:35:05,822 p=1731067 u=ansiadm n=ansible | TASK [Log execution end] *********************************************************************************
+2023-02-15 15:35:06,452 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:35:06,489 p=1731067 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:35:06,850 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:35:06,887 p=1731067 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:35:07,271 p=1731067 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:35:07,395 p=1731067 u=ansiadm n=ansible | PLAY RECAP ***********************************************************************************************
+2023-02-15 15:35:07,395 p=1731067 u=ansiadm n=ansible | Anthony_nimserver          : ok=33   changed=17   unreachable=0    failed=0    skipped=4    rescued=1    ignored=0   
+2023-02-15 15:38:20,393 p=1735478 u=ansiadm n=ansible | PLAY [NIM management] ************************************************************************************
+2023-02-15 15:38:20,434 p=1735478 u=ansiadm n=ansible | TASK [Gathering Facts] ***********************************************************************************
+2023-02-15 15:38:32,445 p=1735478 u=ansiadm n=ansible | [WARNING]: Platform aix on host Anthony_nimserver is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.13/reference_appendices/interpreter_discovery.html for
+more information.
+
+2023-02-15 15:38:32,446 p=1735478 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:38:32,524 p=1735478 u=ansiadm n=ansible | TASK [Set log vars] **************************************************************************************
+2023-02-15 15:38:32,583 p=1735478 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:38:32,615 p=1735478 u=ansiadm n=ansible | TASK [PreCheck current user is ansiadm] ******************************************************************
+2023-02-15 15:38:32,657 p=1735478 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/fail_when_not_ansiadm.yaml for Anthony_nimserver
+2023-02-15 15:38:32,703 p=1735478 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:38:32,721 p=1735478 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:38:32,750 p=1735478 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:38:32,803 p=1735478 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_begin.yaml for Anthony_nimserver
+2023-02-15 15:38:32,842 p=1735478 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:38:32,865 p=1735478 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:38:32,895 p=1735478 u=ansiadm n=ansible | TASK [Setting variable log_file] *************************************************************************
+2023-02-15 15:38:32,955 p=1735478 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:38:33,014 p=1735478 u=ansiadm n=ansible | TASK [Log playbook begin] ********************************************************************************
+2023-02-15 15:38:33,957 p=1735478 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:33,990 p=1735478 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:38:34,458 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:34,478 p=1735478 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:38:34,654 p=1735478 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:38:34,683 p=1735478 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:38:34,919 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:34,950 p=1735478 u=ansiadm n=ansible | TASK [Log execution begin] *******************************************************************************
+2023-02-15 15:38:35,693 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:35,725 p=1735478 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:38:36,165 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:36,220 p=1735478 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:38:36,627 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:36,653 p=1735478 u=ansiadm n=ansible | TASK [Output the mksysb list to file ./vars_sample/mksysb_list.yaml and ./logfile/mksysb_list.json] ******
+2023-02-15 15:38:36,696 p=1735478 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/list_mksysb.yaml for Anthony_nimserver
+2023-02-15 15:38:36,726 p=1735478 u=ansiadm n=ansible | TASK [List the mksysb image] *****************************************************************************
+2023-02-15 15:38:37,792 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:38:37,851 p=1735478 u=ansiadm n=ansible | TASK [Output mksysb list to json logfile ./logfile/mksysb_list.json] *************************************
+2023-02-15 15:38:38,566 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:38,598 p=1735478 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml (first line)] ******************
+2023-02-15 15:38:39,122 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:39,155 p=1735478 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml] *******************************
+2023-02-15 15:38:39,578 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1] => (item=Anthony_test2_mksysb_20230215T143341)
+2023-02-15 15:38:39,600 p=1735478 u=ansiadm n=ansible | TASK [Check the list mksysb images exist] ****************************************************************
+2023-02-15 15:38:39,629 p=1735478 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:38:39,649 p=1735478 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:38:39,695 p=1736127 u=ansiadm n=ansible | [pause]
+Delete mksysb options:
+=====================================
+1 - Anthony_test2_mksysb_20230215T143341
+:
+2023-02-15 15:38:40,577 p=1735478 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:38:40,614 p=1735478 u=ansiadm n=ansible | TASK [set_fact] ******************************************************************************************
+2023-02-15 15:38:40,674 p=1735478 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:38:40,730 p=1735478 u=ansiadm n=ansible | TASK [display input] *************************************************************************************
+2023-02-15 15:38:40,781 p=1735478 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1] => {
+    "msg": "0"
+}
+2023-02-15 15:38:40,820 p=1735478 u=ansiadm n=ansible | TASK [Invalid option to delete mksysb] *******************************************************************
+2023-02-15 15:38:40,869 p=1735478 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:38:40,906 p=1735478 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:38:41,001 p=1736135 u=ansiadm n=ansible | [pause]
+Do you want to delete Anthony_test2_mksysb_20230215T143341 (yes/no)?:
+2023-02-15 15:38:42,692 p=1735478 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:38:42,729 p=1735478 u=ansiadm n=ansible | TASK [Start to delete the mksysb] ************************************************************************
+2023-02-15 15:38:43,924 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:38:43,957 p=1735478 u=ansiadm n=ansible | TASK [debug] *********************************************************************************************
+2023-02-15 15:38:44,005 p=1735478 u=ansiadm n=ansible | ok: [Anthony_nimserver] => {
+    "msg": "mksysb_del_result.rc"
+}
+2023-02-15 15:38:44,041 p=1735478 u=ansiadm n=ansible | TASK [Deny to delete mksysb] *****************************************************************************
+2023-02-15 15:38:44,085 p=1735478 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:38:44,122 p=1735478 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:38:44,168 p=1735478 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_success.yaml for Anthony_nimserver
+2023-02-15 15:38:44,215 p=1735478 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:38:44,360 p=1735478 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:38:44,389 p=1735478 u=ansiadm n=ansible | TASK [Log success] ***************************************************************************************
+2023-02-15 15:38:44,993 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:45,024 p=1735478 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:38:45,382 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:45,416 p=1735478 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:38:45,769 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:45,803 p=1735478 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:38:45,856 p=1735478 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_end.yaml for Anthony_nimserver
+2023-02-15 15:38:45,916 p=1735478 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:38:46,124 p=1735478 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:38:46,163 p=1735478 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:38:46,618 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:46,701 p=1735478 u=ansiadm n=ansible | TASK [Log execution end] *********************************************************************************
+2023-02-15 15:38:47,521 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:47,579 p=1735478 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:38:48,104 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:48,179 p=1735478 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:38:48,546 p=1735478 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:38:48,586 p=1735478 u=ansiadm n=ansible | PLAY RECAP ***********************************************************************************************
+2023-02-15 15:38:48,587 p=1735478 u=ansiadm n=ansible | Anthony_nimserver          : ok=34   changed=17   unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+2023-02-15 15:39:58,290 p=1737594 u=ansiadm n=ansible | PLAY [NIM management] ************************************************************************************
+2023-02-15 15:39:58,308 p=1737594 u=ansiadm n=ansible | TASK [Gathering Facts] ***********************************************************************************
+2023-02-15 15:40:10,268 p=1737594 u=ansiadm n=ansible | [WARNING]: Platform aix on host Anthony_nimserver is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.13/reference_appendices/interpreter_discovery.html for
+more information.
+
+2023-02-15 15:40:10,268 p=1737594 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:40:10,345 p=1737594 u=ansiadm n=ansible | TASK [Set log vars] **************************************************************************************
+2023-02-15 15:40:10,408 p=1737594 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:40:10,440 p=1737594 u=ansiadm n=ansible | TASK [PreCheck current user is ansiadm] ******************************************************************
+2023-02-15 15:40:10,484 p=1737594 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/fail_when_not_ansiadm.yaml for Anthony_nimserver
+2023-02-15 15:40:10,531 p=1737594 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:40:10,546 p=1737594 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:40:10,569 p=1737594 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:40:10,614 p=1737594 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_begin.yaml for Anthony_nimserver
+2023-02-15 15:40:10,640 p=1737594 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:40:10,653 p=1737594 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:40:10,673 p=1737594 u=ansiadm n=ansible | TASK [Setting variable log_file] *************************************************************************
+2023-02-15 15:40:10,705 p=1737594 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:40:10,734 p=1737594 u=ansiadm n=ansible | TASK [Log playbook begin] ********************************************************************************
+2023-02-15 15:40:11,553 p=1737594 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:11,592 p=1737594 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:40:12,078 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:12,117 p=1737594 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:40:12,381 p=1737594 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:40:12,438 p=1737594 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:40:12,830 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:12,865 p=1737594 u=ansiadm n=ansible | TASK [Log execution begin] *******************************************************************************
+2023-02-15 15:40:13,645 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:13,677 p=1737594 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:40:14,019 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:14,053 p=1737594 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:40:14,389 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:14,410 p=1737594 u=ansiadm n=ansible | TASK [Output the mksysb list to file ./vars_sample/mksysb_list.yaml and ./logfile/mksysb_list.json] ******
+2023-02-15 15:40:14,445 p=1737594 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/list_mksysb.yaml for Anthony_nimserver
+2023-02-15 15:40:14,473 p=1737594 u=ansiadm n=ansible | TASK [List the mksysb image] *****************************************************************************
+2023-02-15 15:40:15,532 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:40:15,590 p=1737594 u=ansiadm n=ansible | TASK [Output mksysb list to json logfile ./logfile/mksysb_list.json] *************************************
+2023-02-15 15:40:16,240 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:16,273 p=1737594 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml (first line)] ******************
+2023-02-15 15:40:16,887 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:16,919 p=1737594 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml] *******************************
+2023-02-15 15:40:17,588 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1] => (item=Anthony_test2_mksysb_20230215T143341)
+2023-02-15 15:40:17,623 p=1737594 u=ansiadm n=ansible | TASK [Check the list mksysb images exist] ****************************************************************
+2023-02-15 15:40:17,668 p=1737594 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:40:17,705 p=1737594 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:40:17,796 p=1738206 u=ansiadm n=ansible | [pause]
+Delete mksysb options:
+=====================================
+1 - Anthony_test2_mksysb_20230215T143341
+:
+2023-02-15 15:40:18,563 p=1737594 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:40:18,599 p=1737594 u=ansiadm n=ansible | TASK [set_fact] ******************************************************************************************
+2023-02-15 15:40:18,657 p=1737594 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:40:18,714 p=1737594 u=ansiadm n=ansible | TASK [display input] *************************************************************************************
+2023-02-15 15:40:18,764 p=1737594 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1] => {
+    "msg": "0"
+}
+2023-02-15 15:40:18,801 p=1737594 u=ansiadm n=ansible | TASK [Invalid option to delete mksysb] *******************************************************************
+2023-02-15 15:40:18,840 p=1737594 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:40:18,874 p=1737594 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:40:18,963 p=1738216 u=ansiadm n=ansible | [pause]
+Do you want to delete Anthony_test2_mksysb_20230215T143341 (yes/no)?:
+2023-02-15 15:40:20,803 p=1737594 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:40:20,840 p=1737594 u=ansiadm n=ansible | TASK [Start to delete the mksysb] ************************************************************************
+2023-02-15 15:40:22,176 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:40:22,208 p=1737594 u=ansiadm n=ansible | TASK [debug] *********************************************************************************************
+2023-02-15 15:40:22,225 p=1737594 u=ansiadm n=ansible | fatal: [Anthony_nimserver]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'dict object' has no attribute 'rc'\n\nThe error appears to be in '/home/ansiadm/handover/107_nim_mksysb_delete.yaml': line 84, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - debug:\n      ^ here\n"}
+2023-02-15 15:40:22,263 p=1737594 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:40:22,311 p=1737594 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_error.yaml for Anthony_nimserver
+2023-02-15 15:40:22,361 p=1737594 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:40:22,582 p=1737594 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:40:22,628 p=1737594 u=ansiadm n=ansible | TASK [Log error] *****************************************************************************************
+2023-02-15 15:40:23,362 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:23,415 p=1737594 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:40:23,795 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:23,849 p=1737594 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:40:24,217 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:24,237 p=1737594 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:40:24,273 p=1737594 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_end.yaml for Anthony_nimserver
+2023-02-15 15:40:24,312 p=1737594 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:40:24,450 p=1737594 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:40:24,478 p=1737594 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:40:24,788 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:24,819 p=1737594 u=ansiadm n=ansible | TASK [Log execution end] *********************************************************************************
+2023-02-15 15:40:25,598 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:25,659 p=1737594 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:40:26,116 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:26,186 p=1737594 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:40:26,730 p=1737594 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:40:26,817 p=1737594 u=ansiadm n=ansible | PLAY RECAP ***********************************************************************************************
+2023-02-15 15:40:26,818 p=1737594 u=ansiadm n=ansible | Anthony_nimserver          : ok=33   changed=17   unreachable=0    failed=0    skipped=4    rescued=1    ignored=0   
+2023-02-15 15:41:50,994 p=1740129 u=ansiadm n=ansible | PLAY [NIM management] ************************************************************************************
+2023-02-15 15:41:51,012 p=1740129 u=ansiadm n=ansible | TASK [Gathering Facts] ***********************************************************************************
+2023-02-15 15:42:03,396 p=1740129 u=ansiadm n=ansible | [WARNING]: Platform aix on host Anthony_nimserver is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.13/reference_appendices/interpreter_discovery.html for
+more information.
+
+2023-02-15 15:42:03,396 p=1740129 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:42:03,438 p=1740129 u=ansiadm n=ansible | TASK [Set log vars] **************************************************************************************
+2023-02-15 15:42:03,473 p=1740129 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:42:03,495 p=1740129 u=ansiadm n=ansible | TASK [PreCheck current user is ansiadm] ******************************************************************
+2023-02-15 15:42:03,534 p=1740129 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/fail_when_not_ansiadm.yaml for Anthony_nimserver
+2023-02-15 15:42:03,578 p=1740129 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:42:03,595 p=1740129 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:42:03,622 p=1740129 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:42:03,677 p=1740129 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_begin.yaml for Anthony_nimserver
+2023-02-15 15:42:03,716 p=1740129 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:42:03,738 p=1740129 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:42:03,773 p=1740129 u=ansiadm n=ansible | TASK [Setting variable log_file] *************************************************************************
+2023-02-15 15:42:03,828 p=1740129 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:42:03,892 p=1740129 u=ansiadm n=ansible | TASK [Log playbook begin] ********************************************************************************
+2023-02-15 15:42:05,382 p=1740129 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:05,439 p=1740129 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:42:06,270 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:06,307 p=1740129 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:42:06,555 p=1740129 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:42:06,612 p=1740129 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:42:06,958 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:06,992 p=1740129 u=ansiadm n=ansible | TASK [Log execution begin] *******************************************************************************
+2023-02-15 15:42:07,877 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:07,909 p=1740129 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:42:08,226 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:08,257 p=1740129 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:42:08,577 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:08,598 p=1740129 u=ansiadm n=ansible | TASK [Output the mksysb list to file ./vars_sample/mksysb_list.yaml and ./logfile/mksysb_list.json] ******
+2023-02-15 15:42:08,632 p=1740129 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/list_mksysb.yaml for Anthony_nimserver
+2023-02-15 15:42:08,660 p=1740129 u=ansiadm n=ansible | TASK [List the mksysb image] *****************************************************************************
+2023-02-15 15:42:09,859 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:42:09,900 p=1740129 u=ansiadm n=ansible | TASK [Output mksysb list to json logfile ./logfile/mksysb_list.json] *************************************
+2023-02-15 15:42:10,560 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:10,607 p=1740129 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml (first line)] ******************
+2023-02-15 15:42:11,443 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:11,485 p=1740129 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml] *******************************
+2023-02-15 15:42:12,064 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1] => (item=Anthony_test2_mksysb_20230215T143341)
+2023-02-15 15:42:12,085 p=1740129 u=ansiadm n=ansible | TASK [Check the list mksysb images exist] ****************************************************************
+2023-02-15 15:42:12,113 p=1740129 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:42:12,134 p=1740129 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:42:12,183 p=1740604 u=ansiadm n=ansible | [pause]
+Delete mksysb options:
+=====================================
+1 - Anthony_test2_mksysb_20230215T143341
+:
+2023-02-15 15:42:12,988 p=1740129 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:42:13,028 p=1740129 u=ansiadm n=ansible | TASK [set_fact] ******************************************************************************************
+2023-02-15 15:42:13,093 p=1740129 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:42:13,179 p=1740129 u=ansiadm n=ansible | TASK [display input] *************************************************************************************
+2023-02-15 15:42:13,248 p=1740129 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1] => {
+    "msg": "0"
+}
+2023-02-15 15:42:13,306 p=1740129 u=ansiadm n=ansible | TASK [Invalid option to delete mksysb] *******************************************************************
+2023-02-15 15:42:13,358 p=1740129 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:42:13,400 p=1740129 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:42:13,510 p=1740723 u=ansiadm n=ansible | [pause]
+Do you want to delete Anthony_test2_mksysb_20230215T143341 (yes/no)?:
+2023-02-15 15:42:15,768 p=1740129 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:42:15,814 p=1740129 u=ansiadm n=ansible | TASK [Start to delete the mksysb] ************************************************************************
+2023-02-15 15:42:17,351 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:42:17,378 p=1740129 u=ansiadm n=ansible | TASK [debug] *********************************************************************************************
+2023-02-15 15:42:17,430 p=1740129 u=ansiadm n=ansible | ok: [Anthony_nimserver] => {
+    "msg": {
+        "changed": true,
+        "cmd": "/usr/sbin/nim -o remove Anthony_test2_mksysb_20230215T143341",
+        "failed": false,
+        "msg": "Resource Anthony_test2_mksysb_20230215T143341 was removed.",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "",
+        "stdout_lines": []
+    }
+}
+2023-02-15 15:42:17,483 p=1740129 u=ansiadm n=ansible | TASK [Deny to delete mksysb] *****************************************************************************
+2023-02-15 15:42:17,528 p=1740129 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:42:17,566 p=1740129 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:42:17,621 p=1740129 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_success.yaml for Anthony_nimserver
+2023-02-15 15:42:17,677 p=1740129 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:42:17,878 p=1740129 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:42:17,925 p=1740129 u=ansiadm n=ansible | TASK [Log success] ***************************************************************************************
+2023-02-15 15:42:18,763 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:18,831 p=1740129 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:42:19,192 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:19,229 p=1740129 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:42:19,619 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:19,656 p=1740129 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:42:19,714 p=1740129 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_end.yaml for Anthony_nimserver
+2023-02-15 15:42:19,774 p=1740129 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:42:19,991 p=1740129 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:42:20,022 p=1740129 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:42:20,324 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:20,358 p=1740129 u=ansiadm n=ansible | TASK [Log execution end] *********************************************************************************
+2023-02-15 15:42:21,069 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:21,124 p=1740129 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:42:21,611 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:21,687 p=1740129 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:42:22,215 p=1740129 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:42:22,297 p=1740129 u=ansiadm n=ansible | PLAY RECAP ***********************************************************************************************
+2023-02-15 15:42:22,298 p=1740129 u=ansiadm n=ansible | Anthony_nimserver          : ok=34   changed=17   unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+2023-02-15 15:44:34,812 p=1743699 u=ansiadm n=ansible | PLAY [NIM management] ************************************************************************************
+2023-02-15 15:44:34,854 p=1743699 u=ansiadm n=ansible | TASK [Gathering Facts] ***********************************************************************************
+2023-02-15 15:44:47,010 p=1743699 u=ansiadm n=ansible | [WARNING]: Platform aix on host Anthony_nimserver is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.13/reference_appendices/interpreter_discovery.html for
+more information.
+
+2023-02-15 15:44:47,010 p=1743699 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:44:47,053 p=1743699 u=ansiadm n=ansible | TASK [Set log vars] **************************************************************************************
+2023-02-15 15:44:47,083 p=1743699 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:44:47,105 p=1743699 u=ansiadm n=ansible | TASK [PreCheck current user is ansiadm] ******************************************************************
+2023-02-15 15:44:47,137 p=1743699 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/fail_when_not_ansiadm.yaml for Anthony_nimserver
+2023-02-15 15:44:47,172 p=1743699 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:44:47,186 p=1743699 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:44:47,208 p=1743699 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:44:47,245 p=1743699 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_begin.yaml for Anthony_nimserver
+2023-02-15 15:44:47,274 p=1743699 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:44:47,289 p=1743699 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:44:47,311 p=1743699 u=ansiadm n=ansible | TASK [Setting variable log_file] *************************************************************************
+2023-02-15 15:44:47,346 p=1743699 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:44:47,388 p=1743699 u=ansiadm n=ansible | TASK [Log playbook begin] ********************************************************************************
+2023-02-15 15:44:48,352 p=1743699 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:44:48,385 p=1743699 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:44:49,087 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:44:49,136 p=1743699 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:44:49,443 p=1743699 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:44:49,503 p=1743699 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:44:50,162 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:44:50,226 p=1743699 u=ansiadm n=ansible | TASK [Log execution begin] *******************************************************************************
+2023-02-15 15:44:51,651 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:44:51,711 p=1743699 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:44:52,062 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:44:52,093 p=1743699 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:44:52,377 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:44:52,397 p=1743699 u=ansiadm n=ansible | TASK [Output the mksysb list to file ./vars_sample/mksysb_list.yaml and ./logfile/mksysb_list.json] ******
+2023-02-15 15:44:52,432 p=1743699 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/list_mksysb.yaml for Anthony_nimserver
+2023-02-15 15:44:52,459 p=1743699 u=ansiadm n=ansible | TASK [List the mksysb image] *****************************************************************************
+2023-02-15 15:44:53,552 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:44:53,605 p=1743699 u=ansiadm n=ansible | TASK [Output mksysb list to json logfile ./logfile/mksysb_list.json] *************************************
+2023-02-15 15:44:54,324 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:44:54,380 p=1743699 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml (first line)] ******************
+2023-02-15 15:44:55,020 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:44:55,052 p=1743699 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml] *******************************
+2023-02-15 15:44:55,490 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1] => (item=Anthony_test2_mksysb_20230215T143341)
+2023-02-15 15:44:55,513 p=1743699 u=ansiadm n=ansible | TASK [Check the list mksysb images exist] ****************************************************************
+2023-02-15 15:44:55,544 p=1743699 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:44:55,572 p=1743699 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:44:55,650 p=1744383 u=ansiadm n=ansible | [pause]
+Delete mksysb options:
+=====================================
+1 - Anthony_test2_mksysb_20230215T143341
+:
+2023-02-15 15:44:56,745 p=1743699 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:44:56,779 p=1743699 u=ansiadm n=ansible | TASK [set_fact] ******************************************************************************************
+2023-02-15 15:44:56,818 p=1743699 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:44:56,851 p=1743699 u=ansiadm n=ansible | TASK [display input] *************************************************************************************
+2023-02-15 15:44:56,887 p=1743699 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1] => {
+    "msg": "0"
+}
+2023-02-15 15:44:56,920 p=1743699 u=ansiadm n=ansible | TASK [Invalid option to delete mksysb] *******************************************************************
+2023-02-15 15:44:56,947 p=1743699 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:44:56,967 p=1743699 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:44:57,020 p=1744392 u=ansiadm n=ansible | [pause]
+Do you want to delete Anthony_test2_mksysb_20230215T143341 (yes/no)?:
+2023-02-15 15:44:58,800 p=1743699 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:44:58,839 p=1743699 u=ansiadm n=ansible | TASK [Start to delete the mksysb] ************************************************************************
+2023-02-15 15:45:00,149 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:45:00,186 p=1743699 u=ansiadm n=ansible | TASK [debug] *********************************************************************************************
+2023-02-15 15:45:00,242 p=1743699 u=ansiadm n=ansible | ok: [Anthony_nimserver] => {
+    "msg": {
+        "changed": true,
+        "cmd": "/usr/sbin/nim -o remove Anthony_test2_mksysb_20230215T143341",
+        "failed": false,
+        "msg": "Resource Anthony_test2_mksysb_20230215T143341 was removed.",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "",
+        "stdout_lines": []
+    }
+}
+2023-02-15 15:45:00,283 p=1743699 u=ansiadm n=ansible | TASK [Delete the mksysb file] ****************************************************************************
+2023-02-15 15:45:01,276 p=1743699 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:45:01,310 p=1743699 u=ansiadm n=ansible | TASK [Deny to delete mksysb] *****************************************************************************
+2023-02-15 15:45:01,356 p=1743699 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:45:01,393 p=1743699 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:45:01,448 p=1743699 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_success.yaml for Anthony_nimserver
+2023-02-15 15:45:01,495 p=1743699 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:45:01,677 p=1743699 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:45:01,708 p=1743699 u=ansiadm n=ansible | TASK [Log success] ***************************************************************************************
+2023-02-15 15:45:02,346 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:45:02,377 p=1743699 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:45:02,683 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:45:02,714 p=1743699 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:45:03,060 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:45:03,080 p=1743699 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:45:03,113 p=1743699 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_end.yaml for Anthony_nimserver
+2023-02-15 15:45:03,143 p=1743699 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:45:03,287 p=1743699 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:45:03,317 p=1743699 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:45:03,639 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:45:03,670 p=1743699 u=ansiadm n=ansible | TASK [Log execution end] *********************************************************************************
+2023-02-15 15:45:04,280 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:45:04,311 p=1743699 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:45:04,660 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:45:04,692 p=1743699 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:45:05,028 p=1743699 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:45:05,068 p=1743699 u=ansiadm n=ansible | PLAY RECAP ***********************************************************************************************
+2023-02-15 15:45:05,068 p=1743699 u=ansiadm n=ansible | Anthony_nimserver          : ok=35   changed=17   unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+2023-02-15 15:46:27,694 p=1746297 u=ansiadm n=ansible | PLAY [NIM management] ************************************************************************************
+2023-02-15 15:46:27,735 p=1746297 u=ansiadm n=ansible | TASK [Gathering Facts] ***********************************************************************************
+2023-02-15 15:46:39,594 p=1746297 u=ansiadm n=ansible | [WARNING]: Platform aix on host Anthony_nimserver is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.13/reference_appendices/interpreter_discovery.html for
+more information.
+
+2023-02-15 15:46:39,595 p=1746297 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:46:39,666 p=1746297 u=ansiadm n=ansible | TASK [Set log vars] **************************************************************************************
+2023-02-15 15:46:39,718 p=1746297 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:46:39,756 p=1746297 u=ansiadm n=ansible | TASK [PreCheck current user is ansiadm] ******************************************************************
+2023-02-15 15:46:39,808 p=1746297 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/fail_when_not_ansiadm.yaml for Anthony_nimserver
+2023-02-15 15:46:39,859 p=1746297 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:46:39,878 p=1746297 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:46:39,906 p=1746297 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:46:39,965 p=1746297 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_begin.yaml for Anthony_nimserver
+2023-02-15 15:46:40,010 p=1746297 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:46:40,034 p=1746297 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:46:40,071 p=1746297 u=ansiadm n=ansible | TASK [Setting variable log_file] *************************************************************************
+2023-02-15 15:46:40,133 p=1746297 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:46:40,189 p=1746297 u=ansiadm n=ansible | TASK [Log playbook begin] ********************************************************************************
+2023-02-15 15:46:41,401 p=1746297 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:46:41,433 p=1746297 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:46:41,885 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:46:41,907 p=1746297 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:46:42,206 p=1746297 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:46:42,285 p=1746297 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:46:42,757 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:46:42,808 p=1746297 u=ansiadm n=ansible | TASK [Log execution begin] *******************************************************************************
+2023-02-15 15:46:43,590 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:46:43,622 p=1746297 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:46:43,970 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:46:44,009 p=1746297 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:46:44,400 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:46:44,432 p=1746297 u=ansiadm n=ansible | TASK [Output the mksysb list to file ./vars_sample/mksysb_list.yaml and ./logfile/mksysb_list.json] ******
+2023-02-15 15:46:44,487 p=1746297 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/list_mksysb.yaml for Anthony_nimserver
+2023-02-15 15:46:44,531 p=1746297 u=ansiadm n=ansible | TASK [List the mksysb image] *****************************************************************************
+2023-02-15 15:46:45,704 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:46:45,754 p=1746297 u=ansiadm n=ansible | TASK [Output mksysb list to json logfile ./logfile/mksysb_list.json] *************************************
+2023-02-15 15:46:46,700 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:46:46,770 p=1746297 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml (first line)] ******************
+2023-02-15 15:46:47,759 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:46:47,837 p=1746297 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml] *******************************
+2023-02-15 15:46:48,542 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1] => (item=Anthony_test2_mksysb_20230215T143341)
+2023-02-15 15:46:48,564 p=1746297 u=ansiadm n=ansible | TASK [Check the list mksysb images exist] ****************************************************************
+2023-02-15 15:46:48,593 p=1746297 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:46:48,620 p=1746297 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:46:48,703 p=1746952 u=ansiadm n=ansible | [pause]
+Delete mksysb options:
+=====================================
+1 - Anthony_test2_mksysb_20230215T143341
+:
+2023-02-15 15:47:42,133 p=1746297 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:47:42,167 p=1746297 u=ansiadm n=ansible | TASK [set_fact] ******************************************************************************************
+2023-02-15 15:47:42,211 p=1746297 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:47:42,263 p=1746297 u=ansiadm n=ansible | TASK [display input] *************************************************************************************
+2023-02-15 15:47:42,329 p=1746297 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1] => {
+    "msg": "0"
+}
+2023-02-15 15:47:42,386 p=1746297 u=ansiadm n=ansible | TASK [Invalid option to delete mksysb] *******************************************************************
+2023-02-15 15:47:42,441 p=1746297 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:47:42,478 p=1746297 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:47:42,572 p=1747821 u=ansiadm n=ansible | [pause]
+Do you want to delete Anthony_test2_mksysb_20230215T143341 (yes/no)?:
+2023-02-15 15:47:46,553 p=1746297 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:47:46,590 p=1746297 u=ansiadm n=ansible | TASK [Start to delete the mksysb] ************************************************************************
+2023-02-15 15:47:48,447 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:47:48,476 p=1746297 u=ansiadm n=ansible | TASK [debug] *********************************************************************************************
+2023-02-15 15:47:48,534 p=1746297 u=ansiadm n=ansible | ok: [Anthony_nimserver] => {
+    "msg": {
+        "changed": true,
+        "cmd": "/usr/sbin/nim -o remove Anthony_test2_mksysb_20230215T143341",
+        "failed": false,
+        "msg": "Resource Anthony_test2_mksysb_20230215T143341 was removed.",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "",
+        "stdout_lines": []
+    }
+}
+2023-02-15 15:47:48,572 p=1746297 u=ansiadm n=ansible | TASK [Delete the mksysb file] ****************************************************************************
+2023-02-15 15:47:49,657 p=1746297 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:47:49,683 p=1746297 u=ansiadm n=ansible | TASK [Deny to delete mksysb] *****************************************************************************
+2023-02-15 15:47:49,720 p=1746297 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:47:49,757 p=1746297 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:47:49,813 p=1746297 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_success.yaml for Anthony_nimserver
+2023-02-15 15:47:49,862 p=1746297 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:47:50,055 p=1746297 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:47:50,085 p=1746297 u=ansiadm n=ansible | TASK [Log success] ***************************************************************************************
+2023-02-15 15:47:50,721 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:47:50,769 p=1746297 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:47:51,130 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:47:51,161 p=1746297 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:47:51,522 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:47:51,550 p=1746297 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:47:51,601 p=1746297 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_end.yaml for Anthony_nimserver
+2023-02-15 15:47:51,656 p=1746297 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:47:51,863 p=1746297 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:47:51,892 p=1746297 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:47:52,230 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:47:52,265 p=1746297 u=ansiadm n=ansible | TASK [Log execution end] *********************************************************************************
+2023-02-15 15:47:52,903 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:47:52,961 p=1746297 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:47:53,443 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:47:53,515 p=1746297 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:47:54,058 p=1746297 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:47:54,154 p=1746297 u=ansiadm n=ansible | PLAY RECAP ***********************************************************************************************
+2023-02-15 15:47:54,154 p=1746297 u=ansiadm n=ansible | Anthony_nimserver          : ok=35   changed=17   unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+2023-02-15 15:49:42,179 p=1750140 u=ansiadm n=ansible | PLAY [NIM management] ************************************************************************************
+2023-02-15 15:49:42,214 p=1750140 u=ansiadm n=ansible | TASK [Gathering Facts] ***********************************************************************************
+2023-02-15 15:49:54,398 p=1750140 u=ansiadm n=ansible | [WARNING]: Platform aix on host Anthony_nimserver is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.13/reference_appendices/interpreter_discovery.html for
+more information.
+
+2023-02-15 15:49:54,398 p=1750140 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:49:54,454 p=1750140 u=ansiadm n=ansible | TASK [Set log vars] **************************************************************************************
+2023-02-15 15:49:54,493 p=1750140 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:49:54,520 p=1750140 u=ansiadm n=ansible | TASK [PreCheck current user is ansiadm] ******************************************************************
+2023-02-15 15:49:54,553 p=1750140 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/fail_when_not_ansiadm.yaml for Anthony_nimserver
+2023-02-15 15:49:54,585 p=1750140 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:49:54,598 p=1750140 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:49:54,617 p=1750140 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:49:54,651 p=1750140 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_begin.yaml for Anthony_nimserver
+2023-02-15 15:49:54,674 p=1750140 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:49:54,687 p=1750140 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:49:54,706 p=1750140 u=ansiadm n=ansible | TASK [Setting variable log_file] *************************************************************************
+2023-02-15 15:49:54,739 p=1750140 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:49:54,771 p=1750140 u=ansiadm n=ansible | TASK [Log playbook begin] ********************************************************************************
+2023-02-15 15:49:55,682 p=1750140 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:49:55,724 p=1750140 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:49:56,182 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:49:56,202 p=1750140 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:49:56,369 p=1750140 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:49:56,398 p=1750140 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:49:56,727 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:49:56,764 p=1750140 u=ansiadm n=ansible | TASK [Log execution begin] *******************************************************************************
+2023-02-15 15:49:57,622 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:49:57,683 p=1750140 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:49:58,100 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:49:58,144 p=1750140 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:49:58,500 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:49:58,521 p=1750140 u=ansiadm n=ansible | TASK [Output the mksysb list to file ./vars_sample/mksysb_list.yaml and ./logfile/mksysb_list.json] ******
+2023-02-15 15:49:58,557 p=1750140 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/list_mksysb.yaml for Anthony_nimserver
+2023-02-15 15:49:58,593 p=1750140 u=ansiadm n=ansible | TASK [List the mksysb image] *****************************************************************************
+2023-02-15 15:49:59,738 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:49:59,791 p=1750140 u=ansiadm n=ansible | TASK [Output mksysb list to json logfile ./logfile/mksysb_list.json] *************************************
+2023-02-15 15:50:00,537 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:50:00,594 p=1750140 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml (first line)] ******************
+2023-02-15 15:50:01,557 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:50:01,616 p=1750140 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml] *******************************
+2023-02-15 15:50:02,186 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1] => (item=Anthony_test2_mksysb_20230215T143341)
+2023-02-15 15:50:02,212 p=1750140 u=ansiadm n=ansible | TASK [Check the list mksysb images exist] ****************************************************************
+2023-02-15 15:50:02,246 p=1750140 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:50:02,281 p=1750140 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:50:02,370 p=1750703 u=ansiadm n=ansible | [pause]
+Delete mksysb options:
+=====================================
+1 - Anthony_test2_mksysb_20230215T143341
+:
+2023-02-15 15:50:03,222 p=1750140 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:50:03,255 p=1750140 u=ansiadm n=ansible | TASK [set_fact] ******************************************************************************************
+2023-02-15 15:50:03,299 p=1750140 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:50:03,344 p=1750140 u=ansiadm n=ansible | TASK [display input] *************************************************************************************
+2023-02-15 15:50:03,389 p=1750140 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1] => {
+    "msg": "0"
+}
+2023-02-15 15:50:03,433 p=1750140 u=ansiadm n=ansible | TASK [Invalid option to delete mksysb] *******************************************************************
+2023-02-15 15:50:03,468 p=1750140 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:50:03,495 p=1750140 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:50:03,568 p=1750711 u=ansiadm n=ansible | [pause]
+Do you want to delete Anthony_test2_mksysb_20230215T143341 (yes/no)?:
+2023-02-15 15:50:05,427 p=1750140 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:50:05,497 p=1750140 u=ansiadm n=ansible | TASK [Start to delete the mksysb] ************************************************************************
+2023-02-15 15:50:07,087 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:50:07,115 p=1750140 u=ansiadm n=ansible | TASK [debug] *********************************************************************************************
+2023-02-15 15:50:07,182 p=1750140 u=ansiadm n=ansible | ok: [Anthony_nimserver] => {
+    "msg": "/exoprt/nim/mksysb/Anthony_test2_mksysb_20230215T143341"
+}
+2023-02-15 15:50:07,219 p=1750140 u=ansiadm n=ansible | TASK [Delete the mksysb file] ****************************************************************************
+2023-02-15 15:50:08,311 p=1750140 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:50:08,348 p=1750140 u=ansiadm n=ansible | TASK [Deny to delete mksysb] *****************************************************************************
+2023-02-15 15:50:08,393 p=1750140 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:50:08,431 p=1750140 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:50:08,487 p=1750140 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_success.yaml for Anthony_nimserver
+2023-02-15 15:50:08,535 p=1750140 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:50:08,726 p=1750140 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:50:08,756 p=1750140 u=ansiadm n=ansible | TASK [Log success] ***************************************************************************************
+2023-02-15 15:50:09,294 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:50:09,326 p=1750140 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:50:09,624 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:50:09,657 p=1750140 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:50:10,011 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:50:10,030 p=1750140 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:50:10,062 p=1750140 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_end.yaml for Anthony_nimserver
+2023-02-15 15:50:10,092 p=1750140 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:50:10,232 p=1750140 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:50:10,260 p=1750140 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:50:10,508 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:50:10,539 p=1750140 u=ansiadm n=ansible | TASK [Log execution end] *********************************************************************************
+2023-02-15 15:50:11,135 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:50:11,167 p=1750140 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:50:11,496 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:50:11,527 p=1750140 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:50:11,878 p=1750140 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:50:11,934 p=1750140 u=ansiadm n=ansible | PLAY RECAP ***********************************************************************************************
+2023-02-15 15:50:11,934 p=1750140 u=ansiadm n=ansible | Anthony_nimserver          : ok=35   changed=17   unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+2023-02-15 15:52:16,096 p=1752865 u=ansiadm n=ansible | PLAY [NIM management] ************************************************************************************
+2023-02-15 15:52:16,137 p=1752865 u=ansiadm n=ansible | TASK [Gathering Facts] ***********************************************************************************
+2023-02-15 15:52:28,541 p=1752865 u=ansiadm n=ansible | [WARNING]: Platform aix on host Anthony_nimserver is using the discovered Python interpreter at
+/usr/bin/python, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.13/reference_appendices/interpreter_discovery.html for
+more information.
+
+2023-02-15 15:52:28,542 p=1752865 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:52:28,598 p=1752865 u=ansiadm n=ansible | TASK [Set log vars] **************************************************************************************
+2023-02-15 15:52:28,635 p=1752865 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:52:28,661 p=1752865 u=ansiadm n=ansible | TASK [PreCheck current user is ansiadm] ******************************************************************
+2023-02-15 15:52:28,697 p=1752865 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/fail_when_not_ansiadm.yaml for Anthony_nimserver
+2023-02-15 15:52:28,738 p=1752865 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:52:28,754 p=1752865 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:52:28,778 p=1752865 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:52:28,830 p=1752865 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_begin.yaml for Anthony_nimserver
+2023-02-15 15:52:28,867 p=1752865 u=ansiadm n=ansible | TASK [fail] **********************************************************************************************
+2023-02-15 15:52:28,885 p=1752865 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:52:28,911 p=1752865 u=ansiadm n=ansible | TASK [Setting variable log_file] *************************************************************************
+2023-02-15 15:52:28,960 p=1752865 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:52:29,015 p=1752865 u=ansiadm n=ansible | TASK [Log playbook begin] ********************************************************************************
+2023-02-15 15:52:30,033 p=1752865 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:30,065 p=1752865 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:52:30,613 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:30,642 p=1752865 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:52:30,964 p=1752865 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:52:31,032 p=1752865 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:52:31,391 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:31,425 p=1752865 u=ansiadm n=ansible | TASK [Log execution begin] *******************************************************************************
+2023-02-15 15:52:32,234 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:32,268 p=1752865 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:52:32,629 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:32,671 p=1752865 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:52:33,122 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:33,172 p=1752865 u=ansiadm n=ansible | TASK [Output the mksysb list to file ./vars_sample/mksysb_list.yaml and ./logfile/mksysb_list.json] ******
+2023-02-15 15:52:33,245 p=1752865 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/list_mksysb.yaml for Anthony_nimserver
+2023-02-15 15:52:33,299 p=1752865 u=ansiadm n=ansible | TASK [List the mksysb image] *****************************************************************************
+2023-02-15 15:52:34,565 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:52:34,622 p=1752865 u=ansiadm n=ansible | TASK [Output mksysb list to json logfile ./logfile/mksysb_list.json] *************************************
+2023-02-15 15:52:35,480 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:35,539 p=1752865 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml (first line)] ******************
+2023-02-15 15:52:36,337 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:36,370 p=1752865 u=ansiadm n=ansible | TASK [Output mksysb list to menu yaml file ./vars_sample/mksysb_list.yaml] *******************************
+2023-02-15 15:52:36,810 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1] => (item=Anthony_test2_mksysb_20230215T143341)
+2023-02-15 15:52:36,831 p=1752865 u=ansiadm n=ansible | TASK [Check the list mksysb images exist] ****************************************************************
+2023-02-15 15:52:36,859 p=1752865 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:52:36,882 p=1752865 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:52:36,991 p=1753665 u=ansiadm n=ansible | [pause]
+Delete mksysb options:
+=====================================
+1 - Anthony_test2_mksysb_20230215T143341
+:
+2023-02-15 15:52:37,814 p=1752865 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:52:37,851 p=1752865 u=ansiadm n=ansible | TASK [set_fact] ******************************************************************************************
+2023-02-15 15:52:37,912 p=1752865 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:52:38,000 p=1752865 u=ansiadm n=ansible | TASK [display input] *************************************************************************************
+2023-02-15 15:52:38,081 p=1752865 u=ansiadm n=ansible | ok: [Anthony_nimserver -> 127.0.0.1] => {
+    "msg": "0"
+}
+2023-02-15 15:52:38,157 p=1752865 u=ansiadm n=ansible | TASK [Invalid option to delete mksysb] *******************************************************************
+2023-02-15 15:52:38,227 p=1752865 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:52:38,275 p=1752865 u=ansiadm n=ansible | TASK [pause] *********************************************************************************************
+2023-02-15 15:52:38,371 p=1753724 u=ansiadm n=ansible | [pause]
+Do you want to delete Anthony_test2_mksysb_20230215T143341 (yes/no)?:
+2023-02-15 15:52:40,304 p=1752865 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:52:40,342 p=1752865 u=ansiadm n=ansible | TASK [Start to delete the mksysb] ************************************************************************
+2023-02-15 15:52:41,851 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:52:41,878 p=1752865 u=ansiadm n=ansible | TASK [debug] *********************************************************************************************
+2023-02-15 15:52:41,945 p=1752865 u=ansiadm n=ansible | ok: [Anthony_nimserver] => {
+    "msg": "/export/nim/mksysb/Anthony_test2_mksysb_20230215T143341"
+}
+2023-02-15 15:52:41,982 p=1752865 u=ansiadm n=ansible | TASK [Delete the mksysb file] ****************************************************************************
+2023-02-15 15:52:43,001 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver]
+2023-02-15 15:52:43,036 p=1752865 u=ansiadm n=ansible | TASK [Deny to delete mksysb] *****************************************************************************
+2023-02-15 15:52:43,084 p=1752865 u=ansiadm n=ansible | skipping: [Anthony_nimserver]
+2023-02-15 15:52:43,122 p=1752865 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:52:43,178 p=1752865 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_success.yaml for Anthony_nimserver
+2023-02-15 15:52:43,223 p=1752865 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:52:43,426 p=1752865 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:52:43,458 p=1752865 u=ansiadm n=ansible | TASK [Log success] ***************************************************************************************
+2023-02-15 15:52:44,038 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:44,070 p=1752865 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:52:44,362 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:44,393 p=1752865 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:52:44,724 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:44,744 p=1752865 u=ansiadm n=ansible | TASK [include_tasks] *************************************************************************************
+2023-02-15 15:52:44,778 p=1752865 u=ansiadm n=ansible | included: /home/ansiadm/handover/tasks/log_end.yaml for Anthony_nimserver
+2023-02-15 15:52:44,817 p=1752865 u=ansiadm n=ansible | TASK [Generate random string] ****************************************************************************
+2023-02-15 15:52:44,956 p=1752865 u=ansiadm n=ansible | ok: [Anthony_nimserver]
+2023-02-15 15:52:44,984 p=1752865 u=ansiadm n=ansible | TASK [Get current timestamp] *****************************************************************************
+2023-02-15 15:52:45,270 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:45,325 p=1752865 u=ansiadm n=ansible | TASK [Log execution end] *********************************************************************************
+2023-02-15 15:52:45,903 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:45,934 p=1752865 u=ansiadm n=ansible | TASK [Append log to /home/ansiadm/handover/logfile/ansible_sample.log] ***********************************
+2023-02-15 15:52:46,237 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:46,276 p=1752865 u=ansiadm n=ansible | TASK [Remove template file] ******************************************************************************
+2023-02-15 15:52:46,626 p=1752865 u=ansiadm n=ansible | changed: [Anthony_nimserver -> 127.0.0.1]
+2023-02-15 15:52:46,668 p=1752865 u=ansiadm n=ansible | PLAY RECAP ***********************************************************************************************
+2023-02-15 15:52:46,668 p=1752865 u=ansiadm n=ansible | Anthony_nimserver          : ok=35   changed=18   unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
