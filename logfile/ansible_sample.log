@@ -806,3 +806,1353 @@ items:
 
 2023-02-15 15:52:45 HKT [ Anthony_nimserver ] [ nim_mksysb_delete ] ended
 
+
+------------------ [ nim_mksysb_create ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 15:56:00 HKT [ Anthony_nimserver ] [ nim_mksysb_create ] began
+
+2023-02-15 15:56:00 HKT [ Anthony_test2 ] [ nim_mksysb_create ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_create ] suceeded
+
+[ Anthony_test2 ] [ nim_mksysb_create ] suceeded
+
+2023-02-15 16:00:59 HKT [ Anthony_nimserver ] [ nim_mksysb_create ] ended
+
+2023-02-15 16:00:59 HKT [ Anthony_test2 ] [ nim_mksysb_create ] ended
+
+
+------------------ [ nim_spot_create ] ------------------
+
+hosts: ['Anthony_nimserver']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-15 16:07:38 HKT [ Anthony_nimserver ] [ nim_spot_create ] began
+
+[ Anthony_nimserver ] [ nim_spot_create ] suceeded
+
+2023-02-15 16:11:41 HKT [ Anthony_nimserver ] [ nim_spot_create ] ended
+
+
+------------------ [ alt_disk_list ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-16 15:50:29 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+
+2023-02-16 15:50:29 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+
+[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_list ] suceeded
+
+2023-02-16 15:50:39 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+
+2023-02-16 15:50:39 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+
+
+------------------ [ alt_disk_clean ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-16 15:52:20 HKT [ Anthony_nimserver ] [ alt_disk_clean ] began
+
+2023-02-16 15:52:21 HKT [ Anthony_test2 ] [ alt_disk_clean ] began
+
+[ Anthony_nimserver ] [ alt_disk_clean ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_clean ] suceeded
+
+2023-02-16 15:52:31 HKT [ Anthony_nimserver ] [ alt_disk_clean ] ended
+
+2023-02-16 15:52:31 HKT [ Anthony_test2 ] [ alt_disk_clean ] ended
+
+
+------------------ [ alt_disk_list ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-16 15:56:20 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+
+2023-02-16 15:56:20 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+
+[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_list ] suceeded
+
+2023-02-16 15:56:28 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+
+2023-02-16 15:56:28 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-16 16:24:40 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-02-16 16:24:40 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-02-16 16:29:29 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-02-16 16:29:29 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_list ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-02-16 16:54:58 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+
+2023-02-16 16:54:58 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+
+[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_list ] suceeded
+
+2023-02-16 16:55:08 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+
+2023-02-16 16:55:08 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+
+
+------------------ [ alt_disk_list ] ------------------
+
+hosts: ['Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-15 15:52:36 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+
+[ Anthony_test2 ] [ alt_disk_list ] suceeded
+
+2023-03-15 15:52:42 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+
+
+------------------ [ alt_disk_list ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-15 15:57:53 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+
+2023-03-15 15:57:53 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+
+[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_list ] suceeded
+
+2023-03-15 15:58:02 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+
+2023-03-15 15:58:02 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+
+
+------------------ [ alt_disk_list ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-20 14:15:40 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+
+2023-03-20 14:15:40 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+
+[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_list ] suceeded
+
+2023-03-20 14:15:48 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+
+2023-03-20 14:15:48 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+
+
+------------------ [ alt_disk_list ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-22 16:13:32 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+
+2023-03-22 16:13:32 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+
+[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_list ] suceeded
+
+2023-03-22 16:13:40 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+
+2023-03-22 16:13:41 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-23 15:32:40 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-23 15:32:41 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+2023-03-23 15:32:52 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-23 15:32:52 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-23 15:34:31 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-23 15:34:31 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-23 15:41:57 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-23 15:41:57 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-23 15:48:15 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-23 15:48:15 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-23 15:48:25 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-23 15:48:25 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-23 15:58:39 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-23 15:58:39 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-23 15:58:51 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-23 15:58:51 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-23 16:08:32 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-23 16:08:32 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+2023-03-23 16:08:41 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-23 16:08:42 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-23 16:12:33 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-23 16:12:33 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+2023-03-23 16:12:46 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-23 16:12:46 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ nim_mksysb_create ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-23 16:15:55 HKT [ Anthony_nimserver ] [ nim_mksysb_create ] began
+
+2023-03-23 16:15:55 HKT [ Anthony_test2 ] [ nim_mksysb_create ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_create ] suceeded
+
+[ Anthony_test2 ] [ nim_mksysb_create ] suceeded
+
+2023-03-23 16:21:05 HKT [ Anthony_nimserver ] [ nim_mksysb_create ] ended
+
+2023-03-23 16:21:05 HKT [ Anthony_test2 ] [ nim_mksysb_create ] ended
+
+
+------------------ [ nim_mksysb_list ] ------------------
+
+hosts: ['Anthony_nimserver']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-23 16:22:03 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] began
+
+[ Anthony_nimserver ] [ nim_mksysb_list ] suceeded
+
+2023-03-23 16:22:11 HKT [ Anthony_nimserver ] [ nim_mksysb_list ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-23 16:37:11 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-23 16:37:11 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-23 16:37:23 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-23 16:37:23 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-23 17:11:21 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-23 17:11:21 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-23 17:11:34 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-23 17:11:34 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-24 11:09:00 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-24 11:09:00 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-24 15:16:42 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-24 15:16:42 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-24 15:16:53 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-24 15:16:53 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-24 15:27:38 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-24 15:27:38 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-24 15:34:36 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-24 15:34:36 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_list ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-24 16:20:01 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+
+2023-03-24 16:20:01 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+
+[ Anthony_test2 ] [ alt_disk_list ] suceeded
+
+[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+
+2023-03-24 16:20:10 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+
+2023-03-24 16:20:10 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+
+
+------------------ [ alt_disk_clean ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-24 16:22:21 HKT [ Anthony_test2 ] [ alt_disk_clean ] began
+
+2023-03-24 16:22:21 HKT [ Anthony_nimserver ] [ alt_disk_clean ] began
+
+[ Anthony_nimserver ] [ alt_disk_clean ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_clean ] suceeded
+
+2023-03-24 16:22:33 HKT [ Anthony_nimserver ] [ alt_disk_clean ] ended
+
+2023-03-24 16:22:33 HKT [ Anthony_test2 ] [ alt_disk_clean ] ended
+
+
+------------------ [ alt_disk_list ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-24 16:25:45 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+
+2023-03-24 16:25:45 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+
+[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_list ] suceeded
+
+2023-03-24 16:25:55 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+
+2023-03-24 16:25:55 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-24 17:33:45 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-24 17:33:45 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-24 17:39:18 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-24 17:39:18 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-24 18:21:59 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+2023-03-24 18:21:59 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-24 18:22:57 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-24 18:22:57 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-24 18:23:58 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-24 18:23:58 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-24 18:24:49 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-24 18:24:49 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+
+------------------ [ alt_disk_list ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 10:30:03 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+
+2023-03-25 10:30:03 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+
+[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_list ] suceeded
+
+2023-03-25 10:30:13 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+
+2023-03-25 10:30:13 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 11:31:11 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 11:31:11 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+2023-03-25 11:31:18 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+2023-03-25 11:31:18 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 11:34:38 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 11:34:38 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+2023-03-25 11:34:46 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 11:34:46 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 11:36:53 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 11:36:53 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 13:10:43 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 13:10:43 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+2023-03-25 13:10:56 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+2023-03-25 13:10:56 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 13:14:16 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 13:14:16 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+2023-03-25 13:14:28 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 13:14:28 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 13:21:11 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 13:21:11 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+2023-03-25 13:21:25 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 13:21:25 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 13:25:40 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 13:25:40 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+2023-03-25 13:25:53 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 13:25:53 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 13:28:25 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 13:28:25 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-25 13:28:37 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+2023-03-25 13:28:37 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 13:31:03 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 13:31:03 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-25 13:31:14 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 13:31:14 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 13:32:34 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+2023-03-25 13:32:34 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+2023-03-25 13:32:47 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 13:32:47 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 13:33:31 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 13:33:31 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+2023-03-25 13:33:42 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 13:33:42 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 13:50:41 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 13:50:41 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+2023-03-25 13:50:54 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 13:50:54 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 14:05:11 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 14:05:11 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+2023-03-25 14:05:24 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 14:05:24 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 14:37:08 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 14:37:08 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+2023-03-25 14:37:21 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 14:37:21 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 15:16:04 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+2023-03-25 15:16:04 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-25 15:22:32 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 15:22:32 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 15:54:31 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 15:54:31 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+2023-03-25 15:54:45 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 15:54:45 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 15:58:27 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 15:58:27 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+2023-03-25 16:04:58 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 16:04:58 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_clean ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 16:06:31 HKT [ Anthony_nimserver ] [ alt_disk_clean ] began
+
+2023-03-25 16:06:31 HKT [ Anthony_test2 ] [ alt_disk_clean ] began
+
+[ Anthony_nimserver ] [ alt_disk_clean ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_clean ] suceeded
+
+2023-03-25 16:06:43 HKT [ Anthony_nimserver ] [ alt_disk_clean ] ended
+
+2023-03-25 16:06:43 HKT [ Anthony_test2 ] [ alt_disk_clean ] ended
+
+
+------------------ [ alt_disk_clean ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 16:07:32 HKT [ Anthony_nimserver ] [ alt_disk_clean ] began
+
+2023-03-25 16:07:32 HKT [ Anthony_test2 ] [ alt_disk_clean ] began
+
+[ Anthony_nimserver ] [ alt_disk_clean ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_clean ] suceeded
+
+2023-03-25 16:07:42 HKT [ Anthony_test2 ] [ alt_disk_clean ] ended
+
+2023-03-25 16:07:42 HKT [ Anthony_nimserver ] [ alt_disk_clean ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 16:09:44 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+2023-03-25 16:09:44 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+2023-03-25 16:09:57 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+2023-03-25 16:09:57 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 16:10:56 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+2023-03-25 16:10:56 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-25 16:17:19 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 16:17:19 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_clean ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 16:20:30 HKT [ Anthony_nimserver ] [ alt_disk_clean ] began
+
+2023-03-25 16:20:30 HKT [ Anthony_test2 ] [ alt_disk_clean ] began
+
+[ Anthony_nimserver ] [ alt_disk_clean ] failed
+
+[ Anthony_test2 ] [ alt_disk_clean ] failed
+
+2023-03-25 16:20:35 HKT [ Anthony_nimserver ] [ alt_disk_clean ] ended
+
+2023-03-25 16:20:35 HKT [ Anthony_test2 ] [ alt_disk_clean ] ended
+
+
+------------------ [ alt_disk_clean ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 16:37:34 HKT [ Anthony_nimserver ] [ alt_disk_clean ] began
+
+2023-03-25 16:37:34 HKT [ Anthony_test2 ] [ alt_disk_clean ] began
+
+[ Anthony_nimserver ] [ alt_disk_clean ] failed
+
+[ Anthony_test2 ] [ alt_disk_clean ] failed
+
+2023-03-25 16:37:40 HKT [ Anthony_nimserver ] [ alt_disk_clean ] ended
+
+2023-03-25 16:37:40 HKT [ Anthony_test2 ] [ alt_disk_clean ] ended
+
+
+------------------ [ alt_disk_clean ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 16:38:30 HKT [ Anthony_nimserver ] [ alt_disk_clean ] began
+
+2023-03-25 16:38:30 HKT [ Anthony_test2 ] [ alt_disk_clean ] began
+
+[ Anthony_nimserver ] [ alt_disk_clean ] failed
+
+[ Anthony_test2 ] [ alt_disk_clean ] failed
+
+2023-03-25 16:38:35 HKT [ Anthony_nimserver ] [ alt_disk_clean ] ended
+
+2023-03-25 16:38:35 HKT [ Anthony_test2 ] [ alt_disk_clean ] ended
+
+
+------------------ [ alt_disk_clean ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 16:39:14 HKT [ Anthony_nimserver ] [ alt_disk_clean ] began
+
+2023-03-25 16:39:14 HKT [ Anthony_test2 ] [ alt_disk_clean ] began
+
+[ Anthony_nimserver ] [ alt_disk_clean ] failed
+
+[ Anthony_test2 ] [ alt_disk_clean ] failed
+
+2023-03-25 16:39:21 HKT [ Anthony_nimserver ] [ alt_disk_clean ] ended
+
+2023-03-25 16:39:21 HKT [ Anthony_test2 ] [ alt_disk_clean ] ended
+
+
+------------------ [ alt_disk_clean ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 16:40:45 HKT [ Anthony_nimserver ] [ alt_disk_clean ] began
+
+2023-03-25 16:40:45 HKT [ Anthony_test2 ] [ alt_disk_clean ] began
+
+
+------------------ [ alt_disk_list ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 16:43:39 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+
+2023-03-25 16:43:40 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+
+[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_list ] suceeded
+
+2023-03-25 16:43:49 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+
+2023-03-25 16:43:49 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 16:44:19 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-25 16:44:19 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-25 16:50:34 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-25 16:50:35 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_clean ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-25 16:55:19 HKT [ Anthony_nimserver ] [ alt_disk_clean ] began
+
+2023-03-25 16:55:19 HKT [ Anthony_test2 ] [ alt_disk_clean ] began
+
+[ Anthony_nimserver ] [ alt_disk_clean ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_clean ] suceeded
+
+2023-03-25 16:55:35 HKT [ Anthony_nimserver ] [ alt_disk_clean ] ended
+
+2023-03-25 16:55:35 HKT [ Anthony_test2 ] [ alt_disk_clean ] ended
+
+
+------------------ [ alt_disk_list ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-27 15:16:14 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+
+2023-03-27 15:16:14 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+
+[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_list ] suceeded
+
+2023-03-27 15:16:23 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+
+2023-03-27 15:16:23 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-27 15:40:26 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-27 15:40:26 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] failed
+
+[ Anthony_test2 ] [ alt_disk_copy ] failed
+
+2023-03-27 15:40:37 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-27 15:40:37 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-27 15:42:27 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-27 15:42:27 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-27 15:48:33 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-27 15:48:33 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_list ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-27 15:51:11 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+
+2023-03-27 15:51:11 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+
+[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_list ] suceeded
+
+2023-03-27 15:51:20 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+
+2023-03-27 15:51:20 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-27 16:06:47 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-27 16:06:47 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-27 16:13:11 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-27 16:13:12 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-27 16:19:15 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-27 16:19:15 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-27 16:23:32 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-27 16:23:32 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_list ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-27 17:05:50 HKT [ Anthony_nimserver ] [ alt_disk_list ] began
+
+2023-03-27 17:05:50 HKT [ Anthony_test2 ] [ alt_disk_list ] began
+
+[ Anthony_nimserver ] [ alt_disk_list ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_list ] suceeded
+
+2023-03-27 17:05:58 HKT [ Anthony_nimserver ] [ alt_disk_list ] ended
+
+2023-03-27 17:05:58 HKT [ Anthony_test2 ] [ alt_disk_list ] ended
+
+
+------------------ [ alt_disk_clean ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-27 17:09:08 HKT [ Anthony_nimserver ] [ alt_disk_clean ] began
+
+2023-03-27 17:09:08 HKT [ Anthony_test2 ] [ alt_disk_clean ] began
+
+[ Anthony_test2 ] [ alt_disk_clean ] suceeded
+
+[ Anthony_nimserver ] [ alt_disk_clean ] suceeded
+
+2023-03-27 17:09:25 HKT [ Anthony_nimserver ] [ alt_disk_clean ] ended
+
+2023-03-27 17:09:25 HKT [ Anthony_test2 ] [ alt_disk_clean ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-27 17:11:11 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-27 17:11:11 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-27 17:15:08 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-27 17:15:08 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+

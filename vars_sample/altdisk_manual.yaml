@@ -1,5 +1,3 @@
 alt_server:
   - name: Anthony_test2
     altdisk: hdisk4
-  - name: Anthony_nimserver
-    altdisk: hdisk4

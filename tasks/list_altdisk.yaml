@@ -1,8 +1,10 @@
 - name: List the alt_disk image
   shell: |
-    /usr/sbin/lsvg| grep altinst_rootvg
+    /usr/sbin/lspv| grep altinst_rootvg | awk '{print $1}'
   register: lsalt_result
-  
+  ignore_errors: yes
+  tags: list_listalt
+
 - name: Output alt_disk list to json logfile ./logfile/alt_disk_list.json
   copy:
     content: "{{ lsalt_result }}"
@@ -12,6 +14,33 @@
     force: yes
   delegate_to: 127.0.0.1
 
-- name: Display the result
-  debug:
-    msg: "{{ lsalt_result.stdout }}"
+- name: Output altdisk list to menu yaml file ./vars_{{ change_order }}/altdisk_list.yaml (first line)
+  copy:
+    content: "alt_server:"
+    dest: "./vars_{{ change_order }}/altdisk_list.yaml"
+    owner: ansiadm
+    group: ansiadm
+    force: yes
+  delegate_to: 127.0.0.1
+
+- name: Output altdisk list to menu yaml file ./vars_{{ change_order }}/altdisk_list.yaml
+  lineinfile:
+    line: "  - name: {{ inventory_hostname }}\n    altdisk: {{ item }}"
+    path: "./vars_{{ change_order }}/altdisk_list.yaml"
+  loop: "{{ lsalt_result.stdout_lines }}"
+  loop_control:
+    extended: yes
+  delegate_to: 127.0.0.1
+
+- name: Check if any record in altdisk yaml
+  shell: |
+    grep "name" ./vars_{{ change_order }}/altdisk_list.yaml
+  register: check_line
+  ignore_errors: yes
+  delegate_to: 127.0.0.1
+
+- name: Output the error if no lines
+  fail:
+    msg: "There is no any host have altinst_rootvg"
+  when: check_line.rc != 0
+  delegate_to: 127.0.0.1

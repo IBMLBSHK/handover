@@ -3,7 +3,7 @@
   hosts: aix
   gather_facts: yes
   vars_files:
-    - "./vars_{{ change_order }}/alt_disk_list.yaml"
+    - "./vars_{{ change_order }}/altdisk_list.yaml"
   vars:
     cur_time: "{{ ansible_date_time.iso8601_basic_short }}"
   tasks:

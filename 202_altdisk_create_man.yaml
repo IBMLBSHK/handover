@@ -4,45 +4,60 @@
   gather_facts: yes
   serial: 3
   vars_files:
-    - "./vars_{{ change_order }}/alt_disk_list.yaml"
+    - "./vars_{{ change_order }}/altdisk_manual.yaml"
   vars:
     cur_time: "{{ ansible_date_time.iso8601_basic_short }}"
+
+  pre_tasks:
+  - name: Check any altdisk_create_man.yaml
+    stat:
+      path: "./vars_{{ change_order }}/altdisk_manual.yaml"
+    register: altdisk_file_result
+    delegate_to: 127.0.0.1
+
+  - name: Return exit if no file present
+    fail:
+      msg: "File do not exist: ./vars_{{ change_order }}/altdisk_manual.yaml"
+    when: not altdisk_file_result.stat.exists
+
   tasks:
   - name: Set log vars
     set_fact:
-      action: alt_disk_clean
+      action: alt_disk_copy
       items: ""
     run_once: true
   
   - name: PreCheck current user is ansiadm
     include_tasks: tasks/fail_when_not_ansiadm.yaml
 
-  - name: Start to alt disk clean ... 
+  - name: Start to create alt disk ...
     block:
     - include_tasks: tasks/log_begin.yaml
-    
-    - name: Clean alt disk
+
+    - name: Create alt disk
       ibm.power_aix.alt_disk:
-        action: clean 
+        action: copy
+        force: yes
+        targets: "{{ item.altdisk }}"
       register: alt_result
       when: inventory_hostname == item.name
       loop: "{{ alt_server }}"
-  
+
     - set_fact:
-       alt_re: "{{ alt_result }}"
+        alt_re: "{{ alt_result }}"
   
     - name: Output to the log
       vars:
-        clean_alt_time: "alt_clean_{{ cur_time }}.log"
+        create_alt_time: "alt_create_{{ cur_time }}.log"
       copy:
         content: "{{ item.stdout }}"
-        dest: "./logfile/{{ item.item.name }}_{{ clean_alt_time }}"
+        dest: "./logfile/{{ item.item.name }}_{{ create_alt_time }}"
         owner: ansiadm
         group: ansiadm
       when: item.item.name == inventory_hostname
       loop: "{{ alt_re.results }}"
       delegate_to: 127.0.0.1
-  
+
     - include_tasks: tasks/log_success.yaml
 
     rescue:
