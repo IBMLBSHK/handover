@@ -23,17 +23,24 @@
     
     - name: Checking the directory exists
       stat:
-        path: "./nmon_logs/"
+        path: "{{ nmon_path.dest }}"
       register: dir_stat
       delegate_to: 127.0.0.1
 
     - name: Create a directory if doesn't exist
       file:
-        path: "./nmon_logs/"
+        path: "{{ nmon_path.dest }}"
         state: directory
         owner: ansiadm
         group: ansiadm
+        mode: 0755
       when: not dir_stat.stat.exists
+      delegate_to: 127.0.0.1
+
+    - name: Change the permission of directory
+      file:
+        path: "{{ nmon_path.dest }}"
+        mode: 0755
       delegate_to: 127.0.0.1
 
     - name: Get the file names of nmon
@@ -46,7 +53,7 @@
     - name: Copy file from remote to local
       fetch:
         src: "{{ item.path }}"
-        dest: "./nmon_logs/"
+        dest: "{{ nmon_path.dest}}"
         flat: yes
       loop: "{{ file_2_fetch.files }}"
 

@@ -1,2 +1,3 @@
 nmon_path:
   src: "/staging_nmon/"
+  dest: "/u01/nmon_log/"
