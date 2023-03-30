@@ -1,0 +1,1 @@
+{"changed": true, "stdout": "hdisk4", "stderr": "", "rc": 0, "cmd": "/usr/sbin/lspv| grep altinst_rootvg | awk '{print $1}'\n", "start": "2023-03-29 16:49:47.417454", "end": "2023-03-29 16:49:47.520832", "delta": "0:00:00.103378", "msg": "", "stdout_lines": ["hdisk4"], "stderr_lines": [], "failed": false}

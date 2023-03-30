@@ -23,7 +23,7 @@
   tasks:
   - name: Set log vars
     set_fact:
-      action: alt_disk_copy
+      action: alt_disk_copy_manual
       items: ""
     run_once: true
   
@@ -51,7 +51,7 @@
         create_alt_time: "alt_create_{{ cur_time }}.log"
       copy:
         content: "{{ item.stdout }}"
-        dest: "./logfile/{{ item.item.name }}_{{ create_alt_time }}"
+        dest: "./vars_{{ change_order }}/{{ action }}.{{ item.item.name }}_{{ create_alt_time }}"
         owner: ansiadm
         group: ansiadm
       when: item.item.name == inventory_hostname

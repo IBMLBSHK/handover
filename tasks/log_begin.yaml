@@ -9,11 +9,13 @@
   template:
     src: ../templates/playbook_begin.j2
     dest: "{{ log_template }}"
+    owner: ansiadm
+    group: ansiadm
   delegate_to: 127.0.0.1
   run_once: true
 
 - name: Append log to {{ log_file }}
-  shell: cat {{ log_template }} >> {{ log_file }}
+  shell: cat {{ log_template }} >> {{ log_file }} && chown ansiadm.ansiadm {{ log_file }}
   delegate_to: 127.0.0.1
   run_once: true
 
@@ -30,6 +32,8 @@
   template:
     src: ../templates/log_begin.j2
     dest: "{{ log_template }}.{{ suffix }}"
+    owner: ansiadm
+    group: ansiadm
   delegate_to: 127.0.0.1
 
 - name: Append log to {{ log_file }}

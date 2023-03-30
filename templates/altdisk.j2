@@ -1,0 +1,5 @@
+alt_server:
+{% for alt in altdisk %}
+  - name: {{ alt.name }}
+    altdisk: {{ alt.disk }}
+{% endfor %}

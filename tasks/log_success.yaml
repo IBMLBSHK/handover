@@ -6,6 +6,8 @@
   template:
     src: ../templates/log_success.j2
     dest: "{{ log_template }}.{{ suffix }}"
+    owner: ansiadm
+    group: ansiadm
   delegate_to: 127.0.0.1
 
 - name: Append log to {{ log_file }}

@@ -2476,3 +2476,43 @@ items:
 
 2023-03-28 14:40:16 HKT [ Anthony_test2 ] [ gather_nmon ] ended
 
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-28 15:30:33 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-28 15:30:33 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-28 15:34:55 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-28 15:34:55 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+
+
+------------------ [ alt_disk_copy ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-29 14:42:21 HKT [ Anthony_nimserver ] [ alt_disk_copy ] began
+
+2023-03-29 14:42:21 HKT [ Anthony_test2 ] [ alt_disk_copy ] began
+
+[ Anthony_nimserver ] [ alt_disk_copy ] suceeded
+
+[ Anthony_test2 ] [ alt_disk_copy ] suceeded
+
+2023-03-29 14:46:09 HKT [ Anthony_nimserver ] [ alt_disk_copy ] ended
+
+2023-03-29 14:46:09 HKT [ Anthony_test2 ] [ alt_disk_copy ] ended
+

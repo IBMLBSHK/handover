@@ -3,14 +3,14 @@
   hosts: aix
   gather_facts: yes
   serial: 3
-  vars_files:
-    - "./vars_{{ change_order }}/altdisk_list.yaml"
+  #vars_files:
+  #  - "./vars_{{ change_order }}/altdisk_list.yaml"
   vars:
     cur_time: "{{ ansible_date_time.iso8601_basic_short }}"
   tasks:
   - name: Set log vars
     set_fact:
-      action: alt_disk_copy
+      action: alt_disk_copy_all
       items: ""
     run_once: true
   
@@ -24,18 +24,8 @@
     - name: List the alt_disk image
       include_tasks: tasks/list_altdisk.yaml
    
-    - name: Check if any record in altdisk yaml
-      shell: |
-        grep "name" ./vars_{{ change_order }}/altdisk_list.yaml
-      register: check_line
-      ignore_errors: yes
-      delegate_to: 127.0.0.1
-
-    - name: Output the error if no lines
-      fail:
-        msg: "All host do not have altinst_rootvg and will not process to alt disk clone "
-      when: check_line.rc != 0
-      delegate_to: 127.0.0.1
+    - include_vars:
+        file: "./vars_{{ change_order }}/altdisk_list.yaml"
 
     - name: Create alt disk
       ibm.power_aix.alt_disk:
@@ -49,12 +39,12 @@
     - set_fact:
         alt_re: "{{ alt_result }}"
   
-    - name: Output to the log
+    - name: Output to the log for record of change order
       vars:
         create_alt_time: "alt_create_{{ cur_time }}.log"
       copy:
         content: "{{ item.stdout }}"
-        dest: "./logfile/{{ item.item.name }}_{{ create_alt_time }}"
+        dest: "./vars_{{ change_order }}/{{ action }}_{{ item.item.name }}_{{ create_alt_time }}"
         owner: ansiadm
         group: ansiadm
       when: item.item.name == inventory_hostname

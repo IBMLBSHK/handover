@@ -10,7 +10,7 @@
   tasks:
   - name: Set log vars
     set_fact:
-      action: alt_disk_clean
+      action: alt_disk_clean_manual
       items: ""
     run_once: true
   
@@ -21,8 +21,8 @@
     block:
     - include_tasks: tasks/log_begin.yaml
 
-    - name: List the alt_disk image
-      include_tasks: tasks/list_altdisk.yaml
+      #- name: List the alt_disk image
+      #include_tasks: tasks/list_altdisk.yaml
     
     - name: Clean alt disk
       ibm.power_aix.alt_disk:
@@ -39,7 +39,7 @@
         clean_alt_time: "alt_clean_{{ cur_time }}.log"
       copy:
         content: "{{ item.stdout }}"
-        dest: "./logfile/{{ item.item.name }}_{{ clean_alt_time }}"
+        dest: "./vars_{{ change_order }}/{{ action }}.{{ item.item.name }}_{{ clean_alt_time }}"
         owner: ansiadm
         group: ansiadm
       when: item.item.name == inventory_hostname

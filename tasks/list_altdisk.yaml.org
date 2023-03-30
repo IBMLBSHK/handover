@@ -1,0 +1,81 @@
+- name: List the alt_disk image
+  shell: |
+    /usr/sbin/lspv| grep altinst_rootvg | awk '{print $1}'
+  register: lsalt_result
+  ignore_errors: yes
+  tags: list_listalt
+
+- name: Output alt_disk list to json logfile ./logfile/alt_disk_list.json
+  copy:
+    content: "{{ lsalt_result }}"
+    dest: "./logfile/alt_disk_list.json"
+    owner: ansiadm
+    group: ansiadm
+    force: yes
+  delegate_to: 127.0.0.1
+
+- name: Output altdisk list to menu yaml file ./vars_{{ change_order }}/altdisk_list.yaml (first line)
+  copy:
+    content: "alt_server:"
+    dest: "./vars_{{ change_order }}/altdisk_list.yaml"
+    owner: ansiadm
+    group: ansiadm
+    force: yes
+  delegate_to: 127.0.0.1
+
+- name: Output altdisk list to menu yaml file ./vars_{{ change_order }}/altdisk_list.yaml
+  lineinfile:
+    line: "  - name: {{ inventory_hostname }}\n    altdisk: {{ item }}"
+    path: "./vars_{{ change_order }}/altdisk_list.yaml"
+  loop: "{{ lsalt_result.stdout_lines }}"
+  loop_control:
+    extended: yes
+  when: lsalt_result.stdout_lines | length > 0
+  delegate_to: 127.0.0.1
+
+- name: Check if any record in altdisk yaml
+  shell: |
+    grep "name" ./vars_{{ change_order }}/altdisk_list.yaml
+  register: check_line
+  ignore_errors: yes
+  delegate_to: 127.0.0.1
+
+- name: Include variable
+  include_vars:  "./vars_{{ change_order }}/altdisk_list.yaml"
+
+- name: Output to the log
+  vars:
+    create_alt_time: "alt_create_{{ cur_time }}.log"
+  copy:
+    content: "{{ item.name }} have altinst_rootvg on {{ item.altdisk }}"
+    dest: "./logfile/{{ change_order }}_{{ create_alt_time }}"
+    owner: ansiadm
+    group: ansiadm
+  loop: "{{ alt_server }}"
+  when: check_line.rc == 0
+  delegate_to: 127.0.0.1
+
+- name: Output to the log (No altinst_rootvg)
+  vars:
+    create_alt_time: "alt_create_{{ cur_time }}.log"
+  copy:
+    content: "There is no any host have altinst_rootvg"
+    dest: "./logfile/{{ change_order }}_{{ create_alt_time }}"
+    owner: ansiadm
+    group: ansiadm
+  when: check_line.rc != 0
+  delegate_to: 127.0.0.1
+
+- name: Output the error if no lines
+  debug:
+    msg: "There is no any host have altinst_rootvg"
+  when: check_line.rc != 0
+  ignore_errors: yes
+  delegate_to: 127.0.0.1
+
+- name: Check ./vars_{{ change_order }}/altdisk_list.yaml
+  debug:
+    msg: "You can check the file ./vars_{{ change_order }}/altdisk_list.yaml for altinst_rootvg list"
+  when: check_line.rc ==0
+  ignore_errors: yes
+  delegate_to: 127.0.0.1

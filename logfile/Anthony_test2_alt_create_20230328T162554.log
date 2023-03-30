@@ -1,0 +1,47 @@
+Calling mkszfile to create new /image.data file.
+Checking disk sizes.
+Creating cloned rootvg volume group and associated logical volumes.
+Creating logical volume alt_hd5.
+Creating logical volume alt_hd6.
+Creating logical volume alt_hd8.
+Creating logical volume alt_hd4.
+Creating logical volume alt_hd2.
+Creating logical volume alt_hd9var.
+Creating logical volume alt_hd3.
+Creating logical volume alt_hd1.
+Creating logical volume alt_hd10opt.
+Creating logical volume alt_hd11admin.
+Creating logical volume alt_lg_dumplv.
+Creating logical volume alt_livedump.
+Creating /alt_inst/ file system.
+Creating /alt_inst/admin file system.
+Creating /alt_inst/home file system.
+Creating /alt_inst/opt file system.
+Creating /alt_inst/tmp file system.
+Creating /alt_inst/usr file system.
+Creating /alt_inst/var file system.
+Creating /alt_inst/var/adm/ras/livedump file system.
+Generating a list of files 
+for backup and restore into the alternate file system...
+Backing-up the rootvg files and restoring them to the alternate file system...
+Modifying ODM on cloned disk.
+Building boot image on cloned disk.
+forced unmount of /alt_inst/var/adm/ras/livedump
+forced unmount of /alt_inst/var/adm/ras/livedump
+forced unmount of /alt_inst/var
+forced unmount of /alt_inst/var
+forced unmount of /alt_inst/usr
+forced unmount of /alt_inst/usr
+forced unmount of /alt_inst/tmp
+forced unmount of /alt_inst/tmp
+forced unmount of /alt_inst/opt
+forced unmount of /alt_inst/opt
+forced unmount of /alt_inst/home
+forced unmount of /alt_inst/home
+forced unmount of /alt_inst/admin
+forced unmount of /alt_inst/admin
+forced unmount of /alt_inst
+forced unmount of /alt_inst
+Changing logical volume names in volume group descriptor area.
+Fixing LV control blocks...
+Fixing file system superblocks...

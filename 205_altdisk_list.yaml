@@ -2,8 +2,8 @@
 - name: alt disk 
   hosts: aix
   gather_facts: yes
-  vars_files:
-    - "./vars_{{ change_order }}/altdisk_list.yaml"
+  # vars_files:
+  #  - "./vars_{{ change_order }}/altdisk_list.yaml"
   vars:
     cur_time: "{{ ansible_date_time.iso8601_basic_short }}"
   tasks:
@@ -19,35 +19,18 @@
   - name: Start to alt disk checking ... 
     block:
     - include_tasks: tasks/log_begin.yaml
-    
+
     - name: List the alt_disk image
-      shell: |
-        /usr/sbin/lspv | grep altinst_rootvg | awk {'print $1'}
-      register: lsalt_result
-      ignore_errors: true
-  
-    - name: Create new list log
-      file:
-        dest: "./logfile/alt_disk_list.json"
-        state: touch
-        owner: ansiadm
-        group: ansiadm
-      delegate_to: 127.0.0.1
-
-    - name: Display the result (Contain alt rootvg)
+      include_tasks: tasks/list_altdisk.yaml
+    
+    - include_vars:
+        file: "./vars_{{ change_order }}/altdisk_list.yaml"
+    
+    - name: Display the existing altinst_rootvg list
       debug:
-        msg: "This host: {{ inventory_hostname }} contain alt rootvg disk on {{ lsalt_result.stdout_lines }}" 
-      when: lsalt_result.stdout_lines | length > 0
-
-    - name: Display the result (Do not contain alt rootvg)
-      debug:
-        msg: "This host: {{ inventory_hostname }} DO NOT contain alt rootvg disk" 
-      when: lsalt_result.stdout_lines | length == 0
-
-    - name: Output alt_disk list to json logfile ./logfile/alt_disk_list.json
-      lineinfile:
-        line: "{{ lsalt_result }}"
-        dest: "./logfile/alt_disk_list.json"
+        msg: "Server: {{ item.name }} altinst_rootvg is {{ item.altdisk }}"
+      when: inventory_hostname == item.name
+      loop: "{{ alt_server }}"
       delegate_to: 127.0.0.1
 
     - include_tasks: tasks/log_success.yaml

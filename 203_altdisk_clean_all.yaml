@@ -3,14 +3,12 @@
   hosts: aix
   gather_facts: yes
   serial: 3
-  vars_files:
-    - "./vars_{{ change_order }}/altdisk_list.yaml"
   vars:
     cur_time: "{{ ansible_date_time.iso8601_basic_short }}"
   tasks:
   - name: Set log vars
     set_fact:
-      action: alt_disk_clean
+      action: alt_disk_clean_all
       items: ""
     run_once: true
   
@@ -24,6 +22,9 @@
     - name: List the alt_disk image
       include_tasks: tasks/list_altdisk.yaml
     
+    - include_vars:
+        file: "./vars_{{ change_order }}/altdisk_list.yaml"
+
     - name: Clean alt disk
       ibm.power_aix.alt_disk:
         action: clean 
@@ -39,7 +40,7 @@
         clean_alt_time: "alt_clean_{{ cur_time }}.log"
       copy:
         content: "{{ item.stdout }}"
-        dest: "./logfile/{{ item.item.name }}_{{ clean_alt_time }}"
+        dest: "./vars_{{ change_order }}/{{ action }}.{{ item.item.name }}_{{ clean_alt_time }}"
         owner: ansiadm
         group: ansiadm
       when: item.item.name == inventory_hostname
