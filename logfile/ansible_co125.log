@@ -1,0 +1,20 @@
+
+------------------ [ gather_nmon ] ------------------
+
+hosts: ['Anthony_nimserver', 'Anthony_test2']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-03-31 15:49:33 HKT [ Anthony_nimserver ] [ gather_nmon ] began
+
+2023-03-31 15:49:33 HKT [ Anthony_test2 ] [ gather_nmon ] began
+
+[ Anthony_nimserver ] [ gather_nmon ] suceeded
+
+[ Anthony_test2 ] [ gather_nmon ] suceeded
+
+2023-03-31 15:49:50 HKT [ Anthony_nimserver ] [ gather_nmon ] ended
+
+2023-03-31 15:49:50 HKT [ Anthony_test2 ] [ gather_nmon ] ended
+

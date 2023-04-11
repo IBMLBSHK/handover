@@ -4,7 +4,6 @@
   gather_facts: yes
   vars_files:
     - "./vars/nmon_path.yaml"
-  #  - "./vars_{{ change_order }}/alt_disk_list.yaml"
   vars:
     cur_time: "{{ ansible_date_time.iso8601_basic_short }}"
   tasks:
@@ -55,8 +54,37 @@
         src: "{{ item.path }}"
         dest: "{{ nmon_path.dest}}"
         flat: yes
+        validate_checksum: yes
+      register: fetch_result
       loop: "{{ file_2_fetch.files }}"
 
+    - debug:
+        var: fetch_result
+
+    - name: Write Log to vars_{{ change_order }}/{{ action }}.<<hostname>>.{{ cur_time }}.log
+      lineinfile:
+        line: |
+          {% for item in fetch_result.results %}
+          {% if item.changed %}
+            {{ inventory_hostname }}: {{ item.item.path}} -> {{ item.dest }} ... Copied:{{ item.changed }}
+          {% else %}
+            {{ inventory_hostname }}: {{ item.item.path}} -> {{ item.dest }} ... File already exists and do not copy again.
+          {% endif %}
+          {% endfor %}
+        path: ./vars_{{ change_order }}/{{ action }}.{{ inventory_hostname }}.{{ cur_time }}.log
+        owner: ansiadm
+        group: ansiadm
+        create: yes
+      delegate_to: 127.0.0.1
+
+        #- name: Write to log with yaml format
+        #copy:
+        #content: "{{  fetch_result.results | to_nice_yaml }}"
+        #dest: ./vars_{{ change_order }}/{{ action }}.{{ cur_time }}.log
+        #owner: ansiadm
+        #group: ansiadm
+        #delegate_to: 127.0.0.1
+        
     - include_tasks: tasks/log_success.yaml
 
     rescue:

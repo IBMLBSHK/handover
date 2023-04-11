@@ -1,7 +1,7 @@
 
------------------- [ alt_disk_list ] ------------------
+------------------ [ nim_mksysb_list ] ------------------
 
-hosts: ['Anthony_nimserver', 'Anthony_test2']
+hosts: ['Anthony_nimserver']
 sudo user: ansiadm
 become user: root
 items: 

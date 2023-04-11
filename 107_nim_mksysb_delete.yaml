@@ -4,7 +4,7 @@
   gather_facts: yes
   vars_files:
     - "./vars/nim_master.yaml"
-    - "./vars_{{ change_order }}/mksysb_list.yaml"
+      #    - "./vars_{{ change_order }}/mksysb_list.yaml"
   tasks:
   - name: Set log vars
     set_fact:
@@ -21,6 +21,9 @@
 
     - name: Output the mksysb list to file ./vars_{{ change_order }}/mksysb_list.yaml and ./logfile/mksysb_list.json
       include_tasks: tasks/list_mksysb.yaml
+
+    - name: Include variable file
+      include_vars: "./vars_{{ change_order }}/mksysb_list.yaml"
 
     - name: Check the list mksysb images exist
       debug:
