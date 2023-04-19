@@ -1,6 +1,6 @@
 - name: List the alt_disk image
   shell: |
-    /usr/sbin/lspv| grep altinst_rootvg | awk '{print $1}'
+    /usr/sbin/lspv| grep -E "altinst_rootvg|old_rootvg" | awk '{print $1}'
   register: lsalt_result
   ignore_errors: yes
   tags: list_listalt
