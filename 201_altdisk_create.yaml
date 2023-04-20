@@ -27,6 +27,13 @@
     - include_vars:
         file: "./vars_{{ change_order }}/altdisk_list.yaml"
 
+    - name: Remove old_rootvg
+      shell: |
+        /usr/sbin/alt_rootvg_op -X old_rootvg
+      ignore_errors: yes
+      when: inventory_hostname == item.name
+      loop: "{{ alt_server }}"
+
     - name: Create alt disk
       ibm.power_aix.alt_disk:
         action: copy
