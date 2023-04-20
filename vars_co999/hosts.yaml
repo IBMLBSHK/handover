@@ -1,9 +1,0 @@
-lines_add:
-  - line_num: 2222
-    content: "202a.165.107.49 www.yahoo.com"
-  - line_num: 79v
-    content: "172.168.2.4 myhost2.com myhost2"
-
-lines_delete:
-  - 180f
-  - 182
