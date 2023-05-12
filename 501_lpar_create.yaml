@@ -1,0 +1,68 @@
+---
+- name: HMC create and Install VIOS then accept license
+  hosts: vhmc_ccc
+  #vars:
+  #  ansible_python_interpreter: /Users/anthonywong/opt/anaconda3/bin/python3
+  collections:
+      - ibm.power_hmc
+  connection: local
+  vars_files:
+    - ./vars_{{ change_order }}/lpar_list.yml
+    - ./vars/hmc_credential.yml
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: create_lpar
+      items: ""
+    run_once: true
+    
+  - name: Create LPAR
+    block:
+    - include_tasks: tasks/log_begin.yaml
+    
+    - name: Create LPAR using the lpar_list.yml
+      powervm_lpar_instance:
+        hmc_host: "{{ inventory_hostname }}"
+        hmc_auth: "{{ curr_hmc_auth }}"
+        system_name: "{{ item.system_name }}"
+        vm_name: "{{ item.lpar_name }}"
+        vm_id: "{{ item.lpar_id }}"
+        os_type: "{{ item.lpar_os }}" 
+        min_mem: "{{ item.min_men }}"
+        mem: "{{ item.men }}"
+        max_mem: "{{ item.max_men }}"
+        min_proc: "{{ item.min_vir_proc }}"
+        proc: "{{ item.vir_proc }}"
+        max_proc: "{{ item.max_vir_proc }}"
+        #Real CPU
+        min_proc_unit: "{{ item.min_real_proc }}"
+        proc_unit: "{{ item.real_proc }}"
+        max_proc_unit: "{{ item.max_real_proc }}"
+        proc_mode: "{{ item.proc_mode }}"
+        weight: "{{ item.proc_weight }}"
+        max_virtual_slots: "{{ item.max_vir_slots }}"
+        #npiv_config:
+        #  - vios_name: "{{ item.vios1_name }}"
+        #    fc_port: "{{ item.vios1_fcs }}"
+        #    client_adapter_id: "{{ item.vios1_client_adapter_id }}"
+        #    server_adapter_id: "{{ item.vios1_server_adapter_id }}"
+        #  - vios_name: "{{ item.vios2_name }}"
+        #    fc_port: "{{ item.vios2_fcs }}"
+        #    client_adapter_id: "{{ item.vios2_client_adapter_id }}"
+        #    server_adapter_id: "{{ item.vios2_server_adapter_id }}"
+        state: present
+      register: create_output
+      loop: "{{ lpar }}" 
+      
+    - name: stdout the created VIOS
+      debug:
+        msg: '{{ create_output }}'
+    
+    - include_tasks: tasks/log_success.yaml
+
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+
+    always:
+    - include_tasks: tasks/log_end.yaml
+

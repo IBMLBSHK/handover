@@ -1,0 +1,5 @@
+lpar:
+  - system_name: KLN-8286-42A-SN844D80W
+    lpar_name: test_ansible2
+  - system_name: KLN-8286-42A-SN844D80W
+    lpar_name: test_ansible

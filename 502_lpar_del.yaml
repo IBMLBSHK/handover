@@ -1,0 +1,52 @@
+---
+- name: HMC create and Install VIOS then accept license
+  hosts: vhmc_ccc
+  collections:
+      - ibm.power_hmc
+  connection: local
+  vars_files:
+    - ./vars_{{ change_order }}/lpar_list.yml
+    - ./vars/hmc_credential.yml
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: delete_lpar
+      items: ""
+    run_once: true
+    
+  - name: Delete LPAR
+    block:
+    - include_tasks: tasks/log_begin.yaml
+    
+    - name: Shutdown LPAR using the lpar_list.yml
+      powervm_lpar_instance:
+        hmc_host: "{{ inventory_hostname }}"
+        hmc_auth: "{{ curr_hmc_auth }}"
+        system_name: "{{ item.system_name }}"
+        vm_name: "{{ item.lpar_name }}"
+        action: shutdown
+      register: vmaction_output
+      loop: "{{ lpar }}" 
+      
+    - name: Shutdown LPAR result
+      debug:
+        msg: '{{ vmaction_output }}'
+
+    - name: Delete LPAR using the lpar_list.yml
+      powervm_lpar_instance:
+        hmc_host: "{{ inventory_hostname }}"
+        hmc_auth: "{{ curr_hmc_auth }}"
+        system_name: "{{ item.system_name }}"
+        vm_name: "{{ item.lpar_name }}"
+        state: absent
+      register: vmstat
+      loop: "{{ lpar }}"
+    
+    - include_tasks: tasks/log_success.yaml
+
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+
+    always:
+    - include_tasks: tasks/log_end.yaml
+

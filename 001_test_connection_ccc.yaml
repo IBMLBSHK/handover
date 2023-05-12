@@ -1,0 +1,32 @@
+---
+- name: Testing ansible connection to vhmc
+  hosts: vhmc_ccc
+  collections:
+    - ibm.power_hmc
+  vars_files:
+    - ./vars/hmc_credential.yml
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: Get all managed system name
+    hmc_command:
+      hmc_host: "{{ inventory_hostname }}"
+      hmc_auth: "{{ curr_hmc_auth }}"
+      cmd: 'lssyscfg -r sys'
+    register: managed_sys
+
+  - name: stdout the result
+    debug:
+      msg: "{{ managed_sys.command_output }}"
+
+  - name: Get all managed system name
+    hmc_command:
+      hmc_host: "{{ inventory_hostname }}"
+      hmc_auth: "{{ curr_hmc_auth }}"
+      cmd: 'lshwres -r io --rsubtype slot -m KLN-8286-42A-SN844D80W -F phys_loc,drc_index,description'
+    register: stdout
+
+  - name: stdout the result
+    debug:
+      msg: '{{ stdout }}'

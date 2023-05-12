@@ -1,0 +1,11 @@
+############################################################################
+#Virtual Fibre Channel Format
+#\"virtual-slot-number/client-or-server/[remote-lpar-ID]/
+#[remote-lpar-name]/remote-slot-number/[wwpns]/is-required\"
+#
+############################################################################
+vios:
+  - vios_name: vio1
+    prof_name: default
+    system_name: Server-8286-42A-SN840ECAW
+    virtual_fc: \"4/server/1/IBM_i73/4//1\",\"5/server/1/IBM_i73/5//1\"

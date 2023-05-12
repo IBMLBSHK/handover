@@ -1,0 +1,14 @@
+
+------------------ [ create_lpar ] ------------------
+
+hosts: ['192.168.136.9']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-12 17:11:13 HKT [ 192.168.136.9 ] [ create_lpar ] began
+
+[ 192.168.136.9 ] [ create_lpar ] suceeded
+
+2023-05-12 17:13:49 HKT [ 192.168.136.9 ] [ create_lpar ] ended
+

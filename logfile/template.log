@@ -1,7 +1,7 @@
 
------------------- [ alt_disk_list ] ------------------
+------------------ [ delete_lpar ] ------------------
 
-hosts: ['Anthony_nimserver', 'Anthony_test2']
+hosts: ['192.168.136.9']
 sudo user: ansiadm
 become user: root
 items: 
