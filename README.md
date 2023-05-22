@@ -36,3 +36,9 @@ ansible-playbook -i hosts crjfs2log.yaml
 ```
 ansible-playbook -i hosts handover_chk.yaml
 ```
+
+
+About handover ansible version:
+a1.x is about nim, altdisk, nmon log file operation
+a2.x included LPAR creation and SAN zoning.![image](https://github.com/IBMLBSHK/handover/assets/117252002/b91bd77f-42e3-45f0-ae0b-43ee377d06be)
+
