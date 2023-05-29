@@ -1,0 +1,69 @@
+---
+- name: Storage add host, create disk and map to host
+  hosts: localhost
+  #vars:
+  #  ansible_python_interpreter: /Users/anthonywong/opt/anaconda3/bin/python3
+  collections:
+    - ibm.spectrum_virtualize
+      #gather_facts: no
+  connection: local
+  vars_files:
+    - ./vars_{{ change_order }}/lpar_storage.yaml
+    - ./vars/storage_credential.yaml
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: storage_addhost_disk_map
+      items: ""
+    run_once: true
+    
+  - name: Storage tasks ... 
+    block:
+    - include_tasks: tasks/log_begin.yaml
+
+    - name: Define a new FC host
+      ibm_svc_host:
+        clustername: "{{ credential.clustername }}"
+        domain: "{{ credential.domain }}"
+        username: "{{ credential.username }}"
+        password: "{{ credential.password }}"
+        name: "{{ lpar[0].hostname }}"
+        state: present
+        fcwwpn: "{{ lpar[0].fcwwpn }}" # need to use without colon.
+        iogrp: 0:1:2:3
+        protocol: scsi
+        type: generic
+    
+    - name: Create volume
+      ibm_svc_vdisk:
+        clustername: "{{ credential.clustername }}"
+        domain: "{{ credential.domain }}"
+        username: "{{ credential.username }}"
+        password: "{{ credential.password }}"
+        name: "{{ lpar[0].hostdisk }}"
+        state: present
+        mdiskgrp: "{{ lpar[0].diskgrp }}"
+        #easytier: 'off'
+        size: "{{ lpar[0].disk_size }}"
+        unit: gb
+        rsize: '20%'
+        autoexpand: true
+
+    - name: Map volume to host
+      ibm_svc_vol_map:
+        clustername: "{{ credential.clustername }}"
+        domain: "{{ credential.domain }}"
+        username: "{{ credential.username }}"
+        password: "{{ credential.password }}"
+        volname: "{{ lpar[0].hostdisk }}"
+        host: "{{ lpar[0].hostname }}"
+        state: present
+
+    - include_tasks: tasks/log_success.yaml
+
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+
+    always:
+    - include_tasks: tasks/log_end.yaml
+

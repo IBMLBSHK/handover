@@ -1,0 +1,8 @@
+lpar:
+  - system_name: KLN-8286-42A-SN844D80W
+    lpar_name: test_ansible2
+    lpar_os: aix_linux
+    lpar_ip: 192.168.140.43
+    nim_ip: 192.168.140.40
+    nim_gw: 192.168.140.1
+    nim_sm: 255.255.240.0

@@ -1,0 +1,44 @@
+---
+- name: HMC shutdown LPAR
+  hosts: vhmc_ccc
+  #vars:
+  #  ansible_python_interpreter: /Users/anthonywong/opt/anaconda3/bin/python3
+  collections:
+      - ibm.power_hmc
+  connection: local
+  vars_files:
+    - ./vars_{{ change_order }}/lpar_shutdown.yaml
+    - ./vars/hmc_credential.yml
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: lpar_shutdown
+      items: ""
+    run_once: true
+    
+  - name: LPAR shutdown
+    block:
+    - include_tasks: tasks/log_begin.yaml
+    
+    - name: Power Off LPAR using the lpar_shutdown.yml
+      powervm_lpar_instance:
+        hmc_host: "{{ inventory_hostname }}"
+        hmc_auth: "{{ curr_hmc_auth }}"
+        system_name: "{{ item.system_name }}"
+        vm_name: "{{ item.lpar_name }}"
+        action: shutdown
+      register: action_output
+      loop: "{{ lpar }}" 
+      
+    - name: stdout the poweroff LPAR
+      debug:
+        msg: '{{ action_output }}'
+    
+    - include_tasks: tasks/log_success.yaml
+
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+
+    always:
+    - include_tasks: tasks/log_end.yaml
+

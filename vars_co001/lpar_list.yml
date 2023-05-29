@@ -1,5 +1,30 @@
 lpar:
   - system_name: KLN-8286-42A-SN844D80W
     lpar_name: test_ansible2
-  - system_name: KLN-8286-42A-SN844D80W
-    lpar_name: test_ansible
+    lpar_os: aix_linux
+    lpar_id: 11
+    min_men: 4096
+    men: 8192
+    max_men: 8192
+    min_vir_proc: 1
+    vir_proc: 1
+    max_vir_proc: 1
+    min_real_proc: 1
+    real_proc: 1
+    max_real_proc: 1
+    proc_mode: uncapped
+    proc_weight: 128
+    max_vir_slots: 400
+    #NPIV_Config
+    vios1_name: V80W
+    vios1_fcs: fcs2
+    wwpn_pair1: c05076091de202d0;c05076091de202d1
+    vios1_client_adapter_id: 79
+    vios1_server_adapter_id: 79
+    #VIRT_NET_CONFIG
+    netname: veth1
+    netslot: 30
+    #vios2_name: E870_VIOS2
+    #vios2_fcs: fcs1
+    #vios2_client_adapter_id: 21
+    #vios2_server_adapter_id: 21

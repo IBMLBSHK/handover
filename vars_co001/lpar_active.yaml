@@ -1,0 +1,6 @@
+lpar:
+  - system_name: KLN-8286-42A-SN844D80W
+    lpar_name: test_ansible2
+    lpar_os: aix_linux
+    lpar_id: 11
+    prof: default_profile

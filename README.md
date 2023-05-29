@@ -36,3 +36,14 @@ ansible-playbook -i hosts crjfs2log.yaml
 ```
 ansible-playbook -i hosts handover_chk.yaml
 ```
+5. About connect to SAN switch
+
+	a. Update the python, example using 3.11.2
+	b. Install manage python3.11 module, cargo, rustc, cyptograph
+	c. And then install paramiko, xmltodict.
+
+	```
+	python -m pip install --no-cache-dir --force-reinstall paramiko
+	
+	python -m pip install xmltodict
+	```

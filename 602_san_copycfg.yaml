@@ -1,0 +1,38 @@
+---
+- name: SAN switches zoning
+  hosts: sansw
+  #vars:
+  #  ansible_python_interpreter: /Users/anthonywong/opt/anaconda3/bin/python3
+  collections:
+    - brocade.fos
+  connection: local
+  vars_files:
+    - ./vars_{{ change_order }}/san_cpname.yaml
+    - ./vars/sansw_credential.yaml
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: sansw_zoning
+      items: ""
+    run_once: true
+    
+  - name: Zoning tasks
+    block:
+    - include_tasks: tasks/log_begin.yaml
+    
+    - name: Copy configure
+      brocade.fos.brocade_zoning_copy:
+        credential: "{{ credential }}"
+        vfid: -1
+        object_name: "default"
+        new_name: "{{ cfgname[0].name }}"
+        #      loop: "{{ cfgname }}"
+
+    - include_tasks: tasks/log_success.yaml
+
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+
+    always:
+    - include_tasks: tasks/log_end.yaml
+

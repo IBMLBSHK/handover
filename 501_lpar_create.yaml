@@ -41,15 +41,19 @@
         proc_mode: "{{ item.proc_mode }}"
         weight: "{{ item.proc_weight }}"
         max_virtual_slots: "{{ item.max_vir_slots }}"
-        #npiv_config:
-        #  - vios_name: "{{ item.vios1_name }}"
-        #    fc_port: "{{ item.vios1_fcs }}"
-        #    client_adapter_id: "{{ item.vios1_client_adapter_id }}"
-        #    server_adapter_id: "{{ item.vios1_server_adapter_id }}"
+        npiv_config:
+          - vios_name: "{{ item.vios1_name }}"
+            fc_port: "{{ item.vios1_fcs }}"
+            client_adapter_id: "{{ item.vios1_client_adapter_id }}"
+            server_adapter_id: "{{ item.vios1_server_adapter_id }}"
+            wwpn_pair: "{{ item.wwpn_pair1 }}"
         #  - vios_name: "{{ item.vios2_name }}"
         #    fc_port: "{{ item.vios2_fcs }}"
         #    client_adapter_id: "{{ item.vios2_client_adapter_id }}"
         #    server_adapter_id: "{{ item.vios2_server_adapter_id }}"
+        virt_network_config:
+          - network_name: "{{ item.netname }}"
+            slot_number: "{{ item.netslot }}"
         state: present
       register: create_output
       loop: "{{ lpar }}" 

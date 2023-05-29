@@ -1,0 +1,60 @@
+---
+- name: SAN switches zoning
+  hosts: sansw
+  #vars:
+  #  ansible_python_interpreter: /Users/anthonywong/opt/anaconda3/bin/python3
+  collections:
+    - brocade.fos
+  connection: local
+  vars_files:
+    - ./vars_{{ change_order }}/lpar_zoneinfo.yaml
+    - ./vars/sansw_credential.yaml
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: sansw_zoning
+      items: ""
+    run_once: true
+    
+  - name: Zoning tasks
+    block:
+    - include_tasks: tasks/log_begin.yaml
+
+    - name: Copy configure
+      brocade.fos.brocade_zoning_copy:
+        credential: "{{ credential }}"
+        vfid: -1
+        object_name: "default"
+        new_name: "{{ cfgs[0].name }}"
+    
+    - name: Create alias and add to configure
+      brocade.fos.brocade_zoning_alias:
+        credential: "{{ credential }}"
+        vfid: -1
+        aliases: "{{ aliases }}"
+        members_add_only: yes
+
+    - name: Create zones and add to configure
+      brocade.fos.brocade_zoning_zone:
+        credential: "{{ credential }}"
+        vfid: -1
+        zones: "{{ zones }}"
+        members_add_only: yes
+
+    - name: Create cfgs but  you need verify the cfgshow in san switch, if confirm the cfg is correct , run cfgenable your "cfg" ...... 
+      brocade.fos.brocade_zoning_cfg:
+        credential: "{{ credential }}"
+        vfid: -1
+        cfgs: "{{ cfgs }}"
+        #Comment first as you need verify the cfgshow in san switch, if confirm the cfg is correct , run cfgenable "cfg"
+        #active_cfg: "{{ cfgs[0].name }}"
+        members_add_only: yes
+
+    - include_tasks: tasks/log_success.yaml
+
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+
+    always:
+    - include_tasks: tasks/log_end.yaml
+

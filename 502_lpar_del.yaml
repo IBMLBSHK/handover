@@ -1,11 +1,11 @@
 ---
-- name: HMC create and Install VIOS then accept license
+- name: HMC delete LPARs
   hosts: vhmc_ccc
   collections:
       - ibm.power_hmc
   connection: local
   vars_files:
-    - ./vars_{{ change_order }}/lpar_list.yml
+    - ./vars_{{ change_order }}/lpar_del_list.yml
     - ./vars/hmc_credential.yml
   tasks:
   - name: Set log vars
@@ -38,6 +38,7 @@
         hmc_auth: "{{ curr_hmc_auth }}"
         system_name: "{{ item.system_name }}"
         vm_name: "{{ item.lpar_name }}"
+        delete_vdisks: yes
         state: absent
       register: vmstat
       loop: "{{ lpar }}"

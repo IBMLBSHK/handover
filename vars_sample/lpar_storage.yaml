@@ -1,0 +1,6 @@
+lpar:
+  - hostname: test_ansible2
+    fcwwpn: c05076091de202d0:c05076091de202d1
+    diskgrp: Pool
+    disk_size: 200
+    hostdisk: A_test_ansible2_os

@@ -1,0 +1,47 @@
+---
+- name: LPAR install by NIM server
+  hosts: vhmc_ccc
+  collections:
+      - ibm.power_hmc
+  connection: local
+  vars_files:
+    - ./vars_{{ change_order }}/lpar_nim_list.yml
+    - ./vars/hmc_credential.yml
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: create_lpar
+      items: ""
+    run_once: true
+    
+  - name: Install LPAR
+    block:
+    - include_tasks: tasks/log_begin.yaml
+    
+    - name: Install LPAR from NIM using the lpar_nim_list.yml
+      powervm_lpar_instance:
+        hmc_host: "{{ inventory_hostname }}"
+        hmc_auth: "{{ curr_hmc_auth }}"
+        system_name: "{{ item.system_name }}"
+        vm_name: "{{ item.lpar_name }}"
+        install_settings:
+          vm_ip: "{{ item.lpar_ip }}"
+          nim_ip: "{{ item.nim_ip }}"
+          nim_gateway: "{{ item.nim_gw }}"
+          nim_subnetmask: "{{ item.nim_sm }}"
+        action: install_os
+      register: create_output
+      loop: "{{ lpar }}" 
+      
+    - name: stdout the installed LPARs
+      debug:
+        msg: '{{ create_output }}'
+    
+    - include_tasks: tasks/log_success.yaml
+
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+
+    always:
+    - include_tasks: tasks/log_end.yaml
+

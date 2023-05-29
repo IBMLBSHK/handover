@@ -1,0 +1,45 @@
+---
+- name: SAN switches checking
+  hosts: sansw
+  #vars:
+  #  ansible_python_interpreter: /Users/anthonywong/opt/anaconda3/bin/python3
+  collections:
+    - brocade.fos
+  connection: local
+  vars_files:
+          #- ./vars_{{ change_order }}/lpar_list.yml
+    - ./vars/sansw_credential.yaml
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: sansw_check
+      items: ""
+    run_once: true
+    
+  - name: Access SAN switches and check
+    block:
+    - include_tasks: tasks/log_begin.yaml
+    
+    - name: SAN switches checking ... 
+      brocade_facts:
+        credential: "{{ credential }}"
+        vfid: -1
+        gather_subset:
+          - brocade_zoning
+          - brocade_interface_fibrechannel
+          - brocade_fibrechannel_configuration_fabric
+          - brocade_fibrechannel_configuration_port_configuration
+          - brocade_fibrechannel_switch
+
+    - name: print ansible_facts gathered
+      debug:
+        var: ansible_facts
+      
+    - include_tasks: tasks/log_success.yaml
+
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+
+    always:
+    - include_tasks: tasks/log_end.yaml
+

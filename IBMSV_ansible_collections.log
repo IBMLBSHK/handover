@@ -1,0 +1,99 @@
+2023-05-25T16:19:00.182  INFO 140735829265184 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/auth
+2023-05-25T16:19:00.182  INFO 140735829265184 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload=None
+2023-05-25T16:19:00.426  INFO 140735829265184 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/lshost/test_ansible2
+2023-05-25T16:19:00.426  INFO 140735829265184 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload=None
+2023-05-25T16:19:00.664  INFO 140735829265184 ibm_svc_utils.py:_svc_rest():210 _svc_rest: value error pass: Expecting value: line 1 column 1 (char 0)
+2023-05-25T16:19:00.664  INFO 140735829265184 ibm_svc_utils.py:svc_obj_info():305 svc_obj_info rest={'url': 'https://192.168.137.179:7443/rest/lshost/test_ansible2', 'code': None, 'err': None, 'out': None, 'data': None}
+2023-05-25T16:19:00.664  INFO 140735829265184 ibm_svc_host.py:apply():663 CHANGED: host does not exist, but requested state is 'present'
+2023-05-25T16:19:00.664  INFO 140735829265184 ibm_svc_host.py:host_create():427 creating host 'test_ansible2'
+2023-05-25T16:19:00.664  INFO 140735829265184 ibm_svc_host.py:host_create():449 creating host command 'c05076091de202d0;c05076091de202d1' opts 'generic'
+2023-05-25T16:19:00.665  INFO 140735829265184 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/mkhost
+2023-05-25T16:19:00.665  INFO 140735829265184 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload={'name': 'test_ansible2', 'force': True, 'fcwwpn': 'c05076091de202d0;c05076091de202d1', 'protocol': 'scsi', 'iogrp': '0:1:2:3', 'type': 'generic'}
+2023-05-25T16:19:00.856  INFO 140735829265184 ibm_svc_utils.py:_svc_rest():197 _svc_rest: httperror HTTP Error 500: 
+2023-05-25T16:19:00.856  INFO 140735829265184 ibm_svc_utils.py:svc_run_command():280 svc_run_command rest={'url': 'https://192.168.137.179:7443/rest/mkhost', 'code': 500, 'err': ('HTTPError %s', 'HTTP Error 500: '), 'out': b'"Command error occurred; error code: 1, error text: CMMVC5703E The value or list starting with [c05076091de202d0;c05076091de202d1] is above the maximum permitted for that value or has exceeded the number of items allowed in a list. "', 'data': {'name': 'test_ansible2', 'force': True, 'fcwwpn': 'c05076091de202d0;c05076091de202d1', 'protocol': 'scsi', 'iogrp': '0:1:2:3', 'type': 'generic'}}
+2023-05-25T16:35:34.589  INFO 140735319264032 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/auth
+2023-05-25T16:35:34.590  INFO 140735319264032 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload=None
+2023-05-25T16:35:34.808  INFO 140735319264032 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/lshost/test_ansible2
+2023-05-25T16:35:34.808  INFO 140735319264032 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload=None
+2023-05-25T16:35:35.153  INFO 140735319264032 ibm_svc_utils.py:_svc_rest():210 _svc_rest: value error pass: Expecting value: line 1 column 1 (char 0)
+2023-05-25T16:35:35.154  INFO 140735319264032 ibm_svc_utils.py:svc_obj_info():305 svc_obj_info rest={'url': 'https://192.168.137.179:7443/rest/lshost/test_ansible2', 'code': None, 'err': None, 'out': None, 'data': None}
+2023-05-25T16:35:35.154  INFO 140735319264032 ibm_svc_host.py:apply():663 CHANGED: host does not exist, but requested state is 'present'
+2023-05-25T16:35:35.154  INFO 140735319264032 ibm_svc_host.py:host_create():427 creating host 'test_ansible2'
+2023-05-25T16:35:35.154  INFO 140735319264032 ibm_svc_host.py:host_create():449 creating host command 'c05076091de202d0:c05076091de202d1' opts 'generic'
+2023-05-25T16:35:35.154  INFO 140735319264032 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/mkhost
+2023-05-25T16:35:35.154  INFO 140735319264032 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload={'name': 'test_ansible2', 'force': True, 'fcwwpn': 'c05076091de202d0:c05076091de202d1', 'protocol': 'scsi', 'iogrp': '0:1:2:3', 'type': 'generic'}
+2023-05-25T16:35:35.578  INFO 140735319264032 ibm_svc_utils.py:svc_run_command():280 svc_run_command rest={'url': 'https://192.168.137.179:7443/rest/mkhost', 'code': None, 'err': None, 'out': {'id': '19', 'message': 'Host, id [19], successfully created'}, 'data': {'name': 'test_ansible2', 'force': True, 'fcwwpn': 'c05076091de202d0:c05076091de202d1', 'protocol': 'scsi', 'iogrp': '0:1:2:3', 'type': 'generic'}}
+2023-05-25T16:35:35.578  INFO 140735319264032 ibm_svc_host.py:host_create():454 create host result '{'id': '19', 'message': 'Host, id [19], successfully created'}'
+2023-05-25T16:35:35.578  INFO 140735319264032 ibm_svc_host.py:host_create():458 create host result message 'Host, id [19], successfully created'
+2023-05-25T16:35:36.680  INFO 140735933401888 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/auth
+2023-05-25T16:35:36.680  INFO 140735933401888 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload=None
+2023-05-25T16:35:37.191  INFO 140735933401888 ibm_svc_vdisk.py:get_existing_vdisk():224 Entering function get_existing_vdisk
+2023-05-25T16:35:37.191  INFO 140735933401888 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/lsvdisk/test_ansisble2_os
+2023-05-25T16:35:37.191  INFO 140735933401888 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload={'bytes': True}
+2023-05-25T16:35:37.651  INFO 140735933401888 ibm_svc_utils.py:_svc_rest():210 _svc_rest: value error pass: Expecting value: line 1 column 1 (char 0)
+2023-05-25T16:35:37.652  INFO 140735933401888 ibm_svc_utils.py:svc_obj_info():305 svc_obj_info rest={'url': 'https://192.168.137.179:7443/rest/lsvdisk/test_ansisble2_os', 'code': None, 'err': None, 'out': None, 'data': {'bytes': True}}
+2023-05-25T16:35:37.652  INFO 140735933401888 ibm_svc_vdisk.py:apply():382 CHANGED: vdisk does not exist, but requested state is 'present'
+2023-05-25T16:35:37.652  INFO 140735933401888 ibm_svc_vdisk.py:vdisk_create():294 creating vdisk 'test_ansisble2_os'
+2023-05-25T16:35:37.652  INFO 140735933401888 ibm_svc_vdisk.py:vdisk_create():312 creating vdisk command mkvdisk opts {'mdiskgrp': 'Pool', 'size': '200', 'unit': 'gb', 'name': 'test_ansisble2_os'}
+2023-05-25T16:35:37.652  INFO 140735933401888 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/mkvdisk
+2023-05-25T16:35:37.652  INFO 140735933401888 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload={'mdiskgrp': 'Pool', 'size': '200', 'unit': 'gb', 'name': 'test_ansisble2_os'}
+2023-05-25T16:35:38.129  INFO 140735933401888 ibm_svc_utils.py:svc_run_command():280 svc_run_command rest={'url': 'https://192.168.137.179:7443/rest/mkvdisk', 'code': None, 'err': None, 'out': {'id': '69', 'message': 'Volume, id [69], successfully created'}, 'data': {'mdiskgrp': 'Pool', 'size': '200', 'unit': 'gb', 'name': 'test_ansisble2_os'}}
+2023-05-25T16:35:38.130  INFO 140735933401888 ibm_svc_vdisk.py:vdisk_create():316 create vdisk result {'id': '69', 'message': 'Volume, id [69], successfully created'}
+2023-05-25T16:35:38.130  INFO 140735933401888 ibm_svc_vdisk.py:vdisk_create():320 create vdisk result message Volume, id [69], successfully created
+2023-05-25T16:35:38.856  INFO 140735400004384 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/auth
+2023-05-25T16:35:38.856  INFO 140735400004384 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload=None
+2023-05-25T16:35:39.081  INFO 140735400004384 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/lsvdiskhostmap/test_ansisble2_os
+2023-05-25T16:35:39.081  INFO 140735400004384 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload=None
+2023-05-25T16:35:39.321  INFO 140735400004384 ibm_svc_utils.py:svc_obj_info():305 svc_obj_info rest={'url': 'https://192.168.137.179:7443/rest/lsvdiskhostmap/test_ansisble2_os', 'code': None, 'err': None, 'out': [], 'data': None}
+2023-05-25T16:35:39.321  INFO 140735400004384 ibm_svc_vol_map.py:apply():316 volume mapping data is : '[]'
+2023-05-25T16:35:39.321  INFO 140735400004384 ibm_svc_vol_map.py:apply():330 vdiskmap does not exist, but requested state is 'present'
+2023-05-25T16:35:39.321  INFO 140735400004384 ibm_svc_vol_map.py:vdiskhostmap_create():213 creating vdiskhostmap 'test_ansisble2_os' 'test_ansible2'
+2023-05-25T16:35:39.321  INFO 140735400004384 ibm_svc_vol_map.py:vdiskhostmap_create():222 creating vdiskhostmap command mkvdiskhostmap opts {'force': True, 'host': 'test_ansible2', 'scsi': None} args ['test_ansisble2_os']
+2023-05-25T16:35:39.321  INFO 140735400004384 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/mkvdiskhostmap/test_ansisble2_os
+2023-05-25T16:35:39.321  INFO 140735400004384 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload={'force': True, 'host': 'test_ansible2', 'scsi': None}
+2023-05-25T16:35:39.525  INFO 140735400004384 ibm_svc_utils.py:svc_run_command():280 svc_run_command rest={'url': 'https://192.168.137.179:7443/rest/mkvdiskhostmap/test_ansisble2_os', 'code': None, 'err': None, 'out': {'id': '0', 'message': 'Virtual Disk to Host map, id [0], successfully created'}, 'data': {'force': True, 'host': 'test_ansible2', 'scsi': None}}
+2023-05-25T16:35:39.525  INFO 140735400004384 ibm_svc_vol_map.py:vdiskhostmap_create():227 create vdiskhostmap result {'id': '0', 'message': 'Virtual Disk to Host map, id [0], successfully created'}
+2023-05-25T16:35:39.525  INFO 140735400004384 ibm_svc_vol_map.py:vdiskhostmap_create():231 create vdiskhostmap result message Virtual Disk to Host map, id [0], successfully created
+2023-05-25T17:14:23.179  INFO 140735560436512 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/auth
+2023-05-25T17:14:23.179  INFO 140735560436512 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload=None
+2023-05-25T17:14:23.424  INFO 140735560436512 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/lshost/test_ansible2
+2023-05-25T17:14:23.424  INFO 140735560436512 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload=None
+2023-05-25T17:14:23.666  INFO 140735560436512 ibm_svc_utils.py:_svc_rest():210 _svc_rest: value error pass: Expecting value: line 1 column 1 (char 0)
+2023-05-25T17:14:23.667  INFO 140735560436512 ibm_svc_utils.py:svc_obj_info():305 svc_obj_info rest={'url': 'https://192.168.137.179:7443/rest/lshost/test_ansible2', 'code': None, 'err': None, 'out': None, 'data': None}
+2023-05-25T17:14:23.667  INFO 140735560436512 ibm_svc_host.py:apply():663 CHANGED: host does not exist, but requested state is 'present'
+2023-05-25T17:14:23.667  INFO 140735560436512 ibm_svc_host.py:host_create():427 creating host 'test_ansible2'
+2023-05-25T17:14:23.667  INFO 140735560436512 ibm_svc_host.py:host_create():449 creating host command 'c05076091de202d0:c05076091de202d1' opts 'generic'
+2023-05-25T17:14:23.667  INFO 140735560436512 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/mkhost
+2023-05-25T17:14:23.667  INFO 140735560436512 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload={'name': 'test_ansible2', 'force': True, 'fcwwpn': 'c05076091de202d0:c05076091de202d1', 'protocol': 'scsi', 'iogrp': '0:1:2:3', 'type': 'generic'}
+2023-05-25T17:14:24.089  INFO 140735560436512 ibm_svc_utils.py:svc_run_command():280 svc_run_command rest={'url': 'https://192.168.137.179:7443/rest/mkhost', 'code': None, 'err': None, 'out': {'id': '19', 'message': 'Host, id [19], successfully created'}, 'data': {'name': 'test_ansible2', 'force': True, 'fcwwpn': 'c05076091de202d0:c05076091de202d1', 'protocol': 'scsi', 'iogrp': '0:1:2:3', 'type': 'generic'}}
+2023-05-25T17:14:24.089  INFO 140735560436512 ibm_svc_host.py:host_create():454 create host result '{'id': '19', 'message': 'Host, id [19], successfully created'}'
+2023-05-25T17:14:24.089  INFO 140735560436512 ibm_svc_host.py:host_create():458 create host result message 'Host, id [19], successfully created'
+2023-05-25T17:14:24.876  INFO 140735557028640 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/auth
+2023-05-25T17:14:24.876  INFO 140735557028640 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload=None
+2023-05-25T17:14:25.690  INFO 140735557028640 ibm_svc_vdisk.py:get_existing_vdisk():224 Entering function get_existing_vdisk
+2023-05-25T17:14:25.690  INFO 140735557028640 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/lsvdisk/A_test_ansible2_os
+2023-05-25T17:14:25.690  INFO 140735557028640 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload={'bytes': True}
+2023-05-25T17:14:26.289  INFO 140735557028640 ibm_svc_utils.py:_svc_rest():210 _svc_rest: value error pass: Expecting value: line 1 column 1 (char 0)
+2023-05-25T17:14:26.289  INFO 140735557028640 ibm_svc_utils.py:svc_obj_info():305 svc_obj_info rest={'url': 'https://192.168.137.179:7443/rest/lsvdisk/A_test_ansible2_os', 'code': None, 'err': None, 'out': None, 'data': {'bytes': True}}
+2023-05-25T17:14:26.289  INFO 140735557028640 ibm_svc_vdisk.py:apply():382 CHANGED: vdisk does not exist, but requested state is 'present'
+2023-05-25T17:14:26.290  INFO 140735557028640 ibm_svc_vdisk.py:vdisk_create():294 creating vdisk 'A_test_ansible2_os'
+2023-05-25T17:14:26.290  INFO 140735557028640 ibm_svc_vdisk.py:vdisk_create():312 creating vdisk command mkvdisk opts {'mdiskgrp': 'Pool', 'size': '200', 'unit': 'gb', 'rsize': '20%', 'autoexpand': True, 'name': 'A_test_ansible2_os'}
+2023-05-25T17:14:26.290  INFO 140735557028640 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/mkvdisk
+2023-05-25T17:14:26.290  INFO 140735557028640 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload={'mdiskgrp': 'Pool', 'size': '200', 'unit': 'gb', 'rsize': '20%', 'autoexpand': True, 'name': 'A_test_ansible2_os'}
+2023-05-25T17:14:26.991  INFO 140735557028640 ibm_svc_utils.py:svc_run_command():280 svc_run_command rest={'url': 'https://192.168.137.179:7443/rest/mkvdisk', 'code': None, 'err': None, 'out': {'id': '69', 'message': 'Volume, id [69], successfully created'}, 'data': {'mdiskgrp': 'Pool', 'size': '200', 'unit': 'gb', 'rsize': '20%', 'autoexpand': True, 'name': 'A_test_ansible2_os'}}
+2023-05-25T17:14:26.991  INFO 140735557028640 ibm_svc_vdisk.py:vdisk_create():316 create vdisk result {'id': '69', 'message': 'Volume, id [69], successfully created'}
+2023-05-25T17:14:26.991  INFO 140735557028640 ibm_svc_vdisk.py:vdisk_create():320 create vdisk result message Volume, id [69], successfully created
+2023-05-25T17:14:27.727  INFO 140735322475296 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/auth
+2023-05-25T17:14:27.728  INFO 140735322475296 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload=None
+2023-05-25T17:14:28.031  INFO 140735322475296 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/lsvdiskhostmap/A_test_ansible2_os
+2023-05-25T17:14:28.031  INFO 140735322475296 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload=None
+2023-05-25T17:14:28.281  INFO 140735322475296 ibm_svc_utils.py:svc_obj_info():305 svc_obj_info rest={'url': 'https://192.168.137.179:7443/rest/lsvdiskhostmap/A_test_ansible2_os', 'code': None, 'err': None, 'out': [], 'data': None}
+2023-05-25T17:14:28.281  INFO 140735322475296 ibm_svc_vol_map.py:apply():316 volume mapping data is : '[]'
+2023-05-25T17:14:28.281  INFO 140735322475296 ibm_svc_vol_map.py:apply():330 vdiskmap does not exist, but requested state is 'present'
+2023-05-25T17:14:28.282  INFO 140735322475296 ibm_svc_vol_map.py:vdiskhostmap_create():213 creating vdiskhostmap 'A_test_ansible2_os' 'test_ansible2'
+2023-05-25T17:14:28.282  INFO 140735322475296 ibm_svc_vol_map.py:vdiskhostmap_create():222 creating vdiskhostmap command mkvdiskhostmap opts {'force': True, 'host': 'test_ansible2', 'scsi': None} args ['A_test_ansible2_os']
+2023-05-25T17:14:28.282  INFO 140735322475296 ibm_svc_utils.py:_svc_rest():186 _svc_rest: url=https://192.168.137.179:7443/rest/mkvdiskhostmap/A_test_ansible2_os
+2023-05-25T17:14:28.282  INFO 140735322475296 ibm_svc_utils.py:_svc_rest():191 _svc_rest: payload={'force': True, 'host': 'test_ansible2', 'scsi': None}
+2023-05-25T17:14:28.570  INFO 140735322475296 ibm_svc_utils.py:svc_run_command():280 svc_run_command rest={'url': 'https://192.168.137.179:7443/rest/mkvdiskhostmap/A_test_ansible2_os', 'code': None, 'err': None, 'out': {'id': '0', 'message': 'Virtual Disk to Host map, id [0], successfully created'}, 'data': {'force': True, 'host': 'test_ansible2', 'scsi': None}}
+2023-05-25T17:14:28.570  INFO 140735322475296 ibm_svc_vol_map.py:vdiskhostmap_create():227 create vdiskhostmap result {'id': '0', 'message': 'Virtual Disk to Host map, id [0], successfully created'}
+2023-05-25T17:14:28.570  INFO 140735322475296 ibm_svc_vol_map.py:vdiskhostmap_create():231 create vdiskhostmap result message Virtual Disk to Host map, id [0], successfully created

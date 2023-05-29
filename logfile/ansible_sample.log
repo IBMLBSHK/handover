@@ -12,3 +12,293 @@ items:
 
 2023-05-12 17:13:49 HKT [ 192.168.136.9 ] [ create_lpar ] ended
 
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-22 16:36:16 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] failed
+
+2023-05-22 16:36:24 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-22 17:06:40 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] failed
+
+2023-05-22 17:06:46 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-22 17:25:05 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] suceeded
+
+2023-05-22 17:25:11 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 10:27:02 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] failed
+
+2023-05-23 10:27:09 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 10:29:17 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] failed
+
+2023-05-23 10:29:24 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 10:30:16 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] failed
+
+2023-05-23 10:30:23 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 10:55:53 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] failed
+
+2023-05-23 10:56:00 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 10:57:56 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] suceeded
+
+2023-05-23 10:58:03 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 11:00:30 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] failed
+
+2023-05-23 11:00:34 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 11:03:05 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] suceeded
+
+2023-05-23 11:03:11 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 11:08:51 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] suceeded
+
+2023-05-23 11:08:56 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 11:15:44 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] failed
+
+2023-05-23 11:15:49 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 11:16:26 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] suceeded
+
+2023-05-23 11:16:34 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 11:34:52 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] suceeded
+
+2023-05-23 11:34:58 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 14:56:03 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] failed
+
+2023-05-23 14:56:07 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 15:15:02 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] failed
+
+2023-05-23 15:15:07 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 15:21:52 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] failed
+
+2023-05-23 15:21:56 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 15:22:45 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] suceeded
+
+2023-05-23 15:22:55 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 15:45:15 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+
+------------------ [ sansw_zoning ] ------------------
+
+hosts: ['192.168.143.60']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 16:03:04 HKT [ 192.168.143.60 ] [ sansw_zoning ] began
+
+[ 192.168.143.60 ] [ sansw_zoning ] suceeded
+
+2023-05-23 16:03:17 HKT [ 192.168.143.60 ] [ sansw_zoning ] ended
+
+
+------------------ [ create_lpar ] ------------------
+
+hosts: ['192.168.136.9']
+sudo user: ansiadm
+become user: root
+items: 
+
+2023-05-23 16:21:54 HKT [ 192.168.136.9 ] [ create_lpar ] began
+
+[ 192.168.136.9 ] [ create_lpar ] failed
+
+2023-05-23 16:21:59 HKT [ 192.168.136.9 ] [ create_lpar ] ended
+

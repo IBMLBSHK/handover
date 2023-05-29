@@ -1,0 +1,68 @@
+---
+- name: SAN switches checking
+  hosts: sansw
+  #vars:
+  #  ansible_python_interpreter: /Users/anthonywong/opt/anaconda3/bin/python3
+  collections:
+    - brocade.fos
+  connection: local
+  vars_files:
+          #- ./vars_{{ change_order }}/lpar_list.yml
+    - ./vars/sansw_credential.yaml
+  tasks:
+  - name: Set log vars
+    set_fact:
+      action: sansw_check
+      items: ""
+    run_once: true
+    
+  - name: Access SAN switches and check
+    block:
+    - include_tasks: tasks/log_begin.yaml
+    
+    - name: SAN switches checking ... 
+      brocade_facts:
+        credential: "{{ credential }}"
+        vfid: -1
+        gather_subset:
+          - brocade_access_gateway_port_group
+          - brocade_access_gateway_n_port_map
+          - brocade_access_gateway_f_port_list
+          - brocade_access_gateway_device_list
+          - brocade_access_gateway_policy
+          - brocade_access_gateway_n_port_settings
+          - brocade_zoning
+          - brocade_interface_fibrechannel
+          - brocade_chassis_chassis
+          - brocade_fibrechannel_configuration_fabric
+          - brocade_fibrechannel_configuration_port_configuration
+          - brocade_fibrechannel_switch
+          - brocade_time_clock_server
+          - brocade_time_time_zone
+          - brocade_logging_syslog_server
+          - brocade_logging_audit
+          - brocade_snmp_system
+          - brocade_security_ipfilter_rule
+          - brocade_security_ipfilter_policy
+          - brocade_security_user_config
+          - brocade_snmp_v1_account
+          - brocade_snmp_v1_trap
+          - brocade_snmp_v3_account
+          - brocade_snmp_v3_trap
+          - brocade_maps_maps_config
+          - brocade_security_sec_crypto_cfg_template_action
+          - brocade_security_sshutil_public_key
+          - brocade_security_ldap_role_map
+
+    - name: print ansible_facts gathered
+      debug:
+        var: ansible_facts
+      
+    - include_tasks: tasks/log_success.yaml
+
+    rescue:
+    - include_tasks: tasks/log_error.yaml
+
+    always:
+    - include_tasks: tasks/log_end.yaml
+

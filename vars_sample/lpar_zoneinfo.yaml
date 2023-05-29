@@ -1,0 +1,16 @@
+aliases:
+  - name: testansiblehost2
+    members:
+      - c0:50:76:09:1d:e2:02:d0
+      - c0:50:76:09:1d:e2:02:d1
+zones:
+  - name: testansiblezone
+    members:
+      - testansiblehost2
+      - v7kg2w4n_N1P5
+      - v7kg2w4n_N2P5
+
+cfgs:
+  - name: default_0523
+    members:
+      - testansiblezone
